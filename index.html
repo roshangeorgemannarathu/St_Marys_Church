@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>St Mary's Church Manalumkal</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* === GLOBAL === */
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #222;
+        }
+
+        /* === HEADER === */
+        .site-header {
+            background: linear-gradient(90deg, #FFD700, #800000);
+            padding: 20px 30px;
+            font-family: 'Roboto', sans-serif;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .header-top .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+        }
+
+        .header-text {
+            text-align: center;
+            flex: 1;
+        }
+
+        .header-text h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 40px;
+            color: white;
+            margin: 0;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-text .header-subtitle {
+            font-size: 18px;
+            color: moccasin;
+            margin-top: 5px;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 28px;
+            color: #FFD700;
+            cursor: pointer;
+        }
+
+        /* === NAVIGATION === */
+        .nav ul.menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav a {
+            color: moccasin;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .nav a:hover {
+            background: #FFD700;
+            color: #003366;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            list-style: none;
+            padding: 8px 0;
+            z-index: 1000;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li a {
+            color: #333;
+            font-size: 16px;
+            padding: 10px 16px;
+            display: block;
+        }
+
+        .dropdown-menu li a:hover {
+            background: #FFD700;
+            color: #800000;
+        }
+
+        /* === SLIDER === */
+        .slider {
+            width: 100%;
+            height: 600px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .slider video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* === CARDS SECTION === */
+        .content {
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 270px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .card h1 {
+            font-size: 22px;
+            color: #800000;
+        }
+
+        .card p {
+            font-size: 16px;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: linear-gradient(90deg, #800000, #003366);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 992px) {
+            .nav ul.menu {
+                display: none;
+                flex-direction: column;
+                background: #8b0000;
+                width: 100%;
+            }
+
+            .nav ul.menu.show {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .header-text h1 {
+                font-size: 28px;
+            }
+
+            .header-top {
+                justify-content: center;
+            }
+
+            .slider {
+                height: 400px;
+            }
+
+            body {
+                font-family: 'Roboto', sans-serif;
+                margin: 0;
+                background: #f9f9f9;
+                color: #222;
+            }
+
+            h1,
+            h2 {
+                font-family: 'Georgia', serif;
+            }
+
+            .media-cell-container {
+                width: 95%;
+                max-width: 1400px;
+                margin: 50px auto;
+                background: #fff;
+                border-radius: 16px;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+                padding: 30px;
+            }
+
+            /* .media-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 30px;
+            justify-content: center;
+        } */
+
+            .media-video {
+                flex: 0 0 60%;
+                min-width: 320px;
+            }
+
+            .media-video img {
+                width: 100%;
+                max-height: 900px;
+                object-fit: cover;
+                border-radius: 12px;
+                cursor: pointer;
+            }
+
+            .media-details {
+                flex: 0 0 35%;
+                min-width: 280px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .more-btn {
+                background: linear-gradient(90deg, #FFD700, #FFA500);
+                color: #003366;
+                border: none;
+                padding: 14px 20px;
+                font-size: 18px;
+                font-weight: bold;
+                border-radius: 10px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            .more-btn:hover {
+                transform: scale(1.05);
+                background: linear-gradient(90deg, #FFC107, #FF9800);
+            }
+
+            .content-section {
+                width: 90%;
+                margin: 60px auto;
+                background: #fff;
+                padding: 30px;
+                border-radius: 12px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .content-section img {
+                width: 100%;
+                border-radius: 12px;
+            }
+
+            .chapels-section {
+                width: 90%;
+                margin: 60px auto;
+                text-align: center;
+            }
+
+            .chapels-grid {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .chapel-card {
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                width: 320px;
+                text-align: center;
+            }
+
+            .chapel-card img {
+                width: 100%;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+
+            #video-gallery {
+                width: 90%;
+                margin: 60px auto;
+                text-align: center;
+            }
+
+            #video-gallery .grid {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 25px;
+            }
+
+            .card-small {
+                background: #fff;
+                border-radius: 12px;
+                padding: 15px;
+                width: 300px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .card-small img {
+                width: 100%;
+                border-radius: 10px;
+            }
+
+            footer {
+                background: linear-gradient(90deg, #800000, #003366);
+                color: #fff;
+                text-align: center;
+                padding: 15px;
+                margin-top: 50px;
+            }
+
+            iframe {
+                border-radius: 12px;
+            }
+
+            /* @media (max-width: 768px) {
+            .media-content {
+                flex-direction: column;
+            }
+
+            .media-video,
+            .media-details {
+                flex: 100%;
+            }
+
+            .chapels-grid,
+            #video-gallery .grid {
+                flex-direction: column;
+            }
+        } */
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-top">
+            <a href="index.html">
+                <img src="WhatsApp Image 2025-10-09 at.jpg" alt="St Marys Logo" class="logo" />
+            </a>
+
+            <div class="header-text">
+                <h1>St Mary's Church Manalumkal</h1>
+                <p class="header-subtitle">Created by SMYM Manalumkal – Inspired by St. Carlo Acutis</p>
+            </div>
+
+            <span class="mobile-menu-toggle" onclick="toggleMenu()">&#9776;</span>
+
+            <nav class="nav">
+                <ul class="menu">
+                    <li class="dropdown">
+                        <a href="#"><i class="fa-solid fa-circle-info nav-icon"></i> About</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="Parish_History.html"><i class="fa-solid fa-book nav-icon"></i> Parish
+                                    History</a></li>
+                            <li><a href="Priest.html"><i class="fa-solid fa-user-tie nav-icon"></i> Parish Priest</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="Holy_Mass_Timing.html"><i class="fa-solid fa-clock nav-icon"></i> Holy Mass Timing</a>
+                    </li>
+                    <li><a href="Media.html"><i class="fa-solid fa-photo-video nav-icon"></i> Media</a></li>
+                    <li><a href="Institutions.html"><i class="fa-solid fa-building nav-icon"></i> Institutions</a></li>
+                    <li><a href="Contact.html"><i class="fa-solid fa-envelope nav-icon"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- SLIDER -->
+    <div class="slider">
+        <video autoplay muted loop playsinline>
+            <source src="headervideo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- CONTENT CARDS -->
+    <div class="content">
+        <div class="card">
+            <a href="Parish_Administration.html">
+                <img src="IMG_0251.jpg" alt="Parish Administration" />
+            </a>
+            <h1>Parish Administration</h1>
+            <p>Meet our parish priest, secretaries, and team serving the community faithfully.</p>
+        </div>
+
+        <div class="card">
+            <a href="St_Marys_Church_Ward_List.html" style="text-decoration:none; color: inherit;">
+                <img src="IMG_20250806_114606.jpg" alt="Ward List" />
+                <h1>St Mary's Church Ward List</h1>
+                <p>Click to view the complete ward list of St Mary's Church.</p>
+            </a>
+        </div>
+
+        <div class="card">
+            <a href="https://www.palaidiocese.com/" target="_blank">
+                <img src="VFJKliAsXe9E5fEOOxycHFM7vSkkkfOgZm6spY5S.jpg" alt="Eparchy of Palai" />
+            </a>
+            <h1>Eparchy of Palai</h1>
+            <p>Established in 1950, the Syro-Malabar Catholic diocese in Central Kerala.</p>
+        </div>
+
+        <div class="card">
+            <a href="Eucharistic_miracle.html">
+                <img src="P1012799 Vilakkannur Eucharist CROP.jpg" alt="Eucharistic Miracles" />
+            </a>
+            <h1>Eucharistic Miracles</h1>
+            <p>Learn about the miraculous presence of Christ in the Holy Eucharist.</p>
+        </div>
+
+        <div class="card">
+            <a href="Saints_from_India.html">
+                <img src="2b71f4803f520964773fa4751bb25761.jpg" alt="Saints from India" />
+            </a>
+            <h1>Saints from India</h1>
+            <p>Discover the holy men and women of India who lived lives of faith and sacrifice.</p>
+        </div>
+    </div>
+
+    <div class="media-cell-container"
+        style="width:95%; max-width:1400px; margin:50px auto; background:#fff; border-radius:16px; box-shadow:0 6px 20px rgba(0,0,0,0.2); padding:30px;">
+
+        <style>
+            /* Media query to stack elements vertically on smaller screens */
+            @media (max-width: 900px) {
+                .media-content {
+                    display:block !important;
+                    flex-direction: column !important;
+                    /* Stack columns */
+                    align-items: center !important;
+                }
+
+                .media-video,
+                .media-details {
+                    max-width: 100% !important;
+                    /* Take full width */
+                    flex: 1 1 100% !important;
+                    min-width: unset !important;
+                }
+
+                .media-video {
+                    margin-bottom: 20px;
+                    /* Add spacing between stacked items */
+                }
+            }
+            .media-content{
+                display:flex; flex-wrap:wrap; align-items:flex-start; gap:30px; justify-content:center;
+            }
+        </style>
+
+        <h2
+            style="font-size:36px; color:#800000; margin-bottom:20px; font-family:'Georgia', serif; font-weight:bold; border-bottom:4px solid #FFD700; display:inline-block; padding-bottom:8px;">
+            The Eucharistic Way
+        </h2>
+
+        <div class="media-content">
+
+            <div class="media-video" style="flex: 1 1 600px; min-width: 300px; max-width: 60%;">
+                <div
+                    style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 12px; background: #000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                        src="https://www.youtube.com/embed/FoIliR_wtPE"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="media-details"
+                style="flex: 1 1 300px; max-width: 35%; display:flex; flex-direction:column; justify-content:center; gap:15px;">
+
+                <div style="
+                background:#fff8e1;
+                border-left:8px solid #d4af37;
+                padding:20px 25px;
+                margin:20px 0;
+                border-radius:10px;
+                box-shadow:0 4px 15px rgba(0,0,0,0.1);
+                text-align:center;
+            ">
+                    <h2 style="margin:0; color:#800000; font-size:24px; font-family:'Georgia',serif;">
+                        The Eucharistic Way
+                    </h2>
+                    <hr style="width:60px; border:2px solid #d4af37; margin:12px auto;">
+                    <p style="font-size:16px; color:#333; line-height:1.6; margin:0;">
+                        A dedicated space for sharing weekly spiritual insights, reflections, and videos centered on the
+                        Holy Eucharist. Experience teachings, devotion, and Eucharistic miracles that strengthen faith
+                        and illuminate the love of Christ.
+                    </p>
+                </div>
+
+                <ul style="list-style:none; padding:0; font-size:16px; line-height: 2.0;">
+                    <li><b>By:</b> Br. Thomas Manianghattu (Tibin)</li>
+                    <li><b>Date:</b> October 8, 2025</li>
+                    <li><b>Duration:</b> 7 mins 44 secs</li>
+                    <li><b>Category:</b> Eucharistic Way</li>
+                </ul>
+
+                <div style="text-align:center; margin-top:20px;">
+                    <a href="The_Eucharistic_Way.aspx" style="text-decoration:none;">
+                        <button type="button" class="more-btn" style="background: linear-gradient(90deg, #FFD700, #FFA500);
+                            color: #003366;
+                            border: none;
+                            padding: 14px 20px;
+                            font-size: 18px;
+                            font-weight: bold;
+                            border-radius: 10px;
+                            cursor: pointer;
+                            transition: 0.3s;
+                            margin: 10px 5px;
+                            display: inline-block;">
+                            View All Media
+                        </button>
+                    </a>
+
+                    <a href="https://youtu.be/FoIliR_wtPE?si=7hBFGZg9Nhw35Vq5" target="_blank"
+                        style="text-decoration:none;">
+                        <button type="button" class="youtube-btn" style="background: #FF0000;
+                            color: #FFFFFF;
+                            border: none;
+                            padding: 14px 20px;
+                            font-size: 18px;
+                            font-weight: bold;
+                            border-radius: 10px;
+                            cursor: pointer;
+                            transition: 0.3s;
+                            margin: 10px 5px;
+                            display: inline-block;">
+                            ▶️ View on YouTube
+                        </button>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    
+
+
+    <style>
+    /* Base Styles for the entire section container */
+    .saints-section-container {
+        width: 95%;
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #f8f8f8; /* Light gray background for contrast */
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styles for each individual saint/topic card */
+    .saint-card {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content horizontally */
+        text-align: center;
+        height: 100%; /* Important for equal height in the grid */
+    }
+
+    /* Image styling */
+    .saint-card img {
+        width: 100%;
+        max-width: 200px; /* Constrain image size */
+        height: auto;
+        border-radius: 8px;
+        margin: 15px 0;
+        object-fit: cover;
+    }
+
+    /* Heading styling */
+    .saint-card h1 {
+        font-size: 24px;
+        color: #800000;
+        font-family: 'Georgia', serif;
+        margin-top: 0;
+        border-bottom: 2px solid #FFD700;
+        padding-bottom: 5px;
+    }
+
+    /* Paragraph styling */
+    .saint-card p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333;
+        flex-grow: 1; /* Allows text to push button to the bottom */
+        margin-bottom: 20px;
+    }
+
+    /* Button styling (matches your previous design) */
+    .more-btn {
+        background: linear-gradient(90deg, #FFD700, #FFA500);
+        color: #003366;
+        border: none;
+        padding: 12px 25px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+        text-transform: uppercase;
+        display: block; /* Make button take full card width on mobile */
+        width: 100%;
+        max-width: 200px; /* Constrain button width on desktop/tablet */
+    }
+
+    .more-btn:hover {
+        opacity: 0.9;
+    }
+
+    /* --- RESPONSIVE GRID STYLES --- */
+
+    /* Default Grid (Desktop & Large Tablet) - 3 columns */
+    .saints-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        padding: 10px;
+    }
+
+    /* Tablet/Medium Screen Adjustments - 2 columns */
+    @media (max-width: 992px) {
+        .saints-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    }
+
+    /* Mobile Screen Adjustments - 1 column */
+    @media (max-width: 576px) {
+        .saints-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        .saint-card h1 {
+            font-size: 22px;
+        }
+    }
+</style>
+
+<div class="saints-section-container">
+    <div class="saints-grid">
+
+        <div class="saint-card">
+            <h1>Our Lady of the Immaculate Conception</h1>
+            <img src="IMG_9929.JPG" alt="Our Lady of the Immaculate Conception">
+            <p>
+                The doctrine of the Immaculate Conception asserts that the Blessed Virgin Mary, from the first moment of her conception, by a singular grace and privilege of Almighty God, and in view of the merits of Jesus Christ, Saviour of the human race, was preserved free from every stain of original sin.
+                </p>
+            <button class="more-btn" onclick="alert('Link to Our Lady details here')">Read More</button>
+        </div>
+
+        <div class="saint-card">
+            <h1>St. Thomas Cross</h1>
+            <img src="960px-Nasrani_cross.jpg" alt="St Thomas Cross">
+            <p>
+                The St Thomas Cross is the common name for the decorated crosses used by the St. Thomas Christian community in India. These ancient crosses are found in Kerala and are a powerful symbol of the deep-rooted Christian heritage of the region.
+            </p>
+            <button class="more-btn" onclick="window.location.href='St_Thomas_Cross.html'">Read More</button>
+        </div>
+
+        <div class="saint-card">
+            <h1>St Carlo Acutis – Cyber Apostle of the Eucharist</h1>
+            <img src="Carlo_Acutis.jpg" alt="Carlo Acutis">
+            <p>
+                <b>Born:</b> May 3, 1991 – London, UK<br>
+                <b>Died:</b> October 12, 2006 – Monza, Italy<br>
+                <b>Beatified:</b> October 10, 2020 – Assisi, Italy<br>
+                <b>Feast Day:</b> October 12
+            </p>
+            <p>St Carlo Acutis was an ordinary boy with an extraordinary love for the Eucharist who used his prodigious computer skills to evangelize online.</p>
+            <button class="more-btn" onclick="window.location.href='Carlo.html'">Read More</button>
+        </div>
+
+    </div>
+</div>
+
+
+<style>
+    /* 1. Base Styles for the section */
+    .about-section-wrapper {
+        padding: 60px 20px;
+        background: #faf8f3;
+        /* Matches the light background in the image */
+    }
+
+    /* 2. Heading Style */
+    .about-section-wrapper h2 {
+        color: #800000;
+        /* Maroon color for the title */
+        text-align: center;
+        font-family: 'Georgia', serif;
+        font-weight: bold;
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    /* 3. Container for Image and Text (Flexbox) */
+    .about-content-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        align-items: center;
+        /* Vertically align image and text */
+        justify-content: center;
+    }
+
+    /* 4. Image Container Styling */
+    .about-image-wrapper {
+        flex: 1 1 450px;
+        /* Allows image to take up space, minimum base of 450px */
+        min-width: 300px;
+        /* Ensure it's not too squished on a small tablet */
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-image-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* 5. Text Container Styling */
+    .about-text-wrapper {
+        flex: 1 1 450px;
+        /* Allows text block to take up space, minimum base of 450px */
+        min-width: 300px;
+        font-size: 16px;
+        line-height: 1.8;
+        color: #333;
+    }
+
+    .about-text-wrapper p {
+        margin-bottom: 15px;
+    }
+
+    /* 6. Mobile/Tablet Responsiveness (Stacks content vertically) */
+    @media (max-width: 800px) {
+        .about-content-container {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about-image-wrapper,
+        .about-text-wrapper {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+    }
+</style>
+
+<div class="about-section-wrapper">
+    <h2>About St. Mary’s Church, Manalumkal</h2>
+    <div class="about-content-container">
+
+        <div class="about-image-wrapper">
+            <img src="IMG_20250806_114606.jpg" alt="St Marys Church" />
+        </div>
+
+        <div class="about-text-wrapper">
+            <p>St. Mary’s Church, Manalumkal, is a Syro-Malabar Catholic parish in Akalakunnam, Kottayam, Kerala.
+                Established on <b>February 15, 1987</b>, under the <b>Eparchy of Palai</b>, it was rebuilt and blessed on
+                <b>December 26, 2010</b> by His Excellency Mar Joseph Kallarangattu.
+            </p>
+            <p>Regular prayers start at <b>6:00 AM</b>, and Holy Qurbana is celebrated on Sundays at 6:00 AM, 9:00 AM, and 10:00 AM.
+                Contact: <a href="mailto:stmaryschurchmkl@gmail.com"
+                    style="color:#800000; text-decoration: none; font-weight: bold;">stmaryschurchmkl@gmail.com</a> or <b>+91 62382 52284</b>.
+            </p>
+            <p>The parish has <b>300+ families</b> under the care of <b>Fr. Thomas Ayallukunnel</b> and belongs to
+                <b>St. John Nepumcian’s Forane Church, Kozhuvanal</b>.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+
+
+ <style>
+    /* 1. Global Box-Sizing for consistency */
+    .chapels-section * {
+        box-sizing: border-box;
+    }
+
+    /* 2. Main Section Container Styling */
+    .chapels-section {
+        width: 95%;
+        max-width: 1400px;
+        margin: 50px auto;
+        padding: 30px 20px;
+        background: #fff; /* White background to frame the content */
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    /* 3. Section Title Styling (Matches Image Style) */
+    .chapels-section h2 {
+        font-size: 28px;
+        color: #800000; /* Maroon color */
+        margin-bottom: 25px;
+        font-family: 'Georgia', serif;
+        font-weight: bold;
+        display: inline-block;
+        border-bottom: 3px solid #FFD700; /* Yellow border/underline */
+        padding-bottom: 5px;
+    }
+
+    /* 4. Grid/Flex Container for Chapel Cards */
+    .chapels-grid {
+        display: flex;
+        flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+        justify-content: center;
+        gap: 30px;
+        padding: 15px 0;
+    }
+
+    /* 5. Individual Chapel Card Styling */
+    .chapel-card {
+        flex: 0 0 45%; /* Default: 2 cards per row on large screen */
+        max-width: 400px; /* Maximum size for a single card */
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.2s;
+    }
+
+    .chapel-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* 6. Image Styling */
+    .chapel-card img {
+        width: 100%;
+        height: auto;
+        max-height: 250px; /* Constrain height */
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+
+    /* 7. Card Title Styling */
+    .chapel-card h3 {
+        font-size: 18px;
+        color: #800000;
+        margin: 10px 0 5px 0;
+        font-weight: bold;
+    }
+
+    /* 8. Card Subtext Styling */
+    .chapel-card p {
+        font-size: 14px;
+        color: #666;
+        margin: 0;
+    }
+
+    /* 9. Mobile Responsiveness: Stack cards vertically */
+    @media (max-width: 768px) {
+        .chapels-grid {
+            gap: 20px;
+        }
+
+        .chapel-card {
+            flex: 0 0 100%; /* Take full width on smaller screens */
+            max-width: 90%; /* Slight padding/margin on very small screens */
+        }
+    }
+</style>
+
+<div class="chapels-section">
+    <h2>Holy Qurbana Station / Wayside Chapels</h2>
+    <div class="chapels-grid">
+
+        <div class="chapel-card">
+            <img src="GzzuKPUwDdUlmK9EgpKz2QZOkfcI1EfTcp5J5Ark.jpg" alt="St Marys Chapel">
+            <h3>ST. MARY'S CHAPEL</h3>
+            <p>MUNDANKUNNU – Wayside Chapel</p>
+        </div>
+
+        <div class="chapel-card">
+            <img src="zyLcSjXd0JG3nF4iBwdoOcjfKRIfW3yhyUsjxT2G.jpg" alt="St Joseph Chapel">
+            <h3>ST. JOSEPH'S CHAPEL</h3>
+            <p>MANALUMKAL-MOOZHOOR ROAD – Wayside Chapel</p>
+        </div>
+        
+        </div>
+</div>
+
+<style>
+    /* 1. Base Styles for the section */
+    .houses-section-container {
+        width: 95%;
+        max-width: 1400px;
+        margin: 50px auto;
+        padding: 30px 20px;
+        background: #fff; /* White background */
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    /* 2. Section Title Styling (Matches Previous Style) */
+    .houses-section-container h2 {
+        font-size: 28px;
+        color: #800000;
+        /* Maroon color */
+        margin-bottom: 25px;
+        font-family: 'Georgia', serif;
+        font-weight: bold;
+        display: inline-block;
+        border-bottom: 3px solid #FFD700;
+        /* Yellow border/underline */
+        padding-bottom: 5px;
+    }
+
+    /* 3. Grid/Flex Container for Cards */
+    .houses-grid {
+        display: flex;
+        flex-wrap: wrap;
+        /* Allows cards to wrap on smaller screens */
+        justify-content: center;
+        gap: 30px;
+        padding: 15px 0;
+    }
+
+    /* 4. Individual Card Styling */
+    .house-card {
+        /* On PC/Tablet, each card takes roughly 45% of the space */
+        flex: 0 0 45%;
+        max-width: 450px;
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.2s;
+    }
+
+    .house-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* 5. Image Styling */
+    .house-card img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+
+    /* 6. Card Title Styling */
+    .house-card h3 {
+        font-size: 18px;
+        color: #800000;
+        margin: 10px 0 5px 0;
+        font-weight: bold;
+    }
+
+    /* 7. Card Subtext Styling */
+    .house-card p {
+        font-size: 14px;
+        color: #666;
+        margin: 0 0 10px 0;
+    }
+
+    /* 8. Mobile Responsiveness: Stack cards vertically */
+    @media (max-width: 768px) {
+        .houses-grid {
+            gap: 20px;
+        }
+
+        .house-card {
+            flex: 0 0 100%;
+            /* Take full width on mobile */
+            max-width: 90%;
+            margin: 0 auto;
+        }
+    }
+</style>
+
+<div class="houses-section-container">
+    <h2>Religious Houses Under this Parish</h2>
+    <div class="houses-grid">
+
+        <div class="house-card">
+            <img src="IMG_9042.jpg" alt="Snehagiri" />
+            <h3>SNEHAGIRI (SMS)</h3>
+            <p>Superior: SR. SANTHOSH SMS</p>
+        </div>
+
+        <div class="house-card">
+            <img src="IMG_9035.jpg" alt="FCC Manalumkal" />
+            <h3>FCC MANALUMKAL</h3>
+            <p>Superior: SR. CELIN FCC</p>
+        </div>
+        
+        </div>
+</div>
+<style>
+    /* 1. Base Styles for the section wrapper */
+    .forane-section-wrapper {
+        width: 90%;
+        max-width: 1200px;
+        margin: 40px auto;
+        background: #fff;
+        padding: 30px; /* Increased padding for better internal spacing */
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 2. Section Title Styling */
+    .forane-section-wrapper h2 {
+        color: #8b0000;
+        /* Dark red/Maroon color */
+        text-align: center;
+        font-family: 'Georgia', serif;
+        font-weight: bold;
+        font-size: 28px;
+        margin-bottom: 25px;
+        display: inline-block;
+        /* Centers the underline with the text */
+        border-bottom: 3px solid #FFD700;
+        padding-bottom: 5px;
+        width: 100%;
+    }
+
+    /* 3. Container for Text and Image (Flexbox) */
+    .forane-content-container {
+        display: flex;
+        flex-wrap: wrap;
+        /* Allows stacking on small screens */
+        gap: 20px;
+        align-items: center;
+        /* Vertically align content */
+        margin-top: 20px;
+        justify-content: space-between;
+    }
+
+    /* 4. Text Content Area */
+    .forane-details {
+        flex: 1 1 350px;
+        /* Base size for text block */
+        min-width: 300px;
+        padding-right: 20px;
+        /* Space before the image */
+        font-family: Arial, sans-serif;
+        color: #333;
+    }
+
+    .forane-details h3 {
+        font-size: 20px;
+        color: #000;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .forane-details p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    /* 5. Image Area */
+    .forane-image-wrapper {
+        flex: 1 1 450px;
+        /* Base size for image block */
+        min-width: 300px;
+        text-align: right;
+        /* Align image to the right */
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .forane-image-wrapper img {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 6. Button Style (Matching previous 'Read More' style) */
+    .more-btn {
+        background: linear-gradient(90deg, #8b0000, #b22222);
+        /* Darker red/maroon gradient */
+        color: #FFFFFF;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    .more-btn:hover {
+        opacity: 0.9;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 7. Mobile/Tablet Responsiveness: Stack columns vertically */
+    @media (max-width: 800px) {
+        .forane-content-container {
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .forane-details {
+            padding-right: 0;
+            text-align: center;
+        }
+        
+        /* Center the image on mobile */
+        .forane-image-wrapper {
+            text-align: center;
+            order: -1;
+            /* Places the image above the text on mobile */
+        }
+
+        .forane-image-wrapper img {
+            max-width: 100%;
+        }
+    }
+</style>
+
+<div class="forane-section-wrapper">
+    <h2>Forane of this Parish</h2>
+    <div class="forane-content-container">
+
+        <div class="forane-details">
+            <h3>ST. JOHN NEPUMCIAN’S FORANE CHURCH</h3>
+            <p><b>Established:</b> 1858 A.D.<br />
+                <b>Patron:</b> St. John Nepumcian<br />
+                <b>Address:</b> Kozhuvanal, Kottayam Dt. - 686 573<br />
+                <b>Email:</b> <a href="mailto:nepumcianschurch@gmail.com"
+                    style="color:#8b0000; text-decoration: none;">nepumcianschurch@gmail.com</a><br />
+                <b>Phone:</b> +91 85470 97036</p>
+            <a href="https://www.palaidiocese.com/church-profile/162" target="_blank" class="more-btn">Read More</a>
+        </div>
+
+        <div class="forane-image-wrapper">
+            <img src="66_KOZUVANAL.jpg" alt="Forane Church" />
+        </div>
+
+    </div>
+</div>
+<style>
+    /* 1. Main Section Wrapper Styling (Matches the outer container in the image) */
+    #video-gallery-wrapper {
+        width: 95%;
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 40px 20px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    /* 2. Section Title Styling (Matches the style in the image) */
+    #video-gallery-wrapper h2 {
+        font-size: 28px;
+        color: #800000;
+        /* Maroon color */
+        margin-bottom: 35px;
+        font-family: 'Georgia', serif;
+        font-weight: bold;
+        display: inline-block;
+        border-bottom: 3px solid #FFD700;
+        /* Yellow border/underline */
+        padding-bottom: 5px;
+    }
+
+    /* 3. Grid/Flex Container for Cards */
+    .gallery-grid {
+        display: flex;
+        flex-wrap: wrap;
+        /* Allows stacking on small screens */
+        justify-content: center;
+        gap: 30px;
+        padding: 15px 0;
+    }
+
+    /* 4. Individual Card Styling */
+    .card-small {
+        flex: 1 1 280px;
+        /* Flexible base width for 3 cards per row */
+        max-width: 350px;
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        padding: 10px 10px 15px 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.2s;
+    }
+
+    .card-small:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 5. Image and Link Styling */
+    .card-small a {
+        display: block;
+        text-decoration: none;
+    }
+
+    .card-small img {
+        width: 100%;
+        height: auto;
+        /* Maintain aspect ratio */
+        max-height: 200px;
+        /* Constrain height */
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    /* 6. Card Title Styling */
+    .card-small h3 {
+        font-size: 16px;
+        color: #800000;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    /* 7. View More Button Styling (Dark Red) */
+    .view-more-btn {
+        background: #800000;
+        /* Dark red/Maroon color */
+        color: #FFFFFF;
+        border: none;
+        padding: 12px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-top: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-decoration: none; /* Make sure it looks like a button even if wrapped in <a> */
+    }
+
+    .view-more-btn:hover {
+        background: #b22222;
+    }
+
+    /* 8. Mobile Responsiveness: Stack cards vertically */
+    @media (max-width: 900px) {
+        /* On medium screens (tablet landscape), cards maintain their flexibility */
+        .card-small {
+            flex: 1 1 40%;
+            /* Tweak for better 2-column layout on tablets */
+        }
+    }
+
+    @media (max-width: 600px) {
+        .gallery-grid {
+            gap: 25px;
+        }
+
+        .card-small {
+            flex: 1 1 100%;
+            /* Take full width on mobile */
+            max-width: 100%;
+        }
+    }
+</style>
+
+<div id="video-gallery-wrapper">
+    <h2>Parish Video Gallery</h2>
+    <div class="gallery-grid">
+        
+        <div class="card-small">
+            <a href="https://youtube.com/shorts/lJw-iuAzyao" target="_blank">
+                <img src="Screenshot 2025-10-06 170533.jpg" alt="Football Tournament">
+            </a>
+            <h3>Football Tournament</h3>
+        </div>
+        
+        <div class="card-small">
+            <a href="https://youtube.com/shorts/cRmEcv2Acog" target="_blank">
+                <img src="Screenshot 2025-10-06 170426.jpg" alt="Bible Reading">
+            </a>
+            <h3>Bible Reading</h3>
+        </div>
+        
+        <div class="card-small">
+            <a href="https://youtube.com/shorts/J-5T695Rlyg" target="_blank">
+                <img src="Screenshot 2025-10-06 170713.jpg" alt="Eucharistic Procession">
+            </a>
+            <h3>Eucharistic Procession</h3>
+        </div>
+
+    </div>
+    
+    <a href="Media.html" class="view-more-btn">View More</a>
+</div>
+
+    <!-- Location Map -->
+    <div id="location" style="text-align:center;">
+        <h2>Find Us on the Map</h2>
+        <p>Visit us at <b>St. Mary’s Church, Manalumkal</b></p>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.702440776387!2d76.6707881!3d9.6287159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0632c5763037b5%3A0x891df2c3adcf307!2sSt.%20Mary's%20Church%2C%20Manalumkal!5e0!3m2!1sen!2sin!4v1696450000000!5m2!1sen!2sin"
+            width="90%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <footer>
+        &copy; 2025 St. Mary’s Church, Manalumkal | The Eucharistic Way
+    </footer>
+</body>
+
+</html>

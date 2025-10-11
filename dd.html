@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>St. Mary's Church Manalumkal</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* ====== BASE ====== */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background: #f9f9f9;
+            color: #222;
+        }
+
+        h1, h2 {
+            font-family: 'Merriweather', serif;
+        }
+
+        /* ====== HEADER ====== */
+        .site-header {
+            background: linear-gradient(90deg, #FFD700, #800000);
+            padding: 15px 25px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header-top .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid white;
+            object-fit: cover;
+        }
+
+        .header-text {
+            text-align: center;
+            flex: 1;
+        }
+
+        .header-text h1 {
+            font-size: 28px;
+            color: white;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-subtitle {
+            color: moccasin;
+            font-size: 15px;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 26px;
+            color: #FFD700;
+            cursor: pointer;
+        }
+
+        /* ====== NAVIGATION ====== */
+        nav ul.menu {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: moccasin;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #FFD700;
+            color: #003366;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            list-style: none;
+            border-radius: 8px;
+            padding: 8px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li a {
+            color: #333;
+            padding: 10px 16px;
+            display: block;
+        }
+
+        .dropdown-menu li a:hover {
+            background: #FFD700;
+            color: #800000;
+        }
+
+        /* ====== SLIDER ====== */
+        .slider {
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ====== CARDS ====== */
+        .content {
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .card h1 {
+            font-size: 20px;
+            color: #800000;
+        }
+
+        /* ====== MEDIA SECTION ====== */
+        .media-cell-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+        }
+
+        .media-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .media-video {
+            flex: 1 1 400px;
+        }
+
+        .media-video img {
+            width: 100%;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .media-details {
+            flex: 1 1 350px;
+        }
+
+        .more-btn {
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            color: #003366;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .more-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #FFC107, #FF9800);
+        }
+
+        /* ====== CONTENT SECTION ====== */
+        .content-section {
+            width: 90%;
+            margin: 60px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        /* ====== CHAPELS ====== */
+        .chapels-section {
+            width: 90%;
+            margin: 60px auto;
+            text-align: center;
+        }
+
+        .chapels-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .chapel-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+
+        .chapel-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* ====== VIDEO GALLERY ====== */
+        #video-gallery {
+            width: 90%;
+            margin: 60px auto;
+            text-align: center;
+        }
+
+        #video-gallery .grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .card-small {
+            background: #fff;
+            border-radius: 12px;
+            padding: 15px;
+            width: 280px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-small img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* ====== FOOTER ====== */
+        footer {
+            background: linear-gradient(90deg, #800000, #003366);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 50px;
+        }
+
+        iframe {
+            border-radius: 12px;
+            width: 90%;
+            max-width: 1000px;
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 992px) {
+            nav ul.menu {
+                display: none;
+                flex-direction: column;
+                background: #8b0000;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            nav ul.menu.show {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .header-text h1 {
+                font-size: 22px;
+            }
+
+            .slider {
+                height: 320px;
+            }
+
+            .media-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ====== HEADER ====== -->
+    <header class="site-header">
+        <div class="header-top">
+            <img src="logo.jpg" alt="St Marys Logo" class="logo" />
+            <div class="header-text">
+                <h1>St. Mary's Church Manalumkal</h1>
+                <p class="header-subtitle">Created by SMYM Manalumkal – Inspired by St. Carlo Acutis</p>
+            </div>
+            <span class="mobile-menu-toggle" onclick="toggleMenu()">&#9776;</span>
+        </div>
+
+        <nav>
+            <ul class="menu">
+                <li class="dropdown">
+                    <a href="#">About</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Parish History</a></li>
+                        <li><a href="#">Parish Priest</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Holy Mass Timing</a></li>
+                <li><a href="#">Media</a></li>
+                <li><a href="#">Institutions</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ====== SLIDER ====== -->
+    <div class="slider">
+        <video autoplay muted loop playsinline>
+            <source src="headervideo.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- ====== SAMPLE CONTENT CARDS ====== -->
+    <div class="content">
+        <div class="card">
+            <img src="parish.jpg" alt="Parish Administration">
+            <h1>Parish Administration</h1>
+            <p>Meet our parish priest, secretaries, and team serving the community.</p>
+        </div>
+
+        <div class="card">
+            <img src="wardlist.jpg" alt="Ward List">
+            <h1>Ward List</h1>
+            <p>Click to view the complete ward list of St. Mary’s Church.</p>
+        </div>
+    </div>
+
+    <!-- ====== FOOTER ====== -->
+    <footer>
+        &copy; 2025 St. Mary’s Church, Manalumkal | The Eucharistic Way
+    </footer>
+
+    <!-- ====== SCRIPT ====== -->
+    <script>
+        function toggleMenu() {
+            document.querySelector("nav ul.menu").classList.toggle("show");
+        }
+    </script>
+
+</body>
+</html>
