@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institutions - St. Mary’s Church, Manalumkal</title>
+    <style>
+        /* ====== BASE ====== */
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #faf9f6;
+            color: #222;
+        }
+
+        /* ====== HEADER ====== */
+        header {
+            background: linear-gradient(90deg, rgba(255,215,0,0.9), rgba(128,0,0,0.9));
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .header-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .header-top .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .header-text h1 {
+            font-size: 40px;
+            color: white;
+            margin: 0;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+        }
+
+        /* ====== PAGE TITLE ====== */
+        .page-title {
+            text-align: center;
+            margin: 40px 0 10px 0;
+        }
+
+        .page-title h2 {
+            display: inline-block;
+            font-size: 36px;
+            color: #800000;
+            border-bottom: 4px solid #FFD700;
+            padding-bottom: 6px;
+            margin: 0;
+        }
+
+        /* ====== INSTITUTIONS SECTION ====== */
+        .institutions-section {
+            max-width: 1400px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            padding: 0 30px;
+        }
+
+        .institution-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .institution-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+        }
+
+        .institution-card img {
+            width: 100%;
+            height: auto;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .institution-card h2 {
+            font-size: 26px;
+            color: #800000;
+            margin-bottom: 12px;
+        }
+
+        .institution-card p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #333;
+            text-align: justify;
+        }
+
+        /* ====== FOOTER ====== */
+        footer {
+            background: linear-gradient(90deg, #800000, #003366);
+            color: white;
+            text-align: center;
+            padding: 18px;
+            font-size: 15px;
+            margin-top: 60px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 1024px) {
+            .institutions-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-text h1 { font-size: 28px; }
+            .page-title h2 { font-size: 28px; }
+            .institution-card img { max-height: 250px; }
+            .institution-card h2 { font-size: 22px; }
+            .institution-card p { font-size: 16px; }
+        }
+
+        @media (max-width: 480px) {
+            .header-top .logo { width: 120px; height: 120px; }
+            .header-text h1 { font-size: 22px; }
+            .page-title h2 { font-size: 20px; }
+            .institution-card img { max-height: 200px; }
+            .institution-card h2 { font-size: 18px; }
+            .institution-card p { font-size: 15px; }
+            .institutions-section { padding: 0 15px; gap: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-top">
+            <img src="WhatsApp Image 2025-10-09 at.jpg" alt="Church Logo" class="logo" />
+            <div class="header-text">
+                <h1>St. Mary’s Church, Manalumkal – Institutions</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE TITLE -->
+    <div class="page-title">
+        <h2>Our Educational Institutions</h2>
+    </div>
+
+    <!-- INSTITUTION CARDS -->
+    <div class="institutions-section">
+        <div class="institution-card">
+            <img src="Screenshot 2025-10-15 135255.png" alt="St. Aloysius High School, Manalumkal" />
+            <h2>St. Aloysius High School, Manalumkal</h2>
+            <p>St. Aloysius High School is a reputed aided secondary institution in Manalumkal, Kottayam. It stands as a pillar of education and faith, offering quality learning and holistic development for students in the Akalakunnam region.</p>
+        </div>
+
+        <div class="institution-card">
+            <img src="525px-31317_manalumkal.jpg" alt="Holy Family LPS Manalumkal" />
+            <h2>Holy Family LPS Manalumkal</h2>
+            <p>Established in 1916, Holy Family Lower Primary School serves as a cornerstone for early education in the community. The school continues to uphold values of excellence and compassion in the spirit of Christian education.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2025 St. Mary’s Church, Manalumkal. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

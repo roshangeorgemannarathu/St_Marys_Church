@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Parish Video Gallery - St. Mary’s Church, Manalumkal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(90deg, rgba(255,215,0,0.9), rgba(128,0,0,0.9));
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-top .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+        }
+
+        .header-text h1 {
+            font-size: 34px;
+            color: white;
+            margin: 0;
+        }
+
+        /* White container for sections */
+        .section {
+            background-color: #fff;
+            width: 90%;
+            max-width: 1600px;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .section h2 {
+            text-align: center;
+            color: #800000;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        
+        /* Style for Timeline header (h3) */
+        .section h3 {
+            text-align: center;
+            color: #800000;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        /* Video Gallery Grid */
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .card-small {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            overflow: hidden;
+            width: 320px;
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .card-small:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-small img { /* Styling for YouTube Thumbnails */
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .card-small h3 {
+            color: #800000;
+            font-size: 20px;
+            margin: 10px 0 5px;
+        }
+
+        .card-small p {
+            color: #333;
+            font-size: 14px;
+            padding: 0 15px 15px;
+            line-height: 1.5;
+        }
+        
+        /* --- Timeline Styles (Fixed Gap) --- */
+        .timeline {
+            position: relative;
+            margin: 30px 0;
+            /* Increased padding for the gap */
+            padding-left: 60px; 
+            border-left: 3px solid #800000;
+        }
+        
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .timeline-item h4 {
+            margin: 0 0 6px 0;
+            font-size: 22px;
+            color: #800000;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            /* Adjusted left position for the gap, relative to 60px padding */
+            left: -12px; 
+            top: 5px; 
+            width: 18px;
+            height: 18px;
+            background-color: #800000;
+            border-radius: 50%;
+            border: 3px solid #FFD700;
+            z-index: 1; 
+        }
+        /* --- End Timeline Styles --- */
+
+        footer {
+            background: linear-gradient(90deg, #800000, #003366);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .card-small {
+                width: 90%; /* Cards take up most of the width */
+            }
+            .section {
+                padding: 20px; 
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .header-text h1 {
+                font-size: 28px;
+            }
+            /* Mobile adjustment for timeline padding */
+            .timeline {
+                padding-left: 35px;
+                margin: 20px 0;
+            }
+            .timeline-item::before {
+                left: -10px;
+                top: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <img src="WhatsApp Image 2025-10-09 at.jpg" alt="Church Logo" class="logo" />
+            <div class="header-text">
+                <h1>Parish Video Gallery</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="section" id="video-gallery">
+        <h2>Parish Video Gallery<h2>
+
+        <div class="grid">
+
+            <div class="card-small">
+                <a href="https://youtube.com/shorts/lJw-iuAzyao?feature=share" target="_blank">
+                    <img src="https://img.youtube.com/vi/lJw-iuAzyao/hqdefault.jpg" alt="Football Tournament" style="width:100%; cursor:pointer;">
+                </a>
+                <h3>Football Tournament – Altar Boys</h3>
+                <p>A spirited football tournament organized by SMYM Manalumkal for altar boys, fostering teamwork, sportsmanship, and fellowship within the parish community.</p>
+            </div>
+
+            <div class="card-small">
+                <a href="https://youtube.com/shorts/cRmEcv2Acog?si=OZkiuTxicN0qAA2P" target="_blank">
+                    <img src="https://img.youtube.com/vi/cRmEcv2Acog/hqdefault.jpg" alt="Bible Reading" style="width:100%; cursor:pointer;">
+                </a>
+                <h3>Bible Reading</h3>
+                <p>A devotional Bible reading held at St. Mary’s Church, Manalumkal, inspiring faith and reflection.</p>
+            </div>
+            
+            <div class="card-small">
+                <a href="https://youtube.com/shorts/7HezXSfO1gY?si=jfSRuQ9GuOuwWQXX" target="_blank">
+                    <img src="https://img.youtube.com/vi/7HezXSfO1gY/hqdefault.jpg" alt="Feast of St. Carlo Acutis Celebration" style="width:100%; cursor:pointer;">
+                </a>
+                <h3>Feast of St. Carlo Acutis Celebration</h3>
+                <p>A vibrant celebration of the Feast of St. Carlo Acutis, organized by the energetic youth of St. Mary's Church, Manalumkal.</p>
+            </div>
+
+            <div class="card-small">
+                <a href="https://youtube.com/shorts/J-5T695Rlyg?si=Ypv3iBbhGblNuSvo" target="_blank">
+                    <img src="https://img.youtube.com/vi/J-5T695Rlyg/hqdefault.jpg" alt="SASGARTHAA Youth Aradhana" style="width:100%; cursor:pointer;">
+                </a>
+                <h3>SASGARTHAA Youth Aradhana</h3>
+                <p>A spiritually enriching adoration program by SMYM Manalumkal that brings together youth for prayer and reflection.</p>
+            </div>
+
+            <div class="card-small">
+                <a href="https://youtube.com/shorts/iyzqApUohTw?si=T4V2SiswRDeGipD6" target="_blank">
+                    <img src="https://img.youtube.com/vi/iyzqApUohTw/hqdefault.jpg" alt="Ramshaa Prayer" style="width:100%; cursor:pointer;">
+                </a>
+                <h3>Ramshaa Prayer</h3>
+                <p>A devotional Ramshaa prayer session organized by SMYM Manalumkal and SMYM Cherpunkal Forane, fostering unity and devotion among the youth.</p>
+            </div>
+
+            <div class="card-small">
+                <a href="https://youtube.com/shorts/O_AqP81JhYs?si=g8vX_otnk_sOVYhF" target="_blank">
+                    <img src="https://img.youtube.com/vi/O_AqP81JhYs/hqdefault.jpg" alt="Cherupushpa Mission – Kozhuvanal Area" style="width:100%; cursor:pointer;">
+                </a>
+                <h3>Cherupushpa Mission – Kozhuvanal Area</h3>
+                <p>A special Mission League program commemorating the founder Fr. Joseph Malipparambil, hosted by Manalumkal parish members.</p>
+            </div>
+
+            <div class="card-small">
+                <a href="https://youtube.com/shorts/T-4jWYofWs4?si=NICiMJpqQvc5PQ4q" target="_blank">
+                    <img src="https://img.youtube.com/vi/T-4jWYofWs4/hqdefault.jpg" alt="Easter Highlights" style="width:100%; cursor:pointer;">
+                </a>
+                <h3>Easter Highlights</h3>
+                <p>Youth of St. Mary’s Church presenting creative skits and Easter celebrations full of joy and faith.</p>
+            </div>
+
+            <div class="card-small">
+                <a href="https://youtube.com/shorts/VFE086NbRKw?si=wcrr9HapBS7aSHge" target="_blank">
+                    <img src="https://img.youtube.com/vi/VFE086NbRKw/hqdefault.jpg" alt="Marpapa Day of Prayer & Remembrance" style="width:100%; cursor:pointer;">
+                </a>
+                <h3>Marpapa Day of Prayer & Remembrance</h3>
+                <p>A solemn day of prayer at St. Mary’s Church in honor of the late Pope Francis, including hymns and reflection led by the clergy.</p>
+            </div>
+
+            <div class="card-small">
+                <a href="https://youtube.com/shorts/Cf7aiujaLAw?si=jlHMAIyGFU-MZZmS" target="_blank">
+                    <img src="https://img.youtube.com/vi/Cf7aiujaLAw/hqdefault.jpg" alt="Dukrana Celebration" style="width:100%; cursor:pointer;">
+                </a>
+                <h3>Dukrana Celebration</h3>
+                <p>A solemn Dukrana prayer held at St. Mary’s Church to honor departed souls, with hymns and reflection.</p>
+            </div>
+
+        </div>
+    </div>
+    
+    
+    <footer>
+        &copy; 2025 St. Mary’s Church, Manalumkal. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

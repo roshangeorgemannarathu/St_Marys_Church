@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>St. Devasahayam Pillai – Biography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles (Desktop First) */
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f7f7f7; 
+            color: #333; 
+        }
+        
+        header { 
+            background: linear-gradient(90deg, #FFD700, #800000); 
+            color: white; 
+            padding: 30px 20px; 
+            text-align: center; 
+        }
+        header h1 { 
+            font-size: 48px; 
+            margin: 0; 
+        }
+        header p { 
+            font-size: 20px; 
+            margin-top: 8px; 
+        }
+
+        /* Container & Bio */
+        .container { 
+            width: 95%; 
+            max-width: 1400px; 
+            margin: 40px auto; 
+        }
+        .bio { 
+            background: white; 
+            border-radius: 12px; 
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15); 
+            padding: 35px; 
+            font-size: 18px; 
+            line-height: 1.8; 
+        }
+
+        /* Info Box */
+        .info-box { 
+            background-color: #fff8dc; 
+            border: 1px solid #e0c97f; 
+            border-radius: 12px; 
+            padding: 25px; 
+            margin: 30px auto; 
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1); 
+            max-width: 700px; 
+            text-align: center; 
+        }
+        .info-box h1 { 
+            /* Merging inline styles into class for consistency */
+            font-family: 'Georgia', serif; 
+            font-weight: bold; 
+            color: black; 
+            font-size: 36px;
+            margin-bottom: 20px; 
+        }
+        .info-box hr {
+            width: 60%; 
+            margin: 10px auto; 
+            border: 2px solid black; 
+            border-radius: 5px;
+        }
+        
+        /* Image within info box */
+        .section-img {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .info-box .section-img img { 
+            max-width: 100%; 
+            max-height: 400px; /* Constraint from original HTML */
+            width: auto;
+            border-radius: 10px;
+            object-fit: contain;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Details list */
+        .details { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 8px; 
+            margin-top: 15px; 
+            text-align: left; 
+        }
+        .detail { 
+            display: flex; 
+            align-items: flex-start; 
+        }
+        .detail .label { 
+            width: 160px; 
+            font-weight: bold; 
+            flex-shrink: 0; 
+        }
+
+        /* Main Content Sections */
+        .section { 
+            margin-bottom: 60px; 
+        }
+        .section h3 { 
+            color: #003366; 
+            margin-bottom: 12px; 
+            font-size: 28px; 
+            border-bottom: 2px solid #FFD700; 
+            padding-bottom: 4px; 
+        }
+
+        /* Alternating layout */
+        .section-content { 
+            display: flex; 
+            align-items: center; 
+            gap: 25px; 
+        }
+        .section-content img { 
+            width: 350px; 
+            height: auto;
+            border-radius: 12px; 
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
+            object-fit: cover;
+        }
+        .section-content p { 
+            flex: 1; 
+        }
+        .reverse { 
+            flex-direction: row-reverse; 
+        }
+        
+        /* Specific style for image group in Death section */
+        .death-images-group {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+            flex-wrap: wrap; /* Allows images to wrap on small screens */
+        }
+        .death-images-group img {
+            max-width: 45%; /* Adjusted for two images with gap */
+            width: 300px;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .quote { 
+            font-style: italic; 
+            font-size: 20px; 
+            text-align: center; 
+            color: #800000; 
+            margin: 25px 0; 
+            border-left: 4px solid #FFD700; 
+            padding-left: 12px;
+            padding: 15px; 
+            background-color: #fcecec;
+            border-radius: 5px; 
+        }
+
+        footer { 
+            background: linear-gradient(90deg, #800000, #003366); 
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+            font-size: 16px; 
+            margin-top: 40px; 
+        }
+
+        /* ==================================== */
+        /* MOBILE RESPONSIVENESS (<= 768px) */
+        /* ==================================== */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 10px;
+            }
+            header h1 {
+                font-size: 32px;
+            }
+            header p {
+                font-size: 16px;
+            }
+
+            .container {
+                margin: 20px auto;
+                width: 98%;
+            }
+
+            .bio {
+                padding: 15px;
+                font-size: 16px;
+            }
+
+            /* Info Box */
+            .info-box {
+                padding: 15px;
+            }
+            .info-box h1 {
+                font-size: 28px;
+            }
+            
+            /* Stacking details */
+            .detail {
+                flex-direction: column; 
+                align-items: center;
+                text-align: center;
+            }
+            .detail .label {
+                width: 100%; 
+                text-align: center;
+            }
+
+            /* Alternating content sections become stacked */
+            .section-content { 
+                flex-direction: column !important; /* Forces stacking */
+                text-align: center; 
+                gap: 15px;
+            }
+            .section-content img { 
+                width: 100%; 
+                max-width: 400px; /* Keep image manageable on small screens */
+            }
+
+            /* Death section image handling */
+            .death-images-group {
+                flex-direction: column; /* Stack images vertically */
+                gap: 20px;
+            }
+            .death-images-group img {
+                max-width: 80%;
+                width: auto;
+            }
+
+            /* Section Headings */
+            .section h3 {
+                font-size: 24px;
+                margin: 20px 0 10px;
+            }
+
+            .quote {
+                font-size: 16px;
+                padding-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Eucharistic Way</h1>
+        <p>Official Biography of St. Devasahayam Pillai</p>
+    </header>
+    
+    <div class="container">
+        <div class="bio">
+
+            <div class="info-box">
+                <h1>St. Devasahayam Pillai</h1>
+                <hr>
+
+                <div class="section-img">
+                    <img src="cfcc6ad6a4fefc406496c17e0b5c5c8d.jpg" alt="St. Devasahayam Pillai" />
+                </div>
+                <div class="details">
+                    <div class="detail"><span class="label">Born:</span> 23 April 1712, Nattalam, Travancore (present-day Kanyakumari, India)</div>
+                    <div class="detail"><span class="label">Died:</span> 14 January 1752, Kattadimalai, Tamil Nadu, India</div>
+                    <div class="detail"><span class="label">Venerated in:</span> Catholic Church</div>
+                    <div class="detail"><span class="label">Beatified:</span> 2 December 2012 by Pope Benedict XVI</div>
+                    <div class="detail"><span class="label">Canonized:</span> 15 May 2022 by Pope Francis</div>
+                    <div class="detail"><span class="label">Feast Day:</span> 14 January</div>
+                    <div class="detail"><span class="label">Title:</span> First Indian Layman Saint</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Early Life</h3>
+                <div class="section-content">
+                    <div class="text">
+                        <p>Neelakandan Pillai (later St. Devasahayam) was born into an affluent Hindu Nair family in Nattalam, Travancore, old Kerala (present-day Kanyakumari District) on 23 April 1712. His father, Vasudevan Namboodiri, who was originally from Kayamkulam (in present-day Kerala state), served as a priest at the Adikesava Perumal Temple in Thiruvattar, Travancore (now in Kanyakumari district of Tamil Nadu). His mother, Devaki Amma, also hailed from Thiruvattar.</p>
+
+                        <p>According to the matrilineal tradition of that period, Neelakandan was raised not by his father but by his maternal uncle. However, his father personally taught him Sanskrit and Vedanta, ensuring that he received a deep grounding in religious and philosophical studies. This early education shaped his intellectual and spiritual foundation.</p>
+
+                        <p>The family had considerable influence in the royal palace of Maharaja Marthanda Varma, the ruler of Travancore. As a young man, Neelakandan entered royal service and quickly distinguished himself by his intelligence, discipline, and loyalty. His administrative abilities were recognized, and he was appointed as an official under Ramayyan Dalawa, the Dewan (Prime Minister) of Travancore. In this role, he gained prominence and earned the trust of the royal household.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3>Conversion to Christianity</h3>
+                <p>In 1741, Captain Eustachius De Lannoy, a Dutch naval commander, was sent on command of a naval expedition by the Dutch East India Company with the objective of capturing and establishing a trading port at Colachel, a port under the control of Travancore. In the ensuing Battle of Colachel, fought between the Travancore forces and the Dutch, the Dutch were defeated. De Lannoy's men were either killed or captured. Eustachius De Lannoy and his assistant Donadi surrendered and were imprisoned.</p>
+                <p>De Lannoy and the Dutchmen were later pardoned by the king, on condition that they serve in the Travancore army. In the course of time, De Lannoy earned the trust of the king and went on to become the commander of the Travancore army, the very forces that had earlier defeated him. He trained the Travancore forces on European lines and introduced new weaponry and gunpowder. As military commander, he won many battles for Travancore, resulting in the annexation of various neighbouring territories to Travancore.</p>
+                <p>It was during their influential roles under the King of Travancore that Devasahayam Pillai and De Lannoy became well acquainted. De Lannoy's Christian faith interested Devasahayam; thus, De Lannoy enlightened him on the faith, leading to Devasahayam Pillai's conversion in 1745. At this point, he took the name <b>“Devasahayam”</b> (“help of God”), which is the Malayalam translation of the biblical name <b>Lazarus</b>.</p>
+            </div>
+
+            <div class="section" style="text-align: center; margin: 30px 0;">
+                <img src="11.jpg" alt="Devasahayam Pillai and Eustachius De Lannoy" style="max-width: 50%; border-radius: 10px;">
+            </div>
+
+            <div class="section">
+                <h3>Baptism</h3>
+                <p>After accepting the Christian faith, Devasahayam Pillai was baptized at the Roman Catholic sub-parish church in Vadakkankulam village, located in present-day Tirunelveli District of Tamil Nadu. The Jesuit mission there was under the guidance of Rev. Fr. R. Bouttari Italus S.J. Upon baptism, Neelakanda Pillai received the Christian name "Lazar," but he became more widely known by its Tamil and Malayalam translation, <b>Devasahayam</b>, meaning "Help of God."</p>
+
+                <p>By this time, he was married to Bhargavi Ammal of Kunchu Veedu, Elanthavilai, Mayicode in Travancore. She was baptized alongside her husband and given the name <b>Gnanapoo Ammaal</b>, meaning "Flower of Knowledge," equivalent to Theresa in Tamil and Malayalam. Fearing possible repercussions for their conversion in Travancore, she chose to relocate and reside in Vadakkankulam. Later, other members of Devasahayam Pillai's immediate family also embraced Christianity and received baptism.</p>
+            </div>
+
+
+            <div class="section">
+                <h3>Death</h3>
+                <div class="death-images-group">
+                  
+                    <img src="Devasahayam_Pillai_Grab_1a.jpeg" alt="Site of Devasahayam Pillai's Death">
+                </div>
+
+                <p>In 1752, the King of Travancore and his Dewan initially ordered Devasahayam Pillai to be deported to the Pandya country at Aralvaimozhy. He was released in the forested hills near Aralvaimozhy, where he began deep meditations and soon drew visitors from nearby villages seeking his guidance. During this period, Christian sources suggest that some high-caste Hindus conspired against him.</p>
+
+                <p>According to tradition, soldiers attempted to shoot Devasahayam but were unable to fire. He then took the gun in his hands, blessed it, and returned it to the soldiers, who eventually fired at him five times. His body was left near the foothills of Kattadimalai.</p>
+
+                <p>Devasahayam Pillai passed away at Kattadimalai in the Kanyakumari district on 14 January 1752. His body was later recovered by locals and brought to St. Xavier’s Church in Kottar, Nagercoil, where it was interred near the altar. Since then, the site has become a place of pilgrimage, visited by countless Christian devotees who offer prayers at his tomb.</p>
+            </div>
+
+
+            <div class="section">
+                <h3>Canonization</h3>
+                <div class="section-content reverse">
+                    <p>Declared Blessed in 2012, Devasahayam Pillai was canonized by Pope Francis on **15 May 2022** at St. Peter’s Basilica in Rome. He became the **first Indian layman to be declared a saint**, remembered for his courage, steadfast faith, and witness to Christ amidst persecution.</p>
+                    <div class="image">
+                        <img src="e45c73669a940fcdcf11fc7134381e5a.jpg" alt="Early life of St. Devasahayam Pillai" />
+                    </div>
+                </div>
+            </div>
+
+            <blockquote class="quote">
+                “Faith amidst persecution makes saints out of the faithful.” – St. Devasahayam Pillai
+            </blockquote>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Created by SMYM St. Mary’s Church, Manalumkal – Inspired by St. Carlo Acutis | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

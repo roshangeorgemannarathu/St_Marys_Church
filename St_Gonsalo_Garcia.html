@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>St. Gonsalo Garcia – Biography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles (Desktop First) */
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f7f7f7; 
+            color: #333; 
+        }
+        
+        header { 
+            background: linear-gradient(90deg, #FFD700, #800000); 
+            color: white; 
+            padding: 30px 20px; 
+            text-align: center; 
+        }
+        header h1 { 
+            font-size: 48px; 
+            margin: 0; 
+        }
+        header p { 
+            font-size: 20px; 
+            margin-top: 8px; 
+        }
+
+        /* Navigation */
+        nav { 
+            background-color: #003366; 
+            padding: 12px; 
+            text-align: center; 
+        }
+        nav a { 
+            display: inline-block; 
+            color: white; 
+            font-size: 16px; 
+            padding: 10px 15px; 
+            text-decoration: none; 
+            margin: 0 6px; 
+            border-radius: 5px; 
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav a:hover { 
+            background-color: #FFD700; 
+            color: #003366; 
+        }
+
+        /* Container & Bio */
+        .container { 
+            width: 95%; 
+            max-width: 1400px; 
+            margin: 40px auto; 
+        }
+        .bio { 
+            background: white; 
+            border-radius: 12px; 
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15); 
+            padding: 35px; 
+            font-size: 18px; 
+            line-height: 1.8; 
+        }
+
+        /* Info Box */
+        .info-box { 
+            background-color: #fff8dc; 
+            border: 1px solid #e0c97f; 
+            border-radius: 12px; 
+            padding: 25px; 
+            margin: 30px auto; 
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1); 
+            max-width: 700px; 
+            text-align: center; 
+        }
+        .info-box h1 { 
+            color: black; /* Changed from #003366 to black for style consistency */
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+            font-size: 36px;
+            margin-bottom: 20px; 
+        }
+        .info-box hr {
+            width: 60%;
+            margin: 10px auto;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+        /* Image within info box */
+        .info-box .section-img {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .info-box .section-img img {
+            max-width: 250px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        /* Details list */
+        .details { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 8px; 
+            margin-top: 15px; 
+            text-align: left; 
+        }
+        .detail { 
+            display: flex; 
+            align-items: flex-start; 
+        }
+        .detail .label { 
+            width: 140px; 
+            font-weight: bold; 
+            flex-shrink: 0; 
+        }
+
+        /* Main Content Sections */
+        .section { 
+            margin-bottom: 40px; 
+        }
+        .section h3 { 
+            color: #003366; 
+            margin: 30px 0 15px; 
+            font-size: 28px; 
+            border-bottom: 2px solid #FFD700; 
+            padding-bottom: 4px; 
+        }
+
+        .quote { 
+            font-style: italic; 
+            font-size: 20px; 
+            text-align: center; 
+            color: #800000; 
+            margin: 25px 0; 
+            border-left: 4px solid #FFD700; 
+            padding-left: 12px; 
+            padding: 15px;
+            background-color: #fcecec;
+            border-radius: 5px;
+        }
+
+        footer { 
+            background: linear-gradient(90deg, #800000, #003366); 
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+            font-size: 16px; 
+            margin-top: 40px; 
+        }
+        
+        /* ==================================== */
+        /* MOBILE RESPONSIVENESS */
+        /* ==================================== */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 10px;
+            }
+            header h1 {
+                font-size: 36px;
+            }
+            header p {
+                font-size: 16px;
+            }
+
+            /* Stack navigation links */
+            nav a {
+                display: block;
+                margin: 5px auto;
+                width: 80%;
+            }
+
+            .container {
+                margin: 20px auto;
+                width: 98%;
+            }
+
+            .bio {
+                padding: 15px;
+                font-size: 16px;
+            }
+
+            /* Info Box Adjustments */
+            .info-box {
+                padding: 15px;
+                margin: 20px auto;
+            }
+            .info-box h1 {
+                font-size: 28px;
+            }
+            
+            /* Stack detail items for small screens */
+            .detail {
+                flex-direction: column; 
+                align-items: center;
+                text-align: center;
+            }
+            .detail .label {
+                width: 100%; /* Full width for centered label */
+                text-align: center;
+            }
+
+            /* Section Headings */
+            .section h3 {
+                font-size: 24px;
+                margin: 20px 0 10px;
+            }
+
+            .quote {
+                font-size: 16px;
+                padding-left: 10px;
+            }
+
+            footer {
+                padding: 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Eucharistic Way</h1>
+        <p>Official Biography of St. Gonsalo Garcia</p>
+    </header>
+    
+   
+
+    <div class="container">
+        <div class="bio">
+
+            <div class="info-box">
+                <h1>St. Gonsalo Garcia</h1>
+                <hr>
+
+                <div class="section-img">
+                    <img src="af34a9498771ef00a0adfa2ed6032b86.jpg" alt="St. Gonsalo Garcia" />
+                </div>
+
+                <div class="details">
+                    <div class="detail"><span class="label">Born:</span> Gundi Slavus Garcia, 1556, Vasai (Bassein), India</div>
+                    <div class="detail"><span class="label">Died:</span> 5 February 1597, Nagasaki, Japan</div>
+                    <div class="detail"><span class="label">Venerated in:</span> Catholic Church</div>
+                    <div class="detail"><span class="label">Beatified:</span> 24 June 1627 by Pope Urban VIII</div>
+                    <div class="detail"><span class="label">Canonized:</span> 8 June 1862 by Pope Pius IX</div>
+                    <div class="detail"><span class="label">Feast Day:</span> 5 February</div>
+                    <div class="detail"><span class="label">Patron:</span> Roman Catholic Archdiocese of Bombay</div>
+                </div>
+            </div>
+
+
+            <div id="early-life" class="section">
+                <h3>Early Life</h3>
+                <p>Gonsalo Garcia was born Gundi Slavus Garcia to a Portuguese father and a Canarese mother in Bassein (Vasai) on February 5, 1557. He studied at the Jesuit school near Bassein Fort under Fr. Sebastian Gonçalves for eight years, learning grammar, philosophy, and Roman history. At age 15, Fr. Sebastian took him to **Japan** where he became a popular catechist.</p>
+            </div>
+
+            <div id="missionary-merchant-work" class="section">
+                <h3>Missionary & Merchant Work</h3>
+                <p>Gonsalo Garcia initially worked in trade at **Alcao**, expanding his business across Southeast Asia. Later, he moved to **Manila** in the Philippines as a lay missionary and joined the **Seraphic Order as a lay brother** under Fr. Peter Baptista. He worked with leprosy patients and was formally ordained as a Franciscan friar.</p>
+                <p>In 1592, he accompanied Fr. Baptista on a diplomatic mission to Japan, using his language skills to spread Christianity.</p>
+            </div>
+
+            <div id="death-martyrdom" class="section">
+                <h3>Death & Martyrdom</h3>
+                <p>On **February 5, 1597**, Garcia was crucified on **Nagasaki Hills** with 26 companions. He was the first to be nailed to the cross and sang praises of God while being executed. Witnesses noted the bravery and faith he exhibited at the time of his death.</p>
+            </div>
+
+            <div id="veneration" class="section">
+                <h3>Veneration</h3>
+                <p>Declared Venerable in 1627, and **canonized in 1862**, Garcia became the **first Catholic saint of India**. The Gonsalo Garcia Church in Vasai was built in 1942 and renovated in 1957, where a week-long feast is held in his honor every February.</p>
+            </div>
+
+            <div id="legacy" class="section">
+                <h3>Legacy</h3>
+                <p>Garcia is the **patron saint of the Roman Catholic Diocese of Vasai**. His life continues to inspire universal charity, missionary zeal, and devotion. His veneration spread globally, including Brazil, highlighting his Indian ancestry.</p>
+            </div>
+
+            <blockquote class="quote">
+                “Courage and faith guided him through trials and martyrdom.”
+            </blockquote>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Created by SMYM St. Mary’s Church, Manalumkal – Inspired by St. Carlo Acutis | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

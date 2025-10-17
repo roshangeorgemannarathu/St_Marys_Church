@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>St. Thomas the Apostle – Life, Churches & Legacy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* BASE STYLES - Generally fine */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #800000, #FFD700);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 50px;
+            margin: 0;
+        }
+        header p {
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        .sub-header {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 500;
+            color: black;
+            margin: 15px 0 40px 0;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1400px;
+            margin: 0 auto 50px auto;
+        }
+
+        /* INFO BOX - Adjusted for better mobile fit */
+        .info-box {
+            background-color: #fff8dc;
+            border: 1px solid #e0c97f;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 0 auto 40px auto;
+            max-width: 900px;
+            text-align: center;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+        }
+        .info-box img {
+            width: 250px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .info-box h2, .info-box h1 {
+            font-family: 'Playfair Display', serif;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+        .details {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .detail span.label {
+            font-weight: bold;
+            /* Adjust width for better flow on smaller screens */
+            width: 120px; /* Reduced label width */
+            display: inline-block;
+        }
+
+        /* SECTION STYLES - Generally fine */
+        .section {
+            margin-bottom: 50px;
+        }
+        .section h3 {
+            font-family: 'Playfair Display', serif;
+            color: #003366;
+            font-size: 32px;
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 6px;
+            margin-bottom: 15px;
+        }
+        .section p {
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+       .timeline {
+    position: relative;
+    margin: 30px 0;
+    /* Increased padding from 40px to 60px for more space */
+    padding-left: 60px; 
+    border-left: 3px solid #FFD700;
+}
+.timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    /* Adjusted left position to keep the bullet centered on the line,
+       relative to the new 60px padding: (5px line width / 2) - 3px border - 10px radius
+       A value of -10px to -12px usually works fine.
+       Let's use -12px to give a clean separation from the text block. */
+    left: -12px; 
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #800000;
+    border-radius: 50%;
+    border: 3px solid #FFD700;
+}
+.timeline-item h4 {
+    margin: 0 0 6px 0;
+    font-size: 22px;
+    color: #800000;
+}
+.timeline-item p {
+    margin: 0;
+}
+
+        /* CHURCH CARDS - Responsive grid */
+        .churches {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .church-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            /* Increased width slightly to look better on a tablet/desktop grid */
+            width: 280px; 
+            text-align: center;
+        }
+        .church-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .church-card h4 {
+            margin-top: 10px;
+            font-size: 18px; /* Slightly larger font */
+            color: #333;
+            padding: 0 10px 10px 10px;
+        }
+
+        /* FOOTER - Generally fine */
+        footer {
+            background: linear-gradient(90deg, #800000, #003366);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            margin-top: 40px;
+        }
+
+        /* MOBILE OPTIMIZATIONS */
+        
+        /* 1. Universal Flex-to-Stack: This is the main change. */
+        /* Targets the elements that use 'display: flex' for multi-column layout */
+        .section > div[style*="display: flex"],
+        .section > div[style*="flex-wrap: wrap"] {
+            flex-direction: column; /* Force vertical stacking */
+            align-items: center !important; /* Center items when stacked */
+        }
+        
+        /* 2. Image Scaling in Stacked Layouts */
+        .section > div[style*="display: flex"] img {
+            /* Ensures images don't exceed container width and have a max size */
+            width: 100% !important; 
+            max-width: 400px; /* Maximize width on mobile, but cap for larger screens */
+            height: auto !important; /* Maintain aspect ratio */
+            margin-bottom: 20px; /* Add space below the image */
+        }
+
+        /* 3. Church Card Adjustment for Smallest Screens */
+        @media (max-width: 480px) {
+            .church-card {
+                /* On very small screens, let the cards take up nearly full width */
+                width: 100%;
+                max-width: 350px; 
+            }
+        }
+        
+        /* 4. General Mobile Adjustments (Redmi 13C size and below) */
+        @media (max-width: 768px) {
+            /* Header */
+            header h1 { font-size: 36px; }
+            header p { font-size: 16px; }
+
+            /* Content Sections */
+            .info-box { padding: 15px; }
+            .info-box img { width: 150px; }
+            .section h3 { font-size: 28px; }
+            .timeline-item h4 { font-size: 18px; }
+
+            /* Image/Text containers - ensure text takes full width */
+            .section > div[style*="display: flex"] > div {
+                min-width: 90% !important; /* Ensure content box is wide enough */
+            }
+
+            /* For the image gallery: on a tablet, they are fine, but on a phone, let them stack */
+            .churches {
+                gap: 15px;
+            }
+        }
+
+        /* Tablet/Larger Phone Landscape adjustments (keeps single column but better spacing) */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .church-card {
+                width: calc(50% - 15px); /* Two cards per row */
+            }
+        }
+
+        /* Smallest Phone Adjustments */
+        @media (max-width: 380px) {
+             .detail span.label {
+                width: 90px; /* Shrink label width further for narrow devices */
+             }
+        }
+
+    </style>
+</head>
+<body>
+    <form id="form1"> 
+        <header>
+            <h1>The Eucharistic Way</h1>
+            <p>Official Biography of St. Thomas the Apostle</p>
+        </header>
+
+        <div class="sub-header"></div>
+
+        <div class="container">
+            <div class="info-box">
+                <h1>St. Thomas the Apostle</h1>
+                <hr style="width: 60%; margin: 10px auto; border: 2px solid black; border-radius: 5px;">
+                <img src="88f2cf71dc1b4931ee4c901ae2d5c102.jpg" alt="St. Thomas the Apostle" />
+                
+                <div class="details">
+                    <div class="detail"><span class="label">Born:</span> 1st century AD, Galilee, Judea</div>
+                    <div class="detail"><span class="label">Died:</span> 72 AD, St. Thomas Mount, Chennai, India</div>
+                    <div class="detail"><span class="label">Canonized:</span> Pre-Congregation</div>
+                    <div class="detail"><span class="label">Feast Days:</span> 3 July / 21 December</div>
+                    <div class="detail"><span class="label">Major Shrines:</span> San Thome Basilica, Chennai; Ortona, Italy; Palayur, India</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Biography: St. Thomas the Apostle</h3>
+                <p><b>Name:</b> Syrian, meaning “Twin”; Apostle of India; Doubting Thomas</p>
+                <p><b>Birth:</b> Unknown</p>
+                <p><b>Death:</b> Stabbed with a spear c.72 in India</p>
+                <p><b>Feast Day:</b> July 3rd</p>
+                <p><b>Patron Saint of:</b> the blind; craftsmen; geometricians; theologians</p>
+                <p>Little is recorded of St. Thomas the Apostle. Thomas was probably born in Galilee to a humble family. He was a Jew, but there is no account of how he became an apostle to Christ.</p>
+                <p>When Jesus announced His intention of visiting Lazarus, Thomas said: <i>“Let us also go, that we may die with him”</i> (John 11:16).</p>
+                <p>In John 14:1–5, Thomas asked: <i>“Lord, we do not know where You are going, how do we know the way?”</i> Jesus replied: <b>“I am the way, the truth, and the life; no one comes to the Father but through Me”</b> (John 14:6).</p>
+                <p>Thomas is most remembered for his doubt after the Resurrection. Saying, <i>“Unless I see the mark of the nails... I will not believe”</i> (John 20:25), he later confessed: <b>“My Lord and my God!”</b></p>
+                <p>Tradition says Thomas was reluctant to go to India but was divinely sent there. He preached, built churches, and converted many. Legends tell how he built a “palace in heaven” by giving money meant for a king’s palace to the poor.</p>
+                <p>He is venerated as the <b>Apostle of India</b> and established seven churches on the Malabar Coast, martyred near Madras, and buried in Mylapore, Chennai. Relics were later transferred to Ortona, Italy.</p>
+            </div>
+
+            <div class="section">
+                <h3>Gospel of John</h3>
+                <div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
+                    <img src="e7af2a380d5b6e6dfafae474e51fc5d8.jpg" 
+                        alt="St. Thomas in the Gospel of John" 
+                        style="width: 280px; height: 380px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" />
+                    <div style="flex: 1; min-width: 300px;">
+                        <p>Thomas is most vividly remembered through the Gospel of John, where his faith journey is highlighted in three important passages:</p>
+
+                        <h4>John 11:16 – Loyal Disciple</h4>
+                        <p>When Lazarus had died and the apostles feared returning to Judea, Thomas courageously said: 
+                            <i>“Let us also go, that we may die with him.”</i></p>
+
+                        <h4>John 14:5 – Inquisitive Seeker</h4>
+                        <p>During the Last Supper, when Jesus spoke of preparing a place in heaven, Thomas asked: 
+                            <i>“Lord, we know not whither thou goest; and how can we know the way?”</i> 
+                            Jesus responded: <b>“I am the way, and the truth, and the life.”</b></p>
+
+                        <h4>John 20:24–29 – From Doubt to Faith</h4>
+                        <p>After the Resurrection, Thomas doubted until Jesus invited him to touch His wounds. 
+                            He then declared: <b>“My Lord and my God!”</b></p>
+                        <p>Jesus said: <i>“Because you have seen me, you have believed; blessed are those who have not seen, and yet have believed.”</i></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Feast Days</h3>
+                <div style="display: flex; align-items: flex-start; gap: 20px;">
+                
+                    <div style="flex: 1; min-width: 300px;">
+                        <p>When the feast of <b>Saint Thomas</b> was inserted in the <b>Roman calendar</b> in the 9th century, 
+                            it was assigned to <b>21 December</b>. The <b>Martyrology of St. Jerome</b> mentioned the apostle 
+                            on <b>3 July</b>, the date to which the Roman celebration was transferred in <b>1969</b>, so that it 
+                            would no longer interfere with the major ferial days of Advent.</p>
+
+                        <p><b>Traditionalist Roman Catholics</b> (who follow the General Roman Calendar of 1960 or earlier), 
+                            the <b>Lutheran Church</b>, and many <b>Anglicans</b> (including members of the Episcopal Church 
+                            and the Church of England using the 1662 Book of Common Prayer) still celebrate his feast day on 
+                            <b>21 December</b>.</p>
+
+                        <p>However, most modern liturgical calendars (including the <b>Common Worship calendar of the Church of England</b>) 
+                            prefer <b>3 July</b>. In the Church of England, Thomas is remembered with a <b>Festival</b>.</p>
+
+                        <p>Thomas is also associated with the <b>"Arabian" (or "Arapet") icon of the Theotokos</b> 
+                            (Mother of God), which is commemorated on <b>6 September</b>.</p>
+
+                        <p>He is also connected with the <b>Cincture of the Theotokos</b>, which is commemorated on 
+                            <b>31 August</b>.</p>
+                    </div>
+                    <img src="Screenshot 2025-09-28 123330.jpg" 
+                        alt="Feast of St. Thomas" 
+                        style="width: 280px; height: 380px; object-fit: cover; border-radius: 12px; flex-shrink: 0;" />
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3>Later History and Traditions</h3>
+                <p><i>The Passing of Mary</i>, adjudged heretical by Pope Gelasius I in 494, was attributed to Joseph of Arimathea. 
+                The document states that <b>Thomas was the only witness of the Assumption of Mary into heaven</b>. The other apostles 
+                were miraculously transported to Jerusalem to witness her death, but Thomas was left in India.</p>
+
+                <p>After Mary’s first burial, Thomas was transported to her tomb, where he witnessed her bodily assumption into heaven. 
+                From there, she dropped her <b>girdle</b> as proof. In an inversion of Thomas’ famous doubts, 
+                the <b>other apostles were skeptical</b> of his story until they saw the empty tomb and the girdle.</p>
+
+                <p>This event, known as the <b>“Girdle of Thomas”</b>, is a recurring theme in medieval and Renaissance art, 
+                symbolizing both faith and proof of the Assumption.</p>
+            </div>
+
+            <div class="section" style="display: flex; align-items: flex-start; gap: 20px; margin: 30px 0;">
+                <div style="flex: 1; text-align: center; min-width: 300px;">
+                                        <h3>Mission in India</h3>
+                    <p>
+                        <b>Main articles:</b> Saint Thomas Christians, Christianity in India, Christianity in Tamil Nadu, and Christianity in Kerala
+                    </p>
+                    <p>
+                        The Postal Department of India issued a stamp commemorating his mission to the country. 
+                        According to traditional accounts of the Saint Thomas Christians of India, the Apostle Thomas landed in Muziris 
+                        (Cranganore) in present-day Kerala in 52 CE, and was martyred in Mylapore, near Madras in 72 CE. 
+                        He is believed by tradition to have established seven churches in Kerala at Kodungallur, Palayoor, 
+                        Kottakkavu (Paravur), Kokkamangalam, Niranam, Nilackal (Chayal), Kollam, and Thiruvithamcode.
+                    </p>
+                    <p>
+                        Ephrem the Syrian, a doctor of Syriac Christianity, writes that the Apostle was put to death in India, 
+                        and that his remains were subsequently buried in Edessa, brought there by an unnamed merchant.
+                    </p>
+                    <p>
+                        According to Eusebius, Thomas and Bartholomew were assigned to Parthia and northwest India. 
+                        The <i>Didascalia</i> states, <q>India and all countries considering it, even to the farthest seas... 
+                        received the apostolic ordinances from Judas Thomas, who was a guide and ruler in the church which he built.</q>
+                    </p>
+                </div>
+            </div>
+
+            <div class="section" style="display: flex; align-items: flex-start; gap: 20px; margin: 30px 0; flex-wrap: wrap;">
+
+                <div style="flex: 2; text-align: justify; min-width: 300px;">
+                    <h3>Alleged Visit to China</h3>
+                    <p>
+                        Thomas's alleged visit to China is mentioned in the books and church traditions of Saint Thomas Christians in India, 
+                        some of whom claim descent from the early Christians evangelized by Thomas the Apostle in 52. 
+                        For example, it is found in the Malayalam ballad <i>Thoma Ramban Pattu</i> (The Song of the Lord Thomas), 
+                        with the earliest manuscript being from the 17th century.
+                    </p>
+                    <p>
+                        The sources write about Thomas coming to India, then to China, and back to India, where he died.
+                    </p>
+                </div>
+
+                <div style="flex: 1; text-align: center; min-width: 200px;">
+                    <img src="Silk_route.jpg" 
+                        alt="Map of ancient Silk Road and Spice Route" 
+                        style="max-width: 100%; height: 300px; border-radius: 12px; object-fit: cover;" />
+                    <p style="font-size: 14px; color: gray; margin-top: 5px;">Map of ancient Silk Road and Spice Route</p>
+                </div>
+            </div>
+
+            <div class="section" style="display: flex; align-items: flex-start; gap: 20px; margin: 30px 0; flex-wrap: wrap;">
+
+                <div style="flex: 1; text-align: center; min-width: 200px;">
+                    <img src="800px-Peter_Paul_Rubens_-_Martyrdom_of_St_Thomas.jpg" 
+                        alt="Martyrdom of Saint Thomas" 
+                        style="width: 100%; max-width: 500px; height: 300px; border-radius: 12px; object-fit: cover;" />
+                    <p style="font-size: 14px; color: gray; margin-top: 5px;">Martyrdom of Saint Thomas by Peter Paul Rubens, 1636–1638</p>
+                </div>
+
+                <div style="flex: 2; text-align: justify; min-width: 300px;">
+                    <h3>Death of St. Thomas</h3>
+                    <p>
+                        According to Syrian Christian tradition, Thomas was killed with a spear at <b>St. Thomas Mount</b> in Chennai on 3 July 72 AD, 
+                        and his body was interred in Mylapore. Latin Church tradition holds 21 December as his date of death. 
+                        Ephrem the Syrian states that the Apostle was killed in India, and that his relics were then taken to Edessa. 
+                        This is the earliest known record of his death.
+                    </p>
+                    <p>
+                        Records from Barbosa in the early 16th century mention that the tomb was maintained and a lamp was burning there. 
+                        The <b>St. Thomas Cathedral Basilica</b> in Chennai, located at the tomb, was first built in the 16th century by the Portuguese 
+                        and rebuilt in the 19th century by the British. St. Thomas Mount has been a revered Christian site since at least the 16th century.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; margin-bottom: 40px;">
+                <div style="flex: 2; min-width: 300px;">
+                    <h3>Relics of St. Thomas</h3>
+                    <p>Traditional accounts say that the Apostle Thomas preached not only in Kerala but also in Tamil Nadu and other parts of Southern India, and that a few relics are still kept at San Thome Basilica in Mylapore, Chennai, India.</p>
+                    <p>According to tradition, in 232, the greater portion of relics of the Apostle Thomas were sent to Edessa, Mesopotamia. Portions were later moved to Chios and now rest in the Cathedral of Saint Thomas the Apostle in Ortona, Italy.</p>
+                    <p>Other relics, including some finger bones, were discovered in Mosul, Iraq, and are currently housed in the Monastery of Saint Matthew.</p>
+                </div>
+
+                <div style="flex: 1; min-width: 250px; text-align: center;">
+                    <img src="Tomb_of_St._Thomas_in_India.jpg" 
+                        alt="San Thome Basilica, Mylapore" 
+                        style="width: 100%; max-width: 400px; border-radius: 12px; object-fit: cover;" />
+                    <p style="font-size: 14px; color: gray; margin-top: 5px;">The tomb of Saint Thomas the Apostle in Mylapore, India</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Historical References</h3>
+                <p>"By the command of an Indian King he was thrust through with lances", 1739 engraving</p>
+                <p>A number of early Christian writings written during the centuries immediately following the first Ecumenical Council of 325 mention Thomas' mission.</p>
+                <p>The <i>Transitus Mariae</i> describes each of the apostles purportedly being temporarily transported to heaven during the Assumption of Mary.</p>
+                <h4>Acts of Thomas</h4>
+                <p>The main source is the apocryphal <i>Acts of Thomas</i>, sometimes referred to by its full name <i>The Acts of Judas Thomas</i>, written circa 180–230 AD. These are generally regarded by various Christian religions as apocryphal, or even heretical. The two centuries that lapsed between the life of the apostle and the recording of this work cast doubt on their authenticity.</p>
+                <p>The king, Misdeus (or Mizdeos), was infuriated when Thomas converted the queen Tertia, the king's son Juzanes, sister-in-law princess Mygdonia and her friend Markia. Misdeus led Thomas outside the city and ordered four soldiers to take him to the nearby hill, where the soldiers speared Thomas, killing him. After Thomas' death, Syphorus was elected the first presbyter of Mazdai by the surviving converts, while Juzanes was the first deacon. (The names Misdeus, Tertia, Juzanes, Syphorus, Markia and Mygdonia may suggest Greek descent or cultural influences. Greek traders had long visited Muziris.)</p>
+            </div>
+</div> 
+
+<div class="section">
+                <h3>Timeline of St. Thomas</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>52 AD – Arrival in India</h4>
+                        <p>Landed in Muziris (modern North Paravur, Kerala) and began preaching Christianity.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>52–72 AD – Mission in India</h4>
+                        <p>Evangelized Kerala and Tamil Nadu, founding churches and converting many.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>72 AD – Martyrdom</h4>
+                        <p>Killed by a spear at St. Thomas Mount, Chennai. Buried in Mylapore.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>1523 AD – San Thome Basilica</h4>
+                        <p>Built over his tomb in Chennai by Portuguese missionaries.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="container">
+                    <h3>The Seven and a Half Churches (Ezharappallikal)</h3>
+                    <p>It is the churches established by St. Thomas which act as the affidavit for his gospel activities. Places of worship during CE first century were not huge constructions. Churches were meant as meeting places for small communities. While huge palaces and temples existed under the kings in Tamil Nadu and Karnataka, it was not the case in Kerala. Due to the climatic conditions of the state constructions did not last long. Churches were identified by the cross installed in front of them.</p>
+
+                    <p>The locations of the seven churches have been identified from the chapter on St. Thomas in the Ramban Pattu, which also sketches his travels during the 1st century. What exists now of this text is the reproduction made by the 48th priest of Maliekkal family.</p>
+
+                    <p>It mentions the arrival of St. Thomas at Malayattoor, his baptizing of 220 persons, and then his tour to Palayoor, Malyankara, Kottakkal, Gokkamangalam, and Kollam. He stayed at these places for a year, established churches, and then reached Chayal Mala. The churches were set up close to places on navigable trade routes. Subsequently, Christians stayed in groups and established markets in these places.</p>
+
+                    <p>The Ramban Pattu also says that St. Thomas reached Kodungalloor by ship along with Haban and met the Chola King. The plot of the Ramban Pattu consists of his establishing the churches in Kollam, Niranam, Chayal, Palayoor, Kodungalloor, and Paravur and then moving to Mylapore where he was killed by Brahmins and his soul ascending to heaven escorted by angels. The churches he established, the hillocks where he offered prayers, and his tomb are being considered sacred places.</p>
+
+                    <h2>Kodungalloor Church</h2>
+                    <p>The River Periyar splits into two at Aluva and its branch named Mangalapuzha reaches the sea passing through part of Kodungalloor. Vadakkekara, Thiruvanchikulam, and Kodungalloor are located on this sea coast. Kodungalloor finds a mention in the Roman documents as Muchiri. It was the capital of the Chera Kings. Malyankara mentioned in the Ramban Pattu is also on the coastal area in Kodungalloor. According to tradition, St.Thomas baptized the ruler of Kodungaloor, his family, and 40 Jews (Bernard, C.F., Mar Thoma Christians). It was at Kodungalloor that St.Thomas first preached the gospel and established the first church. Kodungalloor was also the site of the first churches of the Jews and of the Muslims. The places mentioned as Muyirikode and Singli in the copper plates of the Jews were also in Kodungalloor.
+
+                    When the church established by St.Thomas in Kodungalloor was destroyed, is not known. When the Portuguese reached Kerala in the early 16th century, there were three churches, in the names of St.Thomas, Virgin Mary, and Kuriakose Sahada, in Kodungalloor. It was also the headquarters of a Bishop. One of the churches is believed to have been constructed by Knayi Thoma. Following the clashes between Arabs and Christians in the 9th century, many people migrated to the nearby areas. It is believed that the Christians who migrated to Angamaly, Vazhakulam, Koratty, Kanjoor, and Malayattoor were from Kodungalloor. In due course, the number of Christians in Kodungalloor dwindled.</p>
+
+                    <h2>Kollam Church</h2>
+                    <p>Kollam was one of the main port cities on the Arabian coast. Ramban Pattu says that during the one year St. Thomas stayed there, he could convert 1,400 persons to Christianity. The Church established by St. Thomas is believed to have been destroyed due to sea erosion. It was probably the Christians who migrated from Persia who constructed the Theresa Church. It is believed that the church too was destroyed by sea erosion. Kollam was a port and trading centre known for the export of spices. Duarte Barbosa, who visited Kerala in 1514, has recorded the existence of a church set up by St. Thomas in Kollam. When Portuguese Governor, Albuquerque, reached Kollam in 1503, there were 2,000 St. Thomas Christian families there. When the Portuguese imposed on them Latin customs and conventions, they fled to Chathanoor and Adoor.</p>
+
+                    <h2>Niranam Church</h2>
+                    <p>From Kollam St. Thomas went to Thrikapaleswaram, near Niranam, on the Thiruvalla- Mavelikkara route. St.Thomas is believed to have performed many miracles there. It is thought that the modern Mar Thoma Church stands at the place where a cross was erected and the Orthodox Church at the place where it was reinstalled. The church has a stone with an inscription about its renovation in 1259. The wall paintings in Niranam church are very famous. A museum has also been set up by the side of the church.</p>
+
+                    <h2>Nilackal Church</h2>
+                    <p>According to Ramban Pattu St.Thomas lived in Nilakkal for a year. Nilakkal is known as Chayal in certain documents. This was once a prominent city and commercial centre. Even now there are trade routes from here to Tamil Nadu through Sabarimala. During the 6th century, people fearing dacoits, are believed to have fled to Kanjirapally, Ranni, Thumbamon, Vadasserikara, and Erumeli. Remnants of Christian churches have been found in the forests. The present church stands on the land allotted by the Government in 1976</p>
+
+                    <h2>Kokkamangalam Church</h2>
+                    <p>This is a Christian dominated area on the coast near Pallipuram in Cherthala. St. Thomas is believed to have lived here for a year and converted 1,600 persons to Christianity. Kesari Balakrishna Pillai in his book, Charithrathinte Adiverukal (The Roots of History) says that St. Thomas set up a church here. Places near Kokkamangalam like Muttom, Pallipuram and Cherthala were some of the major centres of migration.</p>
+
+                    <h2>Kottakkavu Church</h2>
+                    <p>This place was known as Kottakayal or Pattamana Paravur. The church founded by St. Thomas was destroyed in the attack of Tipu Sultan in the 18th century. The church we see today at North Paravur is the one constructed in its place.</p>
+
+                    <h2>Palayoor Church</h2>
+                    <p>Chavakkad, a coastal village in Ponnani taluk, was the place St. Thomas last visited. Palayoor was a Jewish settlement. The proof for this is the names of the places in the vicinity such as Yudakunnu and Yudakulam. The Jews migrated to Mala and Manjali from Palayoor. In the 16th century, Father Fenichi, a priest constructed a church covering the original church and then demolished the original. This can be seen in the structure of the existing church..</p>
+
+                    <h2>Arappalli / Thiruvankottu Church</h2>
+                    <p>St. Thomas is believed to have established a shrine here rather than a full church. He appointed two priests before moving to Mylapore. Missionary activities later expanded from this location.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>The Seven and a Half Churches (Ezharappallikal) - Image Gallery</h3>
+                <div class="churches">
+                    <div class="church-card">
+                        <img src="st_thomas_church_kodungalloor_1787_large.jpg" alt="Kodungallur Church" />
+                        <h4>Kodungallur Church</h4>
+                    </div>
+                    <div class="church-card">
+                        <img src="st-thomas-syro-malabar-catholic-church-palayoor-chavakkad_large.jpg" alt="Palayoor Church" />
+                        <h4>Palayoor Church</h4>
+                    </div>
+                    <div class="church-card">
+                        <img src="kottaikavu-old-church-ernakulam-north-paravur_large.jpg" alt="Kottakkavu Church" />
+                        <h4>Kottakkavu Church</h4>
+                    </div>
+                    <div class="church-card">
+                        <img src="st mary's orthodox church, niranam p (1)_large.jpg" alt="Niranam Church" />
+                        <h4>Niranam Church</h4>
+                    </div>
+                    <div class="church-card">
+                        <img src="nilackal_church.jpg" alt="Nilackal Church" />
+                        <h4>Nilackal Church</h4>
+                    </div>
+                    
+                    
+                    <div class="church-card">
+                        <img src="Arappalli.jpg" alt="Kokkamangalam Church" />
+                        <h4>Arappalli / Thiruvankottu Church</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Malayatoor Pilgrimage</h3>
+                <p>Malayatoor is one of the most important pilgrimage sites in Kerala associated with St. Thomas the Apostle. Tradition holds that St. Thomas traveled here during his missionary journeys in Kerala and prayed on the hilltop, seeking guidance and strength in spreading Christianity.</p>
+                <p>The name "Malayatoor" comes from the Malayalam words <b>“Malai”</b> meaning hill and <b>“Oor”</b> meaning place. Pilgrims continue to climb the hill on foot, following the path believed to have been taken by the Apostle. At the hilltop, the <b>Kurishumudy</b> (Holy Cross) marks the spot where St. Thomas prayed. Many miracles are attributed to his intercession here, and devotees leave offerings and prayers as part of their pilgrimage.</p>
+                <p>The current church, <b>St. Thomas Syro-Malabar Church</b>, was constructed in the 16th century and has been renovated over time. The annual feast held here attracts thousands of devotees, reflecting the site’s significance in Kerala Christian culture.</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                    <img src="045-Malayattoor.jpg" 
+                        alt="Malayatoor Church" 
+                        style="width: 30%; border-radius:12px;" />
+                    <img src="9e0af877d222a11a6510a8c693260872.jpg" 
+                        alt="Malayatoor Church" 
+                        style="width: 30%; border-radius:12px;" />
+                    <img src="malayattoor-church.jpg" 
+                        alt="Malayatoor Church" 
+                        style="width: 30%; border-radius:12px;" />
+                </div>
+
+            </div>
+
+
+            <div class="section">
+                <h3>Legacy</h3>
+                <p>St. Thomas’ missionary work laid the foundation for Christianity in India. His Ezharappallikal churches continue to thrive, and his feast day is celebrated globally. Pilgrimages to sites like Malayatoor and San Thome Basilica preserve his spiritual legacy.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Created by SMYM St. Mary’s Church, Manalumkal – Inspired by St. Carlo Acutis | All Rights Reserved</p>
+        </footer>
+    </form>
+</body>
+</html>

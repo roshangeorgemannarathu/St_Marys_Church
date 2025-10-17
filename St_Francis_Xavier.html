@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>St. Francis Xavier – Biography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles (Desktop First) */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #FFD700, #800000);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        header h1 { font-size: 48px; margin: 0; }
+        header p { font-size: 20px; margin-top: 8px; }
+
+        nav {
+            background-color: #003366;
+            padding: 12px;
+            text-align: center;
+        }
+        nav a {
+            display: inline-block;
+            color: white;
+            font-size: 16px;
+            padding: 10px 15px;
+            text-decoration: none;
+            margin: 0 6px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav a:hover {
+            background-color: #FFD700;
+            color: #003366;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1400px;
+            margin: 40px auto;
+        }
+
+        .bio {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            padding: 35px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        .bio p { margin-bottom: 16px; }
+        .bio ul { margin-bottom: 16px; padding-left: 20px; }
+
+        /* Section Heading */
+        .section-heading {
+            position: relative;
+            font-size: 28px;
+            color: #003366;
+            text-align: left;
+            margin: 30px 0 20px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #FFD700;
+        }
+        .section-heading::before {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #FFD700;
+        }
+
+        /* Flex layout for image + text sections */
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px; /* Increased gap for better spacing */
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+        .section-img {
+            flex: 1 1 40%;
+            min-width: 250px;
+        }
+        .section-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .section-text {
+            flex: 1 1 55%;
+            min-width: 300px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Image left/right ordering */
+        .image-left .section-img { order: 0; }
+        .image-left .section-text { order: 1; }
+        .image-right .section-img { order: 1; }
+        .image-right .section-text { order: 0; }
+        
+        /* Info Box */
+        .info-box {
+            background-color: #fff8dc;
+            border: 1px solid #e0c97f;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px auto;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+            max-width: 700px;
+            text-align: center;
+        }
+        .info-box h1 {
+            color: black;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .info-box hr {
+            width: 60%;
+            margin: 10px auto;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+        .info-box .section-img {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        .info-box .section-img img {
+            max-width: 250px;
+            border-radius: 12px;
+        }
+        .details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 15px;
+            text-align: left;
+        }
+        .detail {
+            display: flex;
+            align-items: flex-start;
+        }
+        .detail .label {
+            width: 120px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 20px;
+            text-align: center;
+            color: #800000;
+            margin: 25px 0;
+            border-left: 4px solid #FFD700;
+            padding-left: 12px;
+            padding: 15px; /* Added padding */
+            background-color: #fcecec; /* Light background for quote */
+            border-radius: 5px;
+        }
+
+        footer {
+            background: linear-gradient(90deg, #800000, #003366);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            margin-top: 40px;
+        }
+        
+        /* ==================================== */
+        /* MOBILE RESPONSIVENESS (Max-width 900px/768px) */
+        /* ==================================== */
+        @media(max-width: 900px) {
+            /* General Stacking for tablet/small desktop */
+            .section {
+                flex-direction: column;
+            }
+            .section-img, .section-text {
+                flex: 1 1 100%;
+            }
+            /* Reset ordering for stacked content */
+            .image-right .section-img, .image-left .section-img {
+                order: 0;
+            }
+            .image-right .section-text, .image-left .section-text {
+                order: 1;
+            }
+
+            /* Mobile-specific adjustments (768px and below) */
+            @media (max-width: 768px) {
+                header h1 {
+                    font-size: 36px;
+                }
+                header p {
+                    font-size: 16px;
+                }
+
+                /* Stack nav links */
+                nav a {
+                    display: block; 
+                    margin: 5px auto;
+                    width: 90%; 
+                }
+
+                .container {
+                    margin: 20px auto;
+                    padding: 0 10px;
+                }
+                .bio {
+                    padding: 15px;
+                    font-size: 16px;
+                }
+
+                .section-heading {
+                    font-size: 24px;
+                    margin: 20px 0 10px;
+                }
+                
+                /* Info Box Adjustments */
+                .info-box {
+                    padding: 15px;
+                }
+                .info-box h1 {
+                    font-size: 28px;
+                }
+                .details {
+                    font-size: 16px;
+                }
+                /* Stack label and value in details for small screens */
+                .detail {
+                    flex-direction: column; 
+                    align-items: center;
+                    text-align: center;
+                }
+                .detail .label {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .quote {
+                    font-size: 16px;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>The Eucharistic Way</h1>
+        <p>Official Biography of St. Francis Xavier</p>
+    </header>
+    
+    
+
+    <div class="container">
+        <div class="bio">
+            <div class="info-box">
+                <h1>St. Francis Xavier</h1>
+                <hr>
+                <div class="section-img">
+                    <img src="d57d0de019294c337e565978517a34d2.jpg" alt="St. Francis Xavier" />
+                </div>
+
+                <div class="details">
+                    <div class="detail"><span class="label">Born:</span> Francisco de Jasso y Azpilicueta, 7 April 1506, Xavier, Kingdom of Navarre, Spain</div>
+                    <div class="detail"><span class="label">Died:</span> 3 December 1552 (aged 46), Shangchuan Island, China</div>
+                    <div class="detail"><span class="label">Venerated in:</span> Catholic Church, Anglican Communion, Lutheranism</div>
+                    <div class="detail"><span class="label">Beatified:</span> 25 October 1619 by Pope Paul V</div>
+                    <div class="detail"><span class="label">Canonized:</span> 12 March 1622 by Pope Gregory XV</div>
+                    <div class="detail"><span class="label">Feast Day:</span> 3 December</div>
+                </div>
+            </div>
+
+            <div class="section image-left">
+                <div class="section-img">
+                    <img src="e783521aa2e7ddf5e155d0631af60e23.jpg" alt="St. Francis Xavier" />
+                </div>
+                <div class="section-text">
+                    <h3 id="early-life" class="section-heading">Early Life</h3>
+                    <p>Francis Xavier was born on 7 April 1506 at the **Castle of Xavier** in the Kingdom of Navarre, into an influential noble family. He was the youngest son of Don Juan de Jasso y Atondo, a doctor of law and high-ranking official, and Doña María de Azpilcueta y Aznárez, the heiress of the Castle of Xavier. His brother Miguel de Jasso later became Lord of Xavier and Idocín. Basque and Romance were his mother tongues.</p>
+                    <p>In 1512, Navarre was invaded by Ferdinand of Aragon, beginning an 18-year war. Francis's father died in 1515, and his family lands were confiscated. His brothers took part in failed resistance attempts, and the family castle was partly demolished.</p>
+                    <p>In 1525, Francis went to Paris to study at **Collège Sainte-Barbe, University of Paris**, where he spent eleven years. He gained a reputation as an athlete and high-jumper. In 1529, he shared lodgings with **Pierre Favre**, and **Ignatius of Loyola** joined them. Initially skeptical of Ignatius’s spiritual guidance, Francis gradually was influenced by him, and in 1530 received a Master of Arts degree and taught Aristotelian philosophy at the Collège de Beauvais.</p>
+                </div>
+            </div>
+
+            <div class="section image-left">
+                <div class="section-img">
+                    <img src="d72482e041a7fa7f3d91c8f5c3daf70d.jpg" alt="Mission in India" />
+                </div>
+                <div class="section-text">
+                    <h3 id="mission-work" class="section-heading">Mission Work</h3>
+                    <p>On 15 August 1534, seven students met in a crypt beneath the Church of Saint Denis (now Saint Pierre de Montmartre), on the hill of Montmartre, overlooking Paris. They were Francis, Ignatius of Loyola, Alfonso Salmeron, Diego Laínez, Nicolás Bobadilla from Spain, Peter Faber from Savoy, and Simão Rodrigues from Portugal. They made private vows of poverty, chastity, and obedience to the Pope, and also vowed to go to the Holy Land to convert infidels. Francis began the study of theology in 1534 and was ordained on 24 June 1537.</p>
+                    <p>In 1539, after long discussions, Ignatius drew up a formula for a new religious order, the **Society of Jesus (the Jesuits)**. Ignatius's plan was approved by Pope Paul III in 1540.</p>
+                    <p>In 1540, King John III of Portugal requested Jesuit missionaries to spread the faith in his new possessions in India, where Christian values were eroding among the Portuguese. Ignatius appointed Nicholas Bobadilla and Simão Rodrigues. At the last moment, Bobadilla became seriously ill, so **Francis Xavier went in his place**. Thus, Francis began his life as the first Jesuit missionary almost accidentally.</p>
+                    <p>Leaving Rome on 15 March 1540, Francis reached **Lisbon** in June 1540. He devoted much of his life to missions in Asia, mainly in four centres: **Malacca**, **Amboina** and **Ternate** (in the Maluku Islands of Indonesia), **Japan**, and off-shore **China**.</p>
+                    <p>Francis Xavier was a missionary who used practical methods to spread Christianity. He learned local languages like **Tamil** and **Japanese**, translated religious texts, and adapted to different cultures to connect with people. His combination of personal faith and a culturally sensitive approach earned him trust and respect.</p>
+                </div>
+            </div>
+
+            <div class="section image-left">
+                <div class="section-img">
+                    <img src="St_ Francis Xavier preaching in India.jpg" alt="Mission in India" />
+                </div>
+                <div class="section-text">
+                    <h3 id="mission-in-india" class="section-heading">Mission in India</h3>
+                    <p>Francis Xavier left Lisbon on 7 April 1541, his thirty-fifth birthday, and arrived in **Goa**, then the capital of Portuguese India, on **6 May 1542**, thirteen months after leaving Lisbon.</p>
+                    <p>Francis's primary mission, as ordered by King John III, was to restore Christianity among the Portuguese settlers, whose behaviour was often criticized by missionaries. Xavier decided that he must begin by instructing the Portuguese themselves, and gave much of his time to the teaching of children. He was invited to head **Saint Paul's College**, a pioneer seminary for the education of secular priests, which became the first Jesuit headquarters in Asia.</p>
+                    <p>The first five months he spent in preaching and ministering to the sick in the hospitals. After that, he walked through the streets ringing a bell to summon the children and servants to catechism.</p>
+                </div>
+            </div>
+
+            <div class="section image-right">
+                <div class="section-img">
+                    <img src="Conversion_of_Paravas_by_Francis_Xavier_in_1542.jpg" alt="Conversions" />
+                </div>
+                <div class="section-text">
+                    <h3 id="conversion-efforts" class="section-heading">Conversion Efforts & Voyages</h3>
+                    <p>Xavier soon learned that along the **Pearl Fishery Coast** there was a Jāti of people called **Paravas**. Many of them had been baptised ten years before, merely to please the Portuguese. Accompanied by several native clerics from the seminary at Goa, he set sail for **Cape Comorin** in October 1542.</p>
+                    <p>He taught those who had already been baptised and preached to those who weren't. His efforts with the high-caste Brahmins remained unavailing. The Brahmin and Muslim authorities in Travancore opposed Xavier with violence.</p>
+                    <p>He devoted almost three years to the work of preaching to the people of southern India and Ceylon, converting many. He built nearly **40 churches** along the coast, including St. Stephen's Church, Kombuthurai, mentioned in his letters dated 1544.</p>
+                    <p>He set his sights eastward in 1545 and planned a missionary journey to **Makassar** on the island of Celebes, today's Indonesia. Later in Japan, Francis changed his approach by paying tribute to the Emperor and seeking an audience with him, recognizing the need to influence the nobility.</p>
+                </div>
+            </div>
+
+            <div class="section image-right">
+                <div class="section-img">
+                    <img src="d993435c54e3727be8126364fb5298e9.jpg" alt="Relics" />
+                </div>
+                <div class="section-text">
+                    <h3 id="burials-relics" class="section-heading">Burials & Relics</h3>
+                    <p>Xavier died on **3 December 1552** on a beach at **Shangchuan Island**, off the coast of China, attempting to gain entry into the mainland.</p>
+                    <p>In February 1553, Portuguese merchants exhumed his body, noting it was whole and odorless. His body was moved to Our Lady of the Hill in **Malacca** on 22 March 1553, then later to **Goa** in March 1554, where crowds venerated it.</p>
+                    <p>The main body was enshrined in a silver reliquary at the **Basilica of Bom Jesus, Goa**, in 1659, inside a glass and silver casket decorated with 32 silver plates depicting his life and missions.</p>
+                    <p>The **right forearm** was removed in 1614 and displayed in Rome. A relic from his right hand is on display at St Mary's Cathedral, Sydney.</p>
+                </div>
+            </div>
+
+            <div class="section image-left">
+                <div class="section-img">
+                    <img src="8811e69d25e66901712b661564900855.jpg" alt="Beatification" />
+                </div>
+                <div class="section-text">
+                    <h3 id="beatification-canonization" class="section-heading">Beatification & Canonization</h3>
+                    <p>Francis Xavier was **beatified** by Pope Paul V on 25 October 1619 and **canonized** by Pope Gregory XV on 12 March 1622. Pope Pius XI declared him the "**Patron of Catholic Missions**." His feast day is celebrated on **3 December**.</p>
+                </div>
+            </div>
+
+            <div class="section image-right">
+                <div class="section-img">
+                    <img src="saint-francis-xavier-with-a-divine-light.jpg" alt="Legacy" />
+                </div>
+                <div class="section-text">
+                    <h3 id="legacy" class="section-heading">Legacy</h3>
+                    <p><span style="background-color: yellow;">Francis Xavier became widely noteworthy for his missionary work, both as an organiser and as a pioneer; he converted more people than anyone else had done since Paul the Apostle.</span> In 2006 Pope Benedict XVI said of both Ignatius of Loyola and Francis Xavier: "not only their history which was interwoven for many years from Paris and Rome, but a unique desire – a unique passion, it could be said – moved and sustained them through different human events: the passion to give to God-Trinity a glory always greater and to work for the proclamation of the Gospel of Christ to the peoples who had been ignored."</p>
+                    <p>His personal efforts most affected religious practice in **India** and in the **East Indies** (Indonesia, Malaysia, Timor). As of 2021 India still has numerous Jesuit missions and many more schools. Xavier also worked to propagate Christianity in China and Japan.</p>
+                    <p>Francis Xavier is the **patron saint of his native Navarre**, which celebrates his feast day on 3 December as a government holiday, known as the Day of Navarre. Devoted Catholics instituted the **Javierada**, an annual day-long pilgrimage to his family's castle, where the Jesuits built a basilica and museum.</p>
+                </div>
+            </div>
+
+            <blockquote class="quote">
+                “You are the salt of the earth. Shine like a light in the world, spreading God’s love.”
+            </blockquote>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Created by SMYM St. Mary’s Church, Manalumkal – Inspired by St. Carlo Acutis | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

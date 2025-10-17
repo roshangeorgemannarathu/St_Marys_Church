@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>St. Kuriakose Elias Chavara – Biography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles (Desktop First) */
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f7f7f7; 
+            color: #333; 
+        }
+        
+        header { 
+            background: linear-gradient(90deg, #FFD700, #800000); 
+            color: white; 
+            padding: 30px 20px; 
+            text-align: center; 
+        }
+        header h1 { 
+            font-size: 48px; 
+            margin: 0; 
+        }
+        header p { 
+            font-size: 20px; 
+            margin-top: 8px; 
+        }
+
+        /* Container & Bio */
+        .container { 
+            width: 95%; 
+            max-width: 1400px; 
+            margin: 40px auto; 
+        }
+        .bio { 
+            background: white; 
+            border-radius: 12px; 
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15); 
+            padding: 35px; 
+            font-size: 18px; 
+            line-height: 1.8; 
+        }
+
+        /* Info Box */
+        .info-box { 
+            background-color: #fff8dc; 
+            border: 1px solid #e0c97f; 
+            border-radius: 12px; 
+            padding: 25px; 
+            margin: 30px auto; 
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1); 
+            max-width: 700px; 
+            text-align: center; 
+        }
+        .info-box h1 { 
+            /* Merging inline styles into class for consistency */
+            font-family: 'Georgia', serif; 
+            font-weight: bold; 
+            color: black; 
+            font-size: 36px;
+            margin-bottom: 20px; 
+        }
+        .info-box hr {
+            width: 60%; 
+            margin: 10px auto; 
+            border: 2px solid black; 
+            border-radius: 5px;
+        }
+        
+        /* Image within info box */
+        .section-img {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .info-box .section-img img { 
+            width: 380px; /* Specific width from original */
+            height: 300px; /* Specific height from original */
+            max-width: 100%; /* Ensure responsiveness */
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Details list */
+        .details { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 8px; 
+            margin-top: 15px; 
+            text-align: left; 
+        }
+        .detail { 
+            display: flex; 
+            align-items: flex-start; 
+        }
+        .detail .label { 
+            width: 160px; 
+            font-weight: bold; 
+            flex-shrink: 0; 
+        }
+
+        /* Main Content Sections */
+        .section { 
+            margin-bottom: 60px; 
+        }
+        .section h3 { 
+            color: #003366; 
+            margin-bottom: 12px; 
+            font-size: 28px; 
+            border-bottom: 2px solid #FFD700; 
+            padding-bottom: 4px; 
+        }
+        .section h4 {
+            color: #800000;
+            font-size: 22px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* Alternating layout (Default: Text left, Image right) */
+        .section-content { 
+            display: flex; 
+            align-items: flex-start; /* Use flex-start to align top, not center */
+            gap: 25px; 
+            flex-wrap: wrap; 
+        }
+        .section-content .text {
+            flex: 1; 
+            min-width: 250px;
+        }
+        .section-content .image {
+            flex: 0 0 350px; 
+            max-width: 100%;
+            text-align: center;
+        }
+        .section-content img { 
+            width: 350px; 
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px; 
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
+            object-fit: cover;
+        }
+        .reverse { 
+            flex-direction: row-reverse; 
+        }
+        
+        /* Styles for vertically stacked content (like in Education, Beatification, etc.) */
+        .section-content.stacked {
+            flex-direction: column; 
+            gap: 15px;
+            align-items: center;
+            text-align: left; /* Keep text left-aligned in column layout */
+        }
+        .section-content.stacked .image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
+
+        .quote { 
+            font-style: italic; 
+            font-size: 20px; 
+            text-align: center; 
+            color: #800000; 
+            margin: 25px 0; 
+            border-left: 4px solid #FFD700; 
+            padding: 15px; 
+            background-color: #fcecec;
+            border-radius: 5px; 
+        }
+
+        footer { 
+            background: linear-gradient(90deg, #800000, #003366); 
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+            font-size: 16px; 
+            margin-top: 40px; 
+        }
+
+        /* ==================================== */
+        /* MOBILE RESPONSIVENESS (<= 768px) */
+        /* ==================================== */
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 10px;
+            }
+            header h1 {
+                font-size: 32px;
+            }
+            header p {
+                font-size: 16px;
+            }
+
+            .container {
+                margin: 20px auto;
+                width: 98%;
+            }
+
+            .bio {
+                padding: 15px;
+                font-size: 16px;
+            }
+
+            /* Info Box */
+            .info-box {
+                padding: 15px;
+            }
+            .info-box h1 {
+                font-size: 28px;
+            }
+            
+            /* Stacking details */
+            .detail {
+                flex-direction: column; 
+                align-items: center;
+                text-align: center;
+            }
+            .detail .label {
+                width: 100%; 
+                text-align: center;
+            }
+
+            /* Alternating content sections become stacked */
+            .section-content { 
+                flex-direction: column !important; /* Forces stacking for both default and reverse */
+                text-align: center; 
+                gap: 15px;
+                align-items: center !important;
+            }
+            .section-content .text {
+                min-width: 100%;
+                text-align: left;
+            }
+            .section-content .image {
+                flex: 0 0 auto;
+                order: -1; /* Move image to top in stacked view */
+            }
+            .section-content img { 
+                width: 100%; 
+                max-width: 400px; /* Keep image manageable on small screens */
+            }
+
+            /* Section Headings */
+            .section h3 {
+                font-size: 24px;
+                margin: 20px 0 10px;
+            }
+
+            .quote {
+                font-size: 16px;
+                padding-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Eucharistic Way</h1>
+        <p>Official Biography of St. Kuriakose Elias Chavara</p>
+    </header>
+    
+    <div class="container">
+        <div class="bio">
+
+            <div class="info-box">
+                <h1>St. Kuriakose Elias Chavara</h1>
+                <hr>
+
+                <div class="section-img">
+                    <img src="348ee75ace35f7ee4f8213e3e5c761746.jpg" alt="St. Kuriakose Elias Chavara" />
+                </div>
+                <div class="details">
+                    <div class="detail"><span class="label">Born:</span> 10 February 1805, Kainakary, Kerala</div>
+                    <div class="detail"><span class="label">Died:</span> 3 January 1871, Koonammavu, Kerala</div>
+                    <div class="detail"><span class="label">Venerated in:</span> Catholic Church</div>
+                    <div class="detail"><span class="label">Beatified:</span> 8 February 1986 by Pope John Paul II</div>
+                    <div class="detail"><span class="label">Canonized:</span> 23 November 2014 by Pope Francis</div>
+                    <div class="detail"><span class="label">Feast Day:</span> 3 January</div>
+                    <div class="detail"><span class="label">Title:</span> First Canonised Indian Male Saint</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Early Life</h3>
+                <div class="section-content">
+                    <div class="text">
+                        <p>Kuriakose Elias Chavara was born on **10 February 1805** at **Kainakary, Kerala** in a Nasrani Christian family as the son of Iko (Kuriakose) Chavara and Mariam Thoppil. Nasranis are Saint Thomas Christians (also known as Syriac Christians) who trace their lineage to the ancient Christians of Kerala baptised by Thomas the Apostle. The name Kuriakose is derived from the Syriac Aramaic name ܩܘܪܝܩܘܣ (Quriaqos). He was baptised on 18 February 1805 at St. Joseph's Syro-Malabar Catholic Church, Chennamkary. On 8 September 1805, Chavara was dedicated to Blessed Virgin Mary at St. Mary's Church, Vechoor. The Chavara family has derived from the ancient Nasrani family Meenappally in Kainakary.</p>
+
+                        <p>In his childhood, Kuriakose attended the village school. There he studied language and elementary sciences. He entered the seminary in 1818 in Pallipuram where Palackal Thoma Malpan was the Rector. He was **ordained a priest on 29 November 1829** and celebrated first Holy Qurbana at St. Andrew's Basilica, Arthunkal, Alappuzha. His special intention during the first Holy Qurabana was the realization of the religious institute which was being contemplated by Palackal Thomas Malpan, Porukara Thomas Kathanar, Brother Jacob Kaniathara and himself.</p>
+                    </div>
+
+                    <div class="image">
+                        <img src="1280px-Home_of_Kuriakose_Elias_Chavara.jpg" alt="Young Kuriakose Elias Chavara">
+                        <p style="margin-top: 8px; font-style: italic; color: #555;">Home of St. Kuriakose Elias Chavara</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3>Later Life</h3>
+                <p>Kuriakose Elias Chavara joined with two other priests, Palackal Thoma Malpan and Porukara Thoma Kathanar to lead a monastic life. The name of the community they founded was Servants of Mary Immaculate.</p>
+
+                <p>The foundation for the first monastery at **Mannanam** was laid on 11 May 1831 by Porukara Thomas Kathanar. Palackal Malpan and Porukara Kathanar died in 1841 and 1846 respectively.</p>
+
+                <p>On **8 December 1855**, Kuriakose Elias Chavara and ten other priests took vows in the Carmelite tradition. He was nominated as the Prior General of Mannanam monastery. The congregation became affiliated as a Third Order institute of the Discalced Carmelites. From that point on they used the postnominal initials of TOCD.</p>
+            </div>
+            <div class="section">
+                <h3>Social Reformer</h3>
+                <p>Kuriakose Elias Chavara initiated reforms in the Kerala society much before Narayana Guru (1853), Chattambi Swamikal (1853), and Vakkom Abdul Khadar Maulavi (1854). Though he hailed from a Syriac Christian family, which occupied a higher social status, he played a major role in **educating and uplifting people**, especially of the lower ranks of society.</p>
+            </div>
+            <div class="section">
+                <h3>Education</h3>
+                <div class="section-content stacked">
+                    <p>Kuriakose Chavara started an institution for **Sanskrit studies at Mannanam in 1846**. He was the first Indian who not only dared to admit the **untouchables to schools** but also provided them with Sanskrit education, which was forbidden to the lower castes, thereby challenging social bans based on caste, as early as the former part of the 19th century.</p>
+
+                    <p>In 1856, Archbishop Bernardine Baccinelli issued a pastoral letter directing that each parish should establish an educational institution, contributing to the widespread establishment of parish-based schools in Kerala, commonly known as **Pallikudams** (schools attached to churches). As the Prior of the Carmelites of Mary Immaculate (CMI), St. Chavara played an important role in its implementation, actively encouraging his congregation to support parish-level education.</p>
+                </div>
+            </div>
+            <div class="section">
+                <h3>Midday Meal</h3>
+                <div class="section-content stacked">
+                    <p>Kuriakose Chavara was the originator of the **midday meal** idea in schools in Kerala. He knew that the schools he started would be successful if the poor students, especially dalits, were given meals. This original idea later inspired Sir C P Ramaswamy Iyer to recommend this to the King for implementation in all government-run schools across India, a practice that continues even today.</p>
+                </div>
+            </div>
+            <div class="section">
+                <h3>Pidiyari</h3>
+                <div class="section-content stacked">
+                    <p>Kuriakose Chavara started a charity practice known as **Pidiyari (a handful of rice)** to encourage people to make daily small donations to help the needy. The scheme involved participants daily setting aside a small quantity of rice in a special collection pot, which was then brought to Church on weekends and used to feed the poor, including students for the midday meal. A pious organization, **“Unnimishihayude Dharma Sabha,”** was formed to manage the Pidiyari collection.</p>
+                </div>
+            </div>
+            <div class="section">
+                <h3>Printing Press</h3>
+                <div class="section-content">
+                    <div class="text">
+                        <p>Kuriakose Chavara started **St. Joseph's Press at Mannanam in 1846**, which was the third printing press in Kerala and the **first press founded by a Malayali without the help of foreigners**. From this printing press came the oldest existing Malayalam newspaper in circulation, **Nasrani Deepika**.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3>Congregations Founded</h3>
+
+                <h4>CMI Congregation</h4>
+                <p>In co-operation with Palackal Thoma Malpan and Thoma Porukara, Kuriakose Elias Chavara founded an Indian religious congregation for men, now known as the **Carmelites of Mary Immaculate (CMI)**. Chavara took religious vows on 8 December 1855 and assumed the name Kuriakose Elias of the Holy Family.</p>
+                <p>He served as the Prior General of all the monasteries of the congregation from 1856 until his death in 1871, commonly called the 'Common Prior'. Under his leadership, seven new monasteries were established besides Mannanam.</p>
+
+                <h4>Carmelite Congregation for Women</h4>
+                <p>The first Carmelite convent for women was established at **Koonammavu** under the name Third Order of the Discalced Carmelites (TOCD) on 13 February 1866. While the founding of TOCD (now the **Congregation of the Teresian Carmelites - CTC**) has been officially attributed to Mother Eliswa Vakayil, Kuriakose Elias Chavara strongly desired and actively provided **support and spiritual guidance** for its establishment, hoping for a space where girls could receive spiritual instruction and education.</p>
+            </div>
+            
+            <div class="section">
+                <h3>Death</h3>
+                <div class="section-content reverse">
+                    <div class="text">
+                        <p>Kuriakose Elias Chavara died on **3 January 1871**, aged 65, at **Koonammavu**. He was buried in St. Philomena's Forane Church, Koonammavu. His memorial is celebrated on **3 January** as per the Syro-Malabar liturgical calendar.</p>
+
+                        <p>His last words included: "Why are you sad? All God’s people must die some day. My hour has come... I dedicate our little Congregation and each of you to the Holy Family. Always rely on Jesus, Mary and Joseph... Love our Lord Jesus in the Blessed Sacrament with all your heart... All the members of the congregation, especially elders must be charitable to one another. If you do so, God will be glorified by the congregation and which will be flourished day after day."</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <h3>Miracles</h3>
+                <div class="section-content stacked">
+                    <p>Scores of miraculous favours were reported by the intercession of Kuriakose Chavara. **St. Alphonsa of the Immaculate Conception**, the first saint of India, testified in 1936 that Kuriakose Elias Chavara had appeared to her twice during her illness and relieved her suffering. She prayed through a relic of Chavara's hair, now preserved in Mannanam, and attributed her miraculous cures to his intercession.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>Beatification</h3>
+                <div class="section-content stacked">
+                    <p>The miracle approved for his beatification was the cure of the congenital deformity of the legs (**clubfoot**) of **Joseph Mathew Pennaparambil** in April 1960. Joseph was completely cured after reciting prayers to St. Kuriakose Elias Chavara. This miracle led to his beatification as Blessed in **1986 by Pope John Paul II** at Kottayam.</p>
+                </div>
+            </div>
+
+
+            <div class="section">
+                <h3>Chronicle of Canonization</h3>
+                <div class="section-content stacked">
+                    <p>On 7 April 1984, Pope John Paul II approved his practice of heroic virtues and declared him Venerable. On **23 November 2014**, he was **canonized at Saint Peter's Square by Pope Francis** along with St. Euphrasia Eluvathingal.</p>
+                    <p>Pope Francis stated that "Father Kuriakose Elias was a religious, both active and contemplative, who generously gave his life for the Syro-Malabar Church, putting into action the maxim **‘sanctification of oneself and the salvation of others.’**"</p>
+                    <div class="image" style="align-self: flex-end; margin-top: 15px;">
+                        <img src="cns-canonizejpg-1000x6631.jpg" alt="Chronicle of Canonization of Kuriakose Chavara" style="max-width: 500px;"/>
+                    </div>
+                </div>
+            </div>
+
+            <blockquote class="quote">
+                “Sanctification of oneself and the salvation of others.” – St. Kuriakose Elias Chavara
+            </blockquote>
+
+        </div>
+    </div>
+
+    <footer>
+       <p>&copy; 2025 Created by SMYM St. Mary’s Church, Manalumkal – Inspired by St. Carlo Acutis | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

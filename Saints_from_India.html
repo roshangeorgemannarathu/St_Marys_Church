@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saints from India</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #222;
+        }
+
+        header {
+            background: linear-gradient(90deg, #FFD700, #800000);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 42px;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+        }
+
+        section {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section h2 {
+            color: #800000;
+            font-size: 30px;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #FFD700;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .section-intro {
+            font-size: 16px;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .saint-card {
+            display: flex;
+            align-items: flex-start;
+            background: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            gap: 20px;
+            transition: transform 0.3s;
+        }
+
+        .saint-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .saint-card img {
+            width: 160px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .saint-info h3 {
+            margin: 0 0 10px 0;
+            color: #800000;
+            font-size: 22px;
+        }
+
+        .saint-info p {
+            margin: 6px 0;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #003366;
+        }
+
+        footer {
+            background: linear-gradient(90deg, #800000, #003366);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 32px;
+            }
+            section h2 {
+                font-size: 24px;
+            }
+            .saint-card {
+                flex-direction: column; /* Stack image and text vertically */
+                align-items: center; /* Center the stacked items */
+                text-align: center;
+            }
+            .saint-card img {
+                margin-bottom: 15px;
+                width: 100%; 
+                max-width: 200px; /* Cap the image size */
+                height: auto; 
+            }
+            .saint-info {
+                width: 100%;
+                text-align: center;
+            }
+            /* Reset text alignment inside the info block to left for better readability of data points */
+            .saint-info p {
+                text-align: left; 
+                padding: 0 10px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Saints from India</h1>
+    </header>
+    
+
+    <section>
+        <h2>Apostles in India</h2>
+        <p style="font-size: 18px; font-weight: bold; color:#003366;">
+            Apostles were the closest followers of Jesus Christ, tasked with spreading His teachings. In India, Apostles introduced Christianity, established early churches, and nurtured Christian communities.
+        </p>
+
+        <div class="saint-card">
+            <a href="St_Thomas_the_Apostle.html">
+                <img src="2b71f4803f520964773fa4751bb25761.jpg" alt="St Thomas" />
+            </a>
+            <div class="saint-info">
+                <h3>St. Thomas the Apostle (Mar Thoma)</h3>
+                <p><span class="highlight">Born:</span> 1st century AD, Galilee</p>
+                <p><span class="highlight">Died:</span> 3 July 72 AD, Mylapore, Chennai</p>
+                <p>Introduced Christianity to Kerala and Tamil Nadu. Established early churches and baptized local communities. Martyred on St. Thomas Mount.</p>
+                <p><span class="highlight">Feast:</span> 3 July</p>
+            </div>
+        </div>
+
+        <div class="saint-card">
+            <a href="St_Bartholomew_the_Apostle.html">
+                <img src="8509d001ad85d677f6262834fa542f35.jpg" alt="St Bartholomew" />
+            </a>
+            <div class="saint-info">
+                <h3>St. Bartholomew the Apostle</h3>
+                <p><span class="highlight">Born:</span> 1st century AD, Cana (Galilee)</p>
+                <p><span class="highlight">Died:</span> 1st century AD, Armenia</p>
+                <p>Preached in the Konkan coast near Bombay, spreading Christian teachings to local populations.</p>
+                <p><span class="highlight">Feast:</span> 24 August</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section>
+        <h2>Canonized Saints of India</h2>
+        <p style="font-size: 18px; font-weight: bold; color:#003366;">
+            Saints are individuals recognized by the Church for their holiness, virtuous life, and miracles. These canonized saints contributed to Indian society through missionary work, education, social reform, and care for the poor.
+        </p>
+
+        <div class="saint-card">
+            <a href="St_Francis_Xavier.html">
+                <img src="1745862908_st-francis-xavier.jpg" alt="St Francis Xavier" />
+            </a>
+            <div class="saint-info">
+                <h3>St. Francis Xavier</h3>
+                <p><span class="highlight">Born:</span> 7 April 1506, Navarra (Spain)</p>
+                <p><span class="highlight">Died:</span> 3 December 1552, China</p>
+                <p>Cofounder of the Jesuits and patron of India. Evangelized in Goa, Tamil Nadu, and coastal regions, converting thousands to Christianity.</p>
+                <p><span class="highlight">Canonized:</span> 1622</p>
+                <p><span class="highlight">Feast:</span> 3 December</p>
+            </div>
+        </div>
+
+        <div class="saint-card">
+            <a href="St_Gonsalo_Garcia.html">
+                <img src="Statue-of-St-Gonsalo-Garcia-at-Bassein.jpg" alt="St Gonsalo Garcia" />
+            </a>
+            <div class="saint-info">
+                <h3>St. Gonsalo Garcia</h3>
+                <p><span class="highlight">Born:</span> 15 May 1557, Bassein (Bombay)</p>
+                <p><span class="highlight">Died:</span> 5 February 1597, Nagasaki (Japan)</p>
+                <p>First Indian-born saint. Served as a Franciscan friar, preached in India, and evangelized coastal communities before martyrdom in Japan.</p>
+                <p><span class="highlight">Canonized:</span> 1862</p>
+                <p><span class="highlight">Feast:</span> 6 February</p>
+            </div>
+        </div>
+
+        <div class="saint-card">
+            <a href="St._Devasahayam_Pillai.html">
+                <img src="cfcc6ad6a4fefc406496c17e0b5c5c8d.jpg" alt="St Devasahayam Pillai" />
+            </a>
+            <div class="saint-info">
+                <h3>St. Devasahayam Pillai (Lazarus)</h3>
+                <p><span class="highlight">Born:</span> 23 April 1712, Palliyadi (Tamil Nadu)</p>
+                <p><span class="highlight">Died:</span> 14 January 1752, Aralvaimozhi (Tamil Nadu)</p>
+                <p>Layperson and martyr, canonized in 2022. Witnessed faith and justice through evangelization and steadfastness under persecution.</p>
+                <p><span class="highlight">Feast:</span> 14 January</p>
+            </div>
+        </div>
+
+        <div class="saint-card">
+            <a href="St._Kuriakose_Elias_Chavara.html">
+                <img src="348ee75ace35f7ee4f8213e3e5c761746.jpg" alt="St Chavara" />
+            </a>
+            <div class="saint-info">
+                <h3>St. Kuriakose Elias Chavara</h3>
+                <p><span class="highlight">Born:</span> 8 February 1805, Kainakari (Kerala)</p>
+                <p><span class="highlight">Died:</span> 3 January 1871, Koonammavu (Kerala)</p>
+                <p>Cofounder of Carmelites of Mary Immaculate (CMI) and Congregation of Mother of Carmel (CMC). Promoted education and spirituality in Kerala.</p>
+                <p><span class="highlight">Canonized:</span> 2014</p>
+                <p><span class="highlight">Feast:</span> 3 January</p>
+            </div>
+        </div>
+
+        <div class="saint-card">
+            <a href="St._Mariam_Thresia.html">
+                <img src="80373172bd2c3318a94bb72abaa13d7b.jpg" alt="St Mariam Thresia" />
+            </a>
+            <div class="saint-info">
+                <h3>St. Mariam Thresia</h3>
+                <p><span class="highlight">Born:</span> 26 April 1876, Thrissur (Kerala)</p>
+                <p><span class="highlight">Died:</span> 8 June 1926, Thrissur (Kerala)</p>
+                <p>Founded the Congregation of the Holy Family. Known for mystical life and promoting family values and social service.</p>
+                <p><span class="highlight">Canonized:</span> 2019</p>
+                <p><span class="highlight">Feast:</span> 8 June</p>
+            </div>
+        </div>
+
+        <div class="saint-card">
+            <a href="St._Alphonsa.html">
+                <img src="3b1ccf42ffd490d6373051c2fbeff430.jpg" alt="St Alphonsa" />
+            </a>
+            <div class="saint-info">
+                <h3>St. Alphonsa</h3>
+                <p><span class="highlight">Born:</span> 19 August 1910, Kottayam (Kerala)</p>
+                <p><span class="highlight">Died:</span> 28 July 1946, Kottayam (Kerala)</p>
+                <p>First woman saint from India. A Franciscan Clarist nun, admired for holiness and suffering endured with faith.</p>
+                <p><span class="highlight">Canonized:</span> 2008</p>
+                <p><span class="highlight">Feast:</span> 28 July</p>
+            </div>
+        </div>
+
+        <div class="saint-card">
+            <a href="St_Euphrasia.html">
+                <img src="1747969b91376a17025cc0d18e534627.jpg" alt="St Euphrasia" />
+            </a>
+            <div class="saint-info">
+                <h3>St. Euphrasia</h3>
+                <p><span class="highlight">Born:</span> 17 October 1877, Kattoor (Kerala)</p>
+                <p><span class="highlight">Died:</span> 29 August 1952, Ollur (Kerala)</p>
+                <p>Nun of the Congregation of the Mother of Carmel. Known for deep spirituality, mystical life, and service to the poor.</p>
+                <p><span class="highlight">Canonized:</span> 2014</p>
+                <p><span class="highlight">Feast:</span> 29 August</p>
+            </div>
+        </div>
+
+        <div class="saint-card">
+            <a href="Mother_Teresa.html">
+                <img src="45e6018bacbf65ae47f973156396557f.jpg" alt="St Teresa of Calcutta" />
+            </a>
+            <div class="saint-info">
+                <h3>St. Mother Teresa</h3>
+                <p><span class="highlight">Born:</span> 26 August 1910, Skopje (Macedonia)</p>
+                <p><span class="highlight">Died:</span> 5 September 1997, Calcutta</p>
+                <p>Founder of the Missionaries of Charity. Renowned for serving the poorest of the poor, expanding missions globally, and promoting charity in India.</p>
+                <p><span class="highlight">Canonized:</span> 2016</p>
+                <p><span class="highlight">Feast:</span> 5 September</p>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        &copy; 2025 Created by SMYM St. Mary’s Church, Manalumkal – Inspired by St. Carlo Acutis | All Rights Reserved.
+    </footer>
+</body>
+</html>

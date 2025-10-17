@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mother Teresa – Biography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(90deg, #FFD700, #800000);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        header h1 { font-size: 48px; margin: 0; }
+        header p { font-size: 20px; margin-top: 8px; }
+        
+        /* Navigation (Retained for style, even if unused in the body) */
+        nav {
+            background-color: #003366;
+            padding: 12px;
+            text-align: center;
+        }
+        nav a {
+            display: inline-block;
+            color: white;
+            font-size: 16px;
+            padding: 10px 15px;
+            text-decoration: none;
+            margin: 0 6px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #FFD700;
+            color: #003366;
+        }
+
+        /* Container & Bio */
+        .container {
+            width: 95%;
+            max-width: 1400px;
+            margin: 40px auto;
+        }
+        .bio {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            padding: 35px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        .bio h3 {
+            color: #003366;
+            margin-bottom: 12px;
+            font-size: 28px;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 4px;
+        }
+        .bio p { margin-bottom: 16px; }
+
+        /* Section Layout for text/image */
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+        .section-img {
+            flex: 1 1 40%;
+            min-width: 250px;
+        }
+        .section-img img {
+            width: 100%;
+            height: auto; /* Base style for all images */
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        /* **NEW CLASSES FOR SPECIFIC IMAGE HEIGHTS** */
+        .tall-image {
+            height: 500px;
+            object-fit: cover;
+        }
+        .medium-image {
+            height: 400px;
+            object-fit: cover;
+        }
+        /* **END NEW CLASSES** */
+
+        .section-text {
+            flex: 1 1 55%;
+            min-width: 300px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        /* Image Alignment */
+        .image-left .section-img { order: 0; }
+        .image-left .section-text { order: 1; }
+        .image-right .section-img { order: 1; }
+        .image-right .section-text { order: 0; }
+        
+        /* Responsive Breakpoint (Tablet/Desktop -> Mobile layout switch) */
+        @media(max-width: 900px) {
+            .section { flex-direction: column; }
+            .section-img, .section-text { flex: 1 1 100%; }
+            .image-right .section-img { order: 0; } /* Reset order for mobile */
+            .image-right .section-text { order: 1; }
+
+            /* CRITICAL FIX: Unset fixed image heights on mobile */
+            .tall-image, .medium-image {
+                height: auto !important;
+            }
+        }
+
+        /* **NEW** Mobile Optimization (Smartphone sizes, like Redmi 13C) */
+        @media(max-width: 480px) {
+            /* Header adjustment */
+            header { padding: 20px 10px; }
+            header h1 { font-size: 32px; }
+            header p { font-size: 16px; }
+
+            /* Container/Body adjustment */
+            .container { margin: 20px 10px; width: auto; max-width: 100%; }
+            .bio { padding: 20px; font-size: 16px; line-height: 1.6; }
+            .bio h3 { font-size: 22px; }
+            .quote { font-size: 18px; }
+
+            /* Info Box Detail fix: Switch details to a stacked layout */
+            .info-box { padding: 15px; }
+            .details { gap: 8px; }
+            .detail { flex-direction: column; align-items: flex-start; }
+            .detail .label { width: 100%; font-weight: bold; flex-shrink: 0; margin-bottom: 2px; }
+        }
+
+        /* Quote Box */
+        .quote {
+            font-style: italic;
+            font-size: 20px;
+            text-align: center;
+            color: #800000;
+            margin: 25px 0;
+            border-left: 4px solid #FFD700;
+            padding-left: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, #800000, #003366);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            margin-top: 40px;
+        }
+
+        /* Info Box Styles (Metadata box) */
+        .info-box {
+            background-color: #fff8dc; 
+            border: 1px solid #e0c97f;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px auto;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+            max-width: 700px;
+            text-align: center;
+        }
+        .info-box h1 { color: #003366; margin-bottom: 20px; }
+        .info-box .section-img { display: flex; justify-content: center; margin: 15px 0; }
+        .info-box .section-img img { max-width: 250px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+        .details { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; text-align: left; }
+        .detail { display: flex; align-items: flex-start; }
+        .detail .label { width: 120px; font-weight: bold; flex-shrink: 0; }
+
+        /* Custom alignment for image clusters in Missionaries of Charity section */
+        .image-left .section-img > div { margin-bottom: 20px; }
+        .image-caption { font-size: 14px; color: #666; margin-top: 5px; }
+
+        /* Inline Style Overrides from original ASPX file converted to CSS for cleaner output */
+        .image-cluster {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .image-cluster div {
+            flex: 1 1 200px; 
+            text-align: center;
+        }
+        .image-cluster img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Eucharistic Way</h1>
+        <p>Official Biography of Mother Teresa</p>
+    </header>
+    
+    <div class="container">
+        <div class="bio">
+            <div class="info-box">
+                <h1>Mother Teresa of Calcutta</h1>
+                <div class="section-img">
+                    <img src="45e6018bacbf65ae47f973156396557f.jpg" alt="Mother Teresa" />
+                </div>
+                <div class="details">
+                    <div class="detail"><span class="label">Born:</span> 26 August 1910, Skopje, Ottoman Empire</div>
+                    <div class="detail"><span class="label">Died:</span> 5 September 1997 (aged 87), Kolkata, India</div>
+                    <div class="detail"><span class="label">Venerated in:</span> Catholic Church</div>
+                    <div class="detail"><span class="label">Beatified:</span> 19 October 2003 by Pope John Paul II</div>
+                    <div class="detail"><span class="label">Canonized:</span> 4 September 2016 by Pope Francis</div>
+                    <div class="detail"><span class="label">Feast Day:</span> 5 September</div>
+                </div>
+            </div>
+
+            <div class="section image-right">
+                <div class="section-img">
+                    <img src="Memorial_house_of_Mother_Teresa.jpg" alt="Memorial House of Mother Teresa" />
+                </div>
+                <div class="section-text">
+                    <h3>Early Life and Family</h3>
+                    <p>Mother Teresa's given name was Anjezë Gonxhe (or Gonxha) Bojaxhiu (Anjezë is a cognate of Agnes; Gonxhe means "flower bud" in Albanian). She was born on 26 August 1910 into a Kosovar Albanian family in Skopje, Ottoman Empire (now the capital of North Macedonia). She was baptised in Skopje the day after her birth and later considered 27 August, the day she was baptised, her "true birthday".</p>
+                    <p>She was the youngest child of Nikollë and Dranafile Bojaxhiu. Her father, who was involved in Albanian-community politics in Ottoman Macedonia, was probably poisoned, an act attributed to Serbian agents, after he had visited Belgrade for a political meeting in 1919 when she was eight years old. Her mother may have been from a village near Gjakova, believed by her offspring to be Bishtazhin.</p>
+                </div>
+            </div>
+
+            <div class="section image-left">
+                <div class="section-text">
+                    <p>According to a biography by Joan Graff Clucas, Anjezë was in her early years when she became fascinated by stories of the lives of missionaries and their service in Bengal; by age 12, she was convinced that she should commit herself to religious life. Her resolve strengthened on 15 August 1928 as she prayed at the shrine of the Black Madonna of Vitina-Letnice, where she often went on pilgrimages.</p>
+                    <p>Anjezë left home in 1928 at age 18 to join the Sisters of Loreto at Loreto Abbey in Rathfarnham, Ireland, to learn English with the intent of becoming a missionary; English was the language of instruction of the Sisters of Loreto in India. She saw neither her mother nor her sister again. Her family lived in Skopje until 1934, when they moved to Tirana. During communist leader Enver Hoxha's rule, she was considered a dangerous agent of the Vatican. Despite multiple requests, she was denied the opportunity to see her family; both her mother and sister died during Hoxha's rule, and Anjezë herself was only able to visit Albania five years after the communist regime collapsed.</p>
+                </div>
+            </div>
+
+            <div class="section image-right">
+                <div class="section-text">
+                    <p>She arrived in India in 1929 and began her novitiate in Darjeeling, in the lower Himalayas, where she learned Bengali and taught at St. Teresa's School near her convent. She took her first religious vows on 24 May 1931. She chose to be named after Thérèse de Lisieux, the patron saint of missionaries; because a nun in the convent had already chosen that name, she opted for its Spanish spelling of **Teresa**.</p>
+                    <p>Teresa took her solemn vows on 14 May 1937 while she was a teacher at the Loreto convent school in Entally, eastern Calcutta, taking the style of **'Mother'** as part of Loreto custom. She served there for nearly twenty years and was appointed its headmistress in 1944. Although Mother Teresa enjoyed teaching at the school, she was increasingly disturbed by the poverty surrounding her in Calcutta. The Bengal famine of 1943 brought misery and death to the city, and the August 1946 Direct Action Day began a period of Muslim-Hindu violence.</p>
+                    <p>In 1946, during a visit to Darjeeling by train, Mother Teresa felt that she heard the call of her inner conscience to serve the poor of India for Jesus. She asked for and received permission to leave the school. In 1950, she founded the **Missionaries of Charity**, choosing a white sari with two blue borders as the order's habit.</p>
+                </div>
+            </div>
+
+
+            <div class="section image-left">
+                <div class="section-img image-cluster">
+                    <div>
+                        <img src="mother-house-kolkata-tourism-opening-time-closing.jpg" alt="Missionaries of Charity Motherhouse in Calcutta" />
+                        <p class="image-caption">Mother House Kolkata</p>
+                    </div>
+                    <div>
+                        <img src="mother_1-1.jpg" alt="Missionaries of Charity Motherhouse in Calcutta" />
+                        <p class="image-caption">Missionaries of Charity in traditional saris</p>
+                    </div>
+                    <div>
+                        <img src="mother_3-1.jpg" alt="Missionaries of Charity Motherhouse in Calcutta" />
+                        <p class="image-caption">“I believe in person to person; every person is Christ for me.” ~ Mother Teresa</p>
+                    </div>
+                    <div>
+                        <img src="mother_2204.jpg" alt="Missionaries of Charity Motherhouse in Calcutta" />
+                        <p class="image-caption">Recognise the dignity, the individuality and the infinite value of human life.</p>
+                    </div>
+                </div>
+                <div class="section-text">
+                    <h3>Missionaries of Charity</h3>
+                    <p>On 10 September 1946, Teresa experienced what she later described as **"the call within the call"** when she travelled by train to the Loreto convent in Darjeeling from Calcutta for her annual retreat. "I was to leave the convent and help the poor while living among them. It was an order. To fail would have been to break the faith." Joseph Langford, MC, founder of her congregation of priests, the Missionaries of Charity Fathers, later wrote, "Though no one knew it at the time, Sister Teresa had just become Mother Teresa."</p>
+                    <p>She began missionary work with the poor in 1948, replacing her traditional Loreto habit with a simple **white cotton sari with a blue border**. Mother Teresa adopted Indian citizenship, spent several months in Patna to receive basic medical training at Holy Family Hospital, and ventured into the slums. She founded a school in Motijhil, Calcutta, before tending to the poor and hungry.</p>
+                    <p>Her efforts quickly caught the attention of Indian officials, including the prime minister. Mother Teresa wrote in her diary that her first year was fraught with difficulty. With no income, she begged for food and supplies and experienced doubt, loneliness, and the temptation to return to the comfort of convent life during these early months.</p>
+                    <p>On **7 October 1950**, Mother Teresa received Vatican permission for the diocesan congregation, which would become the Missionaries of Charity. In her words, it would care for "the hungry, the naked, the homeless, the crippled, the blind, the lepers, all those people who feel unwanted, unloved, uncared for throughout society, people that have become a burden to society and are shunned by everyone."</p>
+                    <p>In 1952, Mother Teresa opened her first hospice with help from Calcutta officials. She converted an abandoned Hindu temple into the Kalighat Home for the Dying, free for the poor, and renamed it **Kalighat, the Home of the Pure Heart (Nirmal Hriday)**. Those brought to the home received medical attention and the opportunity to die with dignity according to their faith. She opened a hospice for those with leprosy, calling it Shanti Nagar (City of Peace). The Missionaries of Charity also took in an increasing number of homeless children; in 1955, Mother Teresa opened Nirmala Shishu Bhavan, the Children's Home of the Immaculate Heart, as a haven for orphans and homeless youth.</p>
+                    <p>The congregation began to attract recruits and donations, and by the 1960s it had opened hospices, orphanages, and leper houses throughout India. Mother Teresa then expanded the congregation abroad, opening a house in Venezuela in 1965, followed by houses in Italy, Tanzania, and Austria in 1968, and during the 1970s in the United States and dozens of other countries.</p>
+                    <p>The Missionaries of Charity Brothers was founded in 1963, and a contemplative branch of the Sisters followed in 1976. Lay Catholics and non-Catholics were enrolled in the Co-Workers of Mother Teresa, the Sick and Suffering Co-Workers, and the Lay Missionaries of Charity. In 1981, Mother Teresa founded the Corpus Christi Movement for Priests and, with Joseph Langford, founded the Missionaries of Charity Fathers in 1984.</p>
+                    <p>By **1997**, the 13-member Calcutta congregation had grown to more than 4,000 sisters who managed orphanages, AIDS hospices, and charity centres worldwide, caring for refugees, the blind, the disabled, the aged, alcoholics, the poor and homeless, and victims of floods, epidemics, and famine. By 2007, the Missionaries of Charity numbered about 450 brothers and 5,000 sisters worldwide, operating 600 missions, schools, and shelters in 120 countries.</p>
+                </div>
+            </div>
+
+            <div class="section image-left">
+                <div class="section-img">
+                    <img src="8ec59e3ac6f5453a68018f401e210303.jpg" alt="Mother Teresa in later years" class="tall-image" />
+                </div>
+                <div class="section-text">
+                    <h3>Declining Health and Death</h3>
+                    <p>Mother Teresa had a heart attack in Rome in 1983 while she was visiting Pope John Paul II. Following a second attack in 1989, she received a pacemaker. In 1991, after a bout of pneumonia in Mexico, she had additional heart problems. Although Mother Teresa offered to resign as head of the Missionaries of Charity, in a secret ballot the sisters of the congregation voted for her to stay, and she agreed to continue.</p>
+                    <p>In April 1996, Mother Teresa fell, breaking her collarbone, and four months later she had malaria and heart failure. Although she underwent heart surgery, her health was clearly declining. According to the Archbishop of Calcutta Henry Sebastian D'Souza, he ordered a priest to perform an exorcism (with her permission) when she was first hospitalised with cardiac problems because he thought she might be under attack by the devil.</p>
+                    <p>On 13 March 1997, Mother Teresa resigned as head of the Missionaries of Charity. She died on **5 September 1997**.</p>
+                </div>
+            </div>
+
+            <div class="section image-left">
+                <div class="section-img">
+                    <img src="Indian-President-Neelam-Sanjeeva-Reddy-presenting-Bharat-Ratna-to-Mother-Teresa.jpg" alt="Mother Teresa receiving Indian awards" />
+                    <p class="image-caption">Mother Teresa receiving the Bharat Ratna in India.</p>
+                </div>
+                <div class="section-text">
+                    <h2 style="text-align: center; margin-bottom: 10px;">Recognition and Reception</h2>
+                    <h3>India</h3>
+                    <p>Mother Teresa, under the name Mary Teresa Bojaxhiu, was issued a diplomatic passport by the Indian government. She received the **Padma Shri** in 1962 and the **Jawaharlal Nehru Award for International Understanding** in 1969. Later, she received the highest civilian award, the **Bharat Ratna**, in 1980. Her official biography by Navin Chawla was published in 1992. In Calcutta, she is worshipped as a deity by some Hindus.</p>
+                    <p>To commemorate the 100th anniversary of her birth, India issued a special ₹5 coin on 28 August 2010. President Pratibha Patil stated: "Clad in a white sari with a blue border, she and the sisters of Missionaries of Charity became a symbol of hope to many."</p>
+                    <p>Indian views of Mother Teresa are mixed. Critics argued she promoted a "cult of suffering" and misrepresented Calcutta. Others praised her in death. Controversies included alleged secret baptisms and favoritism toward Christians, though some media defended her work and public perception.</p>
+                </div>
+            </div>
+
+            <div class="section image-right">
+                <div class="section-img">
+                    <img src="American-President-Ronald-Reagan-presents-Mother-Teresa-with-the-Presidential-Medal-of-Freedom-in-1997.jpg" alt="Mother Teresa receiving international awards" />
+                    <p class="image-caption">Mother Teresa receiving international recognition for humanitarian work.</p>
+                </div>
+                <div class="section-text">
+                    <h3>Elsewhere</h3>
+                    <p>Internationally, Mother Teresa gained recognition through awards and honours. She received the **Ramon Magsaysay Award** in 1962, and the 1969 BBC documentary **"Something Beautiful for God"** made her a global celebrity. She was honoured with the Pope John XXIII Peace Prize, the Pacem in Terris Award, the Order of Merit (UK), and honorary citizenship of the US, among other awards.</p>
+                    <p>During her lifetime, she was consistently ranked among Gallup's most admired women, topping the list several times in the 1980s and 1990s. In 1999, she was first in Gallup's List of Most Widely Admired People of the 20th Century.</p>
+                </div>
+            </div>
+
+            <div class="section image-left">
+                <div class="section-img">
+                    <img src="9d85cefe1cd2aeb76e467a0bcd167308-640x480.jpg" alt="Mother Teresa receiving Nobel Peace Prize" />
+                    <p class="image-caption">Mother Teresa receiving the Nobel Peace Prize in 1979.</p>
+                </div>
+                <div class="section-text">
+                    <h3>Nobel Peace Prize</h3>
+                    <p>In **1979**, Mother Teresa received the Nobel Peace Prize **"for work undertaken in the struggle to overcome poverty and distress."** She refused the conventional banquet, donating the prize money to the poor in India. When asked how to promote world peace, she answered: **"Go home and love your family."** She emphasized the importance of addressing poverty both in poor and rich countries, helping the marginalized feel loved and wanted.</p>
+                </div>
+            </div>
+
+
+            <div class="section-text">
+                <h3>Spiritual Life</h3>
+                <p>Analysing her deeds and achievements, Pope John Paul II said: "Where did Mother Teresa find the strength and perseverance to place herself completely at the service of others? She found it in prayer and in the silent contemplation of Jesus Christ, his Holy Face, his Sacred Heart." Privately, Mother Teresa experienced **doubts and struggle in her religious beliefs** which lasted nearly 50 years, until the end of her life.</p>
+                <p>Mother Teresa expressed grave doubts about God's existence and pain over her lack of faith:</p>
+                <blockquote>
+                    Where is my faith? Even deep down [...] there is nothing but emptiness and darkness. [...] If there be God – please forgive me. When I try to raise my thoughts to Heaven, there is such convicting emptiness that those very thoughts return like sharp knives and hurt my very soul.
+                </blockquote>
+                <p>Other saints (including Teresa's namesake Thérèse of Lisieux, who called it a "night of nothingness") had similar experiences of spiritual dryness. According to James Langford, these doubts were typical and would not be an impediment to canonisation.</p>
+                <p>After ten years of doubt, Mother Teresa described a brief period of renewed faith. After Pope Pius XII's death in 1958, she was praying for him at a requiem Mass when she was relieved of "the long darkness: that strange suffering." Five weeks later her spiritual dryness returned.</p>
+                <p>Mother Teresa wrote many letters to her confessors and superiors over a 66-year period, most notably to Calcutta Archbishop Ferdinand Perier and Jesuit priest Celeste van Exem (her spiritual advisor since the formation of the Missionaries of Charity). She requested that her letters be destroyed, concerned that "people will think more of me – less of Jesus."</p>
+                <p>The correspondence was nevertheless compiled in **Mother Teresa: Come Be My Light**. Mother Teresa wrote to spiritual confidant Michael van der Peet, "Jesus has a very special love for you. [But] as for me, the silence and the emptiness is so great, that I look and do not see – listen and do not hear – the tongue moves [in prayer] but does not speak. [...] I want you to pray for me – that I let Him have [a] free hand."</p>
+                <p>In *Deus caritas est* (his first encyclical), Pope Benedict XVI mentioned Mother Teresa three times and used her life to clarify one of the encyclical's main points: "In the example of Blessed Teresa of Calcutta we have a clear illustration of the fact that time devoted to God in prayer not only does not detract from effective and loving service to our neighbour but is in fact the inexhaustible source of that service." She wrote, "It is only by mental prayer and spiritual reading that we can cultivate the gift of prayer."</p>
+                <p>Although her order was not connected with the Franciscan orders, Mother Teresa admired Francis of Assisi and was influenced by Franciscan spirituality. The Sisters of Charity recite the prayer of Saint Francis every morning at Mass during the thanksgiving after Communion, and their emphasis on ministry and many of their vows are similar. Francis emphasised poverty, chastity, obedience and submission to Christ. He devoted much of his life to serving the poor, particularly lepers.</p>
+            </div>
+
+
+            <div class="section-text">
+                <h3>Miracle and Beatification</h3>
+                <p>After Mother Teresa's death in 1997, the Holy See began the process of **beatification** (the second of three steps towards canonization) and Brian Kolodiejchuk was appointed postulator by the Diocese of Calcutta. Although he said, "We didn't have to prove that she was perfect or never made a mistake", he had to prove that Mother Teresa's virtue was heroic. Kolodiejchuk submitted 76 documents, totalling 35,000 pages, which were based on interviews with 113 witnesses who were asked to answer 263 questions.</p>
+                <p>The process of canonisation requires the documentation of a miracle resulting from the intercession of the prospective saint. In 2002, the Vatican recognised as a miracle the healing of a tumour in the abdomen of Monica Besra, an Indian woman, after the application of a locket containing Teresa's picture. According to Besra, a beam of light emanated from the picture and her cancerous tumour was cured; her husband and some of her medical staff, however, said that conventional medical treatment eradicated the tumour. Ranjan Mustafi, who told *The New York Times* he had treated Besra, said that the cyst was caused by tuberculosis: "It was not a miracle ... She took medicines for nine months to one year." Even though Monica believed in the miracle, Besra's husband said, "My wife was cured by the doctors and not by any miracle [...] This miracle is a hoax."</p>
+                <p>Besra said that her medical records, including sonograms, prescriptions and physicians' notes, were confiscated by Sister Betta of the Missionaries of Charity. According to *Time*, calls to Sister Betta and the office of Sister Nirmala (Teresa's successor as head of the order) produced no comment. Officials at Balurghat Hospital, where Besra sought medical treatment, said that they were pressured by the order to call her cure miraculous.</p>
+                <p>During Mother Teresa's beatification and canonisation, the Vatican studied published and unpublished criticism of her life and work. Christopher Hitchens and Aroup Chatterjee (author of *The Final Verdict*, a book critical of Mother Teresa) spoke to the tribunal; according to Vatican officials, the allegations raised were investigated by the Congregation for the Causes of Saints. The group found no obstacle to Mother Teresa's canonisation, and issued its *nihil obstat* on 21 April 1999. Because of the attacks on her, some Catholic writers called her a sign of contradiction. Mother Teresa was **beatified on 19 October 2003** and was known by Catholics as "**Blessed**".</p>
+            </div>
+
+
+            <div class="section image-left">
+                <div class="section-img">
+                    <img src="160904084235-teresa-tapestry.jpg" alt="Mother Teresa Canonization Ceremony" class="medium-image" />
+                </div>
+                <div class="section-text">
+                    <h3>Canonization</h3>
+                    <p>On 17 December 2015, the Vatican Press Office confirmed that Pope Francis recognised a second miracle attributed to Mother Teresa: the healing of a Brazilian man with multiple brain tumours back in 2008. The miracle first came to the attention of the postulation (officials managing the cause) during the events of World Youth Day 2013 when the pope was in Brazil that July. A subsequent investigation took place in Brazil from 19–26 June 2015, which was later transferred to the Congregation for the Causes of Saints who issued a decree recognizing the investigation to be completed.</p>
+                    <p>Pope Francis **canonised her at a ceremony on 4 September 2016** in St. Peter's Square in Vatican City. Tens of thousands of people witnessed the ceremony, including 15 government delegations and 1,500 homeless people from across Italy. It was televised live on the Vatican channel and streamed online; Skopje, Mother Teresa's hometown, announced a week-long celebration of her canonisation. In India, a special Mass was celebrated by the Missionaries of Charity in Calcutta.</p>
+                </div>
+            </div>
+
+
+            <div class="section-text">
+                <h3>Legacy</h3>
+                <p>At her death, the Missionaries of Charity had over 4,000 sisters operating 610 missions in over 100 countries. She inspired millions and remains an enduring symbol of selfless service to humanity.</p>
+            </div>
+
+            <blockquote class="quote">
+                "We shall never know all the good that a simple smile can do." – Mother Teresa
+            </blockquote>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Created by SMYM St. Mary’s Church, Manalumkal – Inspired by St. Carlo Acutis | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

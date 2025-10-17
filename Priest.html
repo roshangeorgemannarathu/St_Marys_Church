@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Priests - St. Mary’s Church, Manalumkal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        a { color: #800000; text-decoration: none; }
+        a:hover { color: #FFD700; }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(90deg, rgba(255,215,0,0.85), rgba(128,0,0,0.85));
+            padding: 40px 20px;
+            text-align: center;
+            color: #fff;
+        }
+        .header-top .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        .header-text h1 {
+            font-size: 40px;
+            margin: 20px 0 0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+        }
+
+        /* ===== SECTION CONTAINERS ===== */
+        .section-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px 25px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        h2.section-title {
+            text-align: center;
+            color: #800000;
+            font-size: 32px;
+            margin-bottom: 35px;
+            border-bottom: 3px solid #FFD700;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+
+        /* ===== CURRENT VICAR ===== */
+        .current-vicar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .current-vicar img {
+            width: 320px;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid #FFD700;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            margin-bottom: 20px;
+        }
+        .current-vicar h3 {
+            font-size: 26px;
+            color: #800000;
+            margin-bottom: 10px;
+        }
+        .current-vicar p {
+            font-size: 17px;
+            margin: 4px 0;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-left: 50px;
+            border-left: 4px solid #FFD700;
+        }
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            background: #fff;
+            margin: 30px 0;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .timeline-item:hover {
+            transform: translateX(5px);
+            background-color: #fffaf0;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -35px;
+            top: 25px;
+            width: 18px;
+            height: 18px;
+            background: #800000;
+            border: 3px solid #FFD700;
+            border-radius: 50%;
+        }
+        .timeline-item img {
+            width: 140px;
+            height: 180px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 3px solid #FFD700;
+            margin-right: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .timeline-item-content {
+            flex: 1;
+        }
+        .timeline-item h3 {
+            font-size: 20px;
+            color: #800000;
+            margin-bottom: 6px;
+        }
+        .timeline-item p {
+            font-size: 15px;
+            margin: 2px 0;
+        }
+
+        /* ===== PRIEST CARDS (Eparchial) ===== */
+        .priest-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+        .priest-card {
+            width: 410px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            padding: 20px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+        .priest-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+        .priest-card img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 12px; /* rectangular with soft corners */
+            margin-bottom: 15px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .priest-card h3 {
+            font-size: 20px;
+            color: #800000;
+            margin-bottom: 6px;
+        }
+        .priest-card p {
+            font-size: 15px;
+            color: #333;
+            margin: 4px 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(90deg, #800000, #003366);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            margin-top: 50px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .priest-cards { flex-direction: column; align-items: center; }
+            .timeline { padding-left: 0; border: none; }
+            .timeline-item { flex-direction: column; text-align: center; }
+            .timeline-item img { margin: 0 0 15px 0; }
+            .timeline-item::before { display: none; } /* Hide timeline dot on mobile */
+            .priest-card { width: 90%; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-top">
+            <img src="WhatsApp Image 2025-10-09 at.jpg" alt="Church Logo" class="logo" />
+            <div class="header-text">
+                <h1>St. Mary’s Church, Manalumkal – Our Priests</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="section-container">
+        <div style="text-align:center;">
+            <h2 class="section-title" style="display:inline-block; margin:20px 0;">Our Vicar</h2>
+        </div>
+
+        <div class="current-vicar">
+            <img src="IMG_0251.jpg" alt="Fr. Thomas Ayallukunnel" />
+            <h3>Fr. Thomas Ayallukunnel</h3>
+            <p><b>Role:</b> Vicar</p>
+            <p><b>Church:</b> St. Mary’s Church, Manalumkal</p>
+            <p><b>Birthday:</b> 20-12-1977</p>
+            <p><b>Home Parish:</b> Paika</p>
+            <p><b>Ordained on:</b> 27-12-2004</p>
+            <p><b>Feast:</b> July 03</p>
+            <p><b>Priest ID:</b> 04/AYA-T/06</p>
+        </div>
+    </div>
+
+    <div class="section-container">
+        <h2 class="section-title">Former Vicars & Assistant Vicars</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <img src="JamesKudilil1707888133.jpg" alt="Fr. James Kudilil" />
+                <div class="timeline-item-content">
+                    <h3>Fr.James Kudilil </h3>
+                    <p>Vicar | 13-02-2021 – 22-02-2025</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <img src="6360_-Fr_Jacob_(1).jpg" alt="Fr. Jacob Pottakulam" />
+                <div class="timeline-item-content">
+                    <h3>Fr. Jacob Pottakulam</h3>
+                    <p>Vicar | 30-01-2016 – 13-02-2021</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <img src="KOC2.jpg" alt="Fr. James Kochayyankanal" />
+                <div class="timeline-item-content">
+                    <h3>Fr.James Kochayyankanal</h3>
+                    <p>Vicar | 26-02-2011 – 30-01-2016</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <img src="MUL1.jpg" alt="Fr. Joseph Mulanjanal" />
+                <div class="timeline-item-content">
+                    <h3>Fr. Joseph Mulanjanal</h3>
+                    <p>Vicar | 02-02-2002 – 25-02-2011</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <img src="Screenshot 2025-10-09 101011.jpg" alt="Fr. Joseph Madapallymattam" />
+                <div class="timeline-item-content">
+                    <h3>Fr. Joseph Madapallymattam</h3>
+                    <p>Vicar | 06-02-1996</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <img src="THE2.jpg" alt="Fr. Augustine Theruvath" />
+                <div class="timeline-item-content">
+                    <h3>Fr. Augustine Theruvath</h3>
+                    <p>Vicar | 02-02-1991</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <img src="7487y9823y.jpg" alt="Fr. Joseph Enthanal" />
+                <div class="timeline-item-content">
+                    <h3>Fr. Joseph Enthanal </h3>
+                    <p>Vicar | 02-05-1985</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-container">
+        <div style="text-align:center;">
+            <h2 class="section-title" style="display:inline-block; margin:20px 0;">Eparchial Priests from the Parish</h2>
+        </div>
+
+        <div class="priest-cards">
+            <div class="priest-card">
+                <img src="WhatsApp Image 2025-09.jpg" alt="Fr. George Padannamakal CMI" />
+                <h3>Fr. George Padannamakal CMI</h3>
+                
+                <p><b>Birthday:</b> 12 September</p>
+                <p><b>Place:</b> Lourdes Monastery, Koodathai, Kozhikode</p>
+                <p><b>Ordained on:</b> 29-12-1974</p>
+                <p><b>Feast:</b> April 23 </p>
+                           </div>
+
+            <div class="priest-card">
+                <img src="WhatsApp Image 2025-10-07.jpg" alt="Fr. Kottarathil Emmanuel" />
+                <h3>Fr.Emmanuel Kottarathil</h3>
+                <p><b>Vicar:</b> St. Thomas Church, Neeranthanam</p>
+                <p><b>Birthday:</b> 05 December</p>
+                
+                <p><b>Ordained on:</b> 29-12-2003</p>
+                <p><b>Feast:</b> January 01</p>
+                            </div>
+
+            <div class="priest-card">
+                <img src="IMG_20251008_190126_081.jpg" alt="Fr. Alphonse Elavanal CMI" />
+                <h3>Fr. Alphonse Elavanal CMI</h3>
+                <p><b>Rector:</b> Mary Queen's Minor Seminary, Mutholy</p>
+                <p><b>Birthday:</b> 18 September</p>
+                <p><b>Ordained on:</b> 28-12-2017</p>
+                <p><b>Feast:</b> July 28</p>
+                            </div>
+
+            <div class="priest-card">
+                <img src="WhatsApp_Image_2023-05-08.jpg" alt="Fr. Maniyangattu Joseph" />
+                <h3>Fr.Joseph Maniyangattu </h3>
+                <p><b>Licentiate Study:</b> Pont. Gregorian University, Instituto di San Giovanni Damasceno, Via di Boccea 480, 00166 Roma</p>
+                <p><b>Birthday:</b>January 16</p>
+
+                <p><b>Ordained on:</b> 29-12-2016</p>
+                <p><b>Feast:</b> March 19</p>
+                <p><b>Priest ID:</b> 16/MAN-J/10</p>
+                            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 St. Mary’s Church, Manalumkal. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>St. Alphonsa – Biography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(90deg, #FFD700, #800000);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        header h1 { font-size: 48px; margin: 0; }
+        header p { font-size: 20px; margin-top: 8px; }
+
+        /* Container & Bio */
+        .container {
+            width: 95%;
+            max-width: 1400px;
+            margin: 40px auto;
+        }
+        .bio {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            padding: 35px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        .bio h3 {
+            color: #003366;
+            margin-bottom: 12px;
+            font-size: 28px;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 4px;
+        }
+        .bio p { margin-bottom: 16px; }
+
+        /* General Section Layout */
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+        .section-img {
+            flex: 1 1 40%;
+            min-width: 250px;
+        }
+        .section-img img {
+            /* Remove inline width/height to make all images fully responsive */
+            width: 100%; 
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .section-text {
+            flex: 1 1 55%;
+            min-width: 300px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Order for Image-Text alignment */
+        .image-left .section-img { order: 0; }
+        .image-left .section-text { order: 1; }
+        .image-right .section-img { order: 1; }
+        .image-right .section-text { order: 0; }
+        
+        /* Quote Box */
+        .quote {
+            font-style: italic;
+            font-size: 20px;
+            text-align: center;
+            color: #800000;
+            margin: 30px auto; 
+            padding: 15px 20px;
+            max-width: 800px;
+            border-left: 5px solid #FFD700;
+            background: #fff8dc;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, #800000, #003366);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            margin-top: 40px;
+        }
+        
+        /* Info Box Styles */
+        .info-box {
+            background-color: #fff8dc; 
+            border: 1px solid #e0c97f;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px auto;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+            max-width: 700px;
+            text-align: center;
+        }
+        .info-box h1 { 
+            color: #003366; 
+            margin-bottom: 20px; 
+            /* Kept original inline style intent for fidelity */
+            text-align: center; 
+            font-family: 'Georgia', serif; 
+            font-weight: bold; 
+            color: black; 
+            font-size: 36px;
+        }
+        /* Style for the HR line inside the info box */
+        .info-box hr {
+            width: 60%; 
+            margin: 10px auto; 
+            border: 2px solid black; 
+            border-radius: 5px;
+        }
+        .info-box .section-img { 
+            display: flex; 
+            justify-content: center; 
+            margin: 15px 0; 
+            flex: none; 
+        }
+        .info-box .section-img img { 
+            max-width: 250px; 
+            height: auto;
+            border-radius: 12px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12); 
+            width: auto; 
+        }
+        .details { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 8px; 
+            margin-top: 15px; 
+            text-align: left; 
+        }
+        .detail { 
+            display: flex; 
+            align-items: flex-start; 
+        }
+        .detail .label { 
+            width: 120px; 
+            font-weight: bold; 
+            flex-shrink: 0; 
+        }
+
+        /* =========================================== */
+        /* MEDIA QUERIES FOR MOBILE RESPONSIVENESS */
+        /* =========================================== */
+
+        /* Tablet and smaller devices (900px) */
+        @media(max-width: 900px) {
+            /* Main section layout stacking */
+            .section { flex-direction: column; }
+            .section-img, .section-text { 
+                flex: 1 1 100%; 
+                min-width: unset; /* Allow it to shrink fully */
+            }
+            /* Resetting order for natural top-down content flow on mobile */
+            .image-left .section-img, .image-right .section-img { order: 0; }
+            .image-left .section-text, .image-right .section-text { order: 1; }
+        }
+        
+        /* Smaller Phones (e.g., Redmi 13C and most standard phones, 480px) */
+        @media(max-width: 480px) {
+            /* Header Adjustments */
+            header { padding: 20px 10px; }
+            header h1 { font-size: 36px; }
+            header p { font-size: 18px; }
+
+            /* Main Content Body */
+            .container { margin: 20px auto; }
+            .bio {
+                padding: 15px; /* Reduced internal padding */
+                font-size: 16px; /* Slightly smaller text for better line breaks */
+                line-height: 1.6;
+            }
+            .bio h3 {
+                font-size: 22px;
+            }
+            .section {
+                margin-bottom: 30px;
+            }
+
+            /* Info Box Adjustments */
+            .info-box {
+                padding: 15px;
+                margin: 20px auto;
+            }
+            .info-box h1 {
+                font-size: 26px;
+                margin-bottom: 15px;
+            }
+            .info-box .section-img img {
+                max-width: 150px; /* Smaller main image in info box */
+            }
+            
+            /* Detail list stacking for small screens (Crucial for mobile usability) */
+            .detail {
+                flex-direction: column; /* Stack label and value vertically */
+                align-items: center; /* Center stacked elements */
+                text-align: center; 
+                padding: 5px 0;
+                border-bottom: 1px dotted #ccc; /* Subtle separation */
+            }
+            .detail:last-child {
+                border-bottom: none;
+            }
+            .detail .label {
+                width: auto; /* Remove fixed width */
+                margin-bottom: 0px;
+                font-size: 16px;
+            }
+
+            /* Quote Box */
+            .quote {
+                font-size: 16px;
+                padding: 10px 15px;
+                margin: 20px auto;
+            }
+
+            /* Footer */
+            footer {
+                padding: 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>The Eucharistic Way</h1>
+        <p>Official Biography of St. Alphonsa</p>
+    </header>
+    
+    <div class="container">
+        <div class="bio">
+            <div class="info-box">
+                <h1>St. Alphonsa</h1>
+                <hr>
+
+                <div class="section-img">
+                    <img src="3b1ccf42ffd490d6373051c2fbeff430.jpg" alt="St. Alphonsa" />
+                </div>
+                <div class="details">
+                    <div class="detail"><span class="label">Born:</span> Anna Muttathupadathu, 19 August 1910, Kudamalur, Kerala, India</div>
+                    <div class="detail"><span class="label">Died:</span> 28 July 1946 (aged 35), Bharananganam, Kerala, India</div>
+                    <div class="detail"><span class="label">Venerated in:</span> Catholic Church, Syro-Malabar Church</div>
+                    <div class="detail"><span class="label">Beatified:</span> 8 February 1986 by Pope John Paul II</div>
+                    <div class="detail"><span class="label">Canonized:</span> 12 October 2008 by Pope Benedict XVI</div>
+                    <div class="detail"><span class="label">Feast Day:</span> 28 July</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-text">
+                    <h3>Early Life</h3>
+                    <p>Alphonsa, born as Annakutty Muttathupadathu on 19 August 1910, was a member of a Malankara Nasrani family. She was born in Kudamalur, a village in the princely state of Travancore, which later became part of Kerala. She was the daughter of Joseph Muttathupadathil and Mary Puthukari. Baptized on 27 August 1910, she was commonly known as Alphonsamma in her local community.</p>
+
+                    <p>Nicknamed Annakutty ("little Anna") by her parents, Alphonsa's early life was marked by personal challenges, including the early loss of her mother. Following her mother's death, she was raised by her maternal aunt. Hagiographies recount her childhood as being difficult, characterized by the strict discipline of her aunt and foster mother, as well as teasing from her schoolmates. Her education was overseen by her great-uncle, Joseph Muttathupadathu.</p>
+
+                    <p>In 1916, Alphonsa began her education in Arpookara and received her First Communion on 27 November 1917. After completing the initial cycle of schooling in 1920, she was transferred to Muttuchira, where she lived with her aunt Anna Murickan, as her mother had requested before her death. Raised in the prominent Murickan family, Alphonsa was exposed to stories of saints, prayers, and Christian songs by her grandmother.</p>
+
+                    <p>During her adolescence, Alphonsa received several marriage proposals from well-known families. However, she felt a strong calling to religious life and desired to become a "bride of Christ," dedicating herself to serving others. This conviction was reportedly reinforced by a vision of **Thérèse of Lisieux**, a figure whom Alphonsa admired and considered a role model, and who she believed foretold her future sainthood.</p>
+
+                    <p>In 1923, Alphonsa's feet were severely burned when she placed her feet into a pit of burning chaff. This injury was self-inflicted to prevent her foster mother from arranging a marriage for her, thereby allowing her to pursue her religious calling. The accident left her partially disabled for the remainder of her life.</p>
+                </div>
+            </div>
+            
+            <div class="section image-right">
+                <div class="section-text">
+                    <h3>Vocation</h3>
+                    <p>Anna joined the **Franciscan Clarist Congregation**, a religious congregation of the Third Order of St. Francis, where she completed her education.</p>
+
+                    <p>She arrived at the Clarist convent in Bharananganam, Kottayam district, on Pentecost Sunday in 1927. On August 2, 1928, she received the postulant's veil and took the name **Alphonsa of the Immaculate Conception**, in honor of Alphonsus Liguori, whose feast day fell on that date. In May 1929, Alphonsa began teaching at Malayalam High School in Vazhappally. After the death of her foster mother in 1930, she resumed her studies in Changanacherry while working as a temporary teacher in Vakakkad. On May 19, 1930, Alphonsa entered the novitiate at Bharananganam. After completing her novitiate on August 11, 1931, she took her first vows and became a fully professed member of the Catholic Church. Alphonsa sought to model her work as a nun after Thérèse of Lisieux.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-text">
+                    <h3>Health Struggles</h3>
+                    <p>Between 1930 and 1935, Alphonsa experienced significant health issues. She took her permanent religious vows on August 12, 1936. Two days later, she returned to Bharananganam from Changanacherry. She briefly taught at St. Alphonsa Girl's High School, but her poor health often prevented her from fulfilling her duties. Throughout her years as a member of the Clarist congregation, Alphonsa dealt with severe illness.</p>
+
+                    <p>In December 1936, it was claimed that she recovered from her ailments due to the intercession of **Kuriakose Elias Chavara**, though she continued to experience health issues. On June 14, 1939, she suffered a severe bout of pneumonia, which further weakened her. On October 18, 1940, an intruder entered her room at night, causing her to experience shock and temporary amnesia, which worsened her condition.</p>
+
+                    <p>Her health continued to decline over the following months, and she received the sacrament of Anointing of the sick on September 29, 1941. The next day, it is reported that she regained her memory, although her health remained fragile. Despite some improvement over the next few years, she developed gastroenteritis and liver issues in July 1945, leading to violent convulsions and vomiting. During the final year of her life, she became acquainted with Sebastian Valopilly, who later became a bishop in Kerala. Valopilly frequently administered communion to her and became known for his efforts to support marginalized communities in the region.</p>
+
+                    <blockquote class="quote">
+                        "Dear Father, as my good Lord Jesus loves me so very much, I sincerely desire to remain on this sick bed and suffer not only this, but anything else besides, even to the end of the world." – St. Alphonsa (1944)
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="section image-right">
+                <div class="section-img">
+                    <img src="fed21bec806646f1ef5673500d00093c.jpg" alt="Death of St. Alphonsa" style="border-radius: 8px;" />
+                </div>
+                <div class="section-text">
+                    <h3>Death</h3>
+                    <p>Sr. Alphonsa died on **July 28, 1946**, at the age of 35, following a series of health complications. She was buried at St. Mary's Catholic Church in **Bharananganam** within the Diocese of Palai. Her funeral was attended by a large number of people. Rev. Fr. Romulus CMI delivered the funeral oration, in which he compared her life of quiet devotion to that of St. Thérèse of Lisieux. He expressed hope rather than sorrow, suggesting that Alphonsa was now an intercessor in heaven, and speculated that her grave might become a site of pilgrimage.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-text">
+                    <h3>Veneration</h3>
+                    <p>Claims of her miraculous intervention began almost immediately upon her death and often involved the children of the convent school where she used to teach. On 2 December 1953, Cardinal Eugène Tisserant inaugurated the diocesan process for her beatification and Alphonsa was declared a **Servant of God**.</p>
+                    <p>In 1985, Pope John Paul II formally approved a miracle attributed to her intercession and on 9 July she became **"Venerable Sister Alphonsa"**.</p>
+                </div>
+            </div>
+
+
+            <div class="section">
+                <div class="section-text">
+                    <h3>Miracles</h3>
+                    <p>Hundreds of miraculous cures are claimed from her intervention, many of which involve straightening of **clubbed feet**, possibly because she has lived with deformed feet herself. Two of these cases were submitted to the Congregation for the Causes of Saints as proof of her miraculous intervention. The continuing cures are chronicled in the magazine *PassionFlower*.</p>
+                    <p>Bishop Sebastian reported: About ten years ago, when I was in a small village in Wayanad outside Manatavady, I saw a boy walking with some difficulty, using a stick. As he approached me I noted that both of his feet were turned upside down. I had a stack of holy cards in my pocket with Alphonsa's picture on them, so I pulled one of them out and gave it to the boy. When I told the boy that he should pray to this woman for the cure of his feet, the boy – he was quite smart for a ten-year-old boy – replied: "But I'm a Muslim, and, besides, I was born this way." I replied that God is very powerful, so let's pray. A few months later, a boy and a gentleman appeared at the house here. I didn't recognize them at first but soon learned that it was the Muslim boy with his father, here to tell me that his feet had been cured through their prayers to Sister Alphonsa. They showed me the calluses on the tops of his feet, and you could see the marks which had been made from the years of his walking with his feet turned under. Before they left, the three of us had our pictures taken.</p>
+                    <p>The boy had reportedly taken Alphonsa's picture card and asked Alphonsa to help fix his feet. Several days afterwards one of his feet supposedly turned around. He and the other members of his family then prayed for the cure of the second foot, which also supposedly turned around later.</p>
+                </div>
+            </div>
+
+
+            <div class="section image-left">
+                <div class="section-img">
+                    <img src="84b59cf2fb19593c0a976513c6df7516.jpg" alt="Canonization of St. Alphonsa" style="border-radius: 8px;" />
+                </div>
+                <div class="section-text">
+                    <h3>Canonization</h3>
+                    <p>On Sunday, **12 October 2008**, Pope Benedict XVI announced her **canonization** at a ceremony at Saint Peter's Square. Indians from across the world, especially people from Kerala, gathered at the ceremony in Rome. Among them was a 10-year-old Kerala boy, **Jinil Joseph**, whose clubfoot – a birth defect – was, in the judgment of Vatican officials, miraculously healed after prayers to Alphonsa in 1999.</p>
+                    <p>The final ceremony for the canonization began with the holy relics of Alphonsa being presented to the Pope by Sister Celia, Mother General of the Franciscan Clarist Congregation, the congregation to which Alphonsa belonged. Celia was accompanied by Vice Postulator Francis Vadakkel and former Kerala minister K. M. Mani, all holding lit candles. Speaking in English, the Pope declared Alphonsa a saint, after reading excerpts from the Bible. The Pope himself read out the biography of Alphonsa after the ceremony.</p>
+                    <p>In the homily, Pope Benedict XVI recalled Alphonsa's life as one of "extreme physical and spiritual suffering".</p>
+                    <p>*"This exceptional woman was convinced that her cross was the very means of reaching the heavenly banquet prepared for her by the Father. By accepting the invitation to the wedding feast, and by adorning herself with the garment of God's grace through prayer and penance, she conformed her life to Christ's and now delights in the 'rich fare and choice wines' of the heavenly kingdom."*</p>
+                    <p>"(Her) heroic virtues of patience, fortitude and perseverance in the midst of deep suffering remind us that God always provides the strength we need to overcome every trial," the pope stated before the ceremony ended.</p>
+                    <p>The canonization was greeted with the bursting of firecrackers and the toll of church bells. St Mary's Forane church at Kudmaloor, her home parish, also celebrated a special Mass. The grave at St. Mary's Forane Church, Bharananganam, where the Franciscan Clarist Sister was buried, had a chapel built there, which houses her mortal remains.</p>
+                </div>
+            </div>
+
+            <div class="section image-right">
+                <div class="section-img">
+                    <img src="Saint-Alphonsa's-Tomb-Bharananganam.jpg" alt="Legacy of St. Alphonsa" />
+                </div>
+                <div class="section-text">
+                    <h3>Legacy</h3>
+                    <p>Her **tomb at Bharananganam** attracts thousands of pilgrims each year, especially during her feast from 19–28 July. Numerous churches and shrines in Kerala and India are dedicated to her, and she is revered as the **patroness of the sick and suffering**.</p>
+                </div>
+            </div>
+
+            <blockquote class="quote">
+                “Suffering borne with faith brings one closer to Christ.” – St. Alphonsa
+            </blockquote>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Created by SMYM St. Mary’s Church, Manalumkal – Inspired by St. Carlo Acutis | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

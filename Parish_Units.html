@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ward List - St. Mary’s Church, Manalumkal</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #faf9f6;
+            color: #222;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(90deg, rgba(255,215,0,0.9), rgba(128,0,0,0.9));
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .header-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .header-top .logo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .header-text h1 {
+            font-size: 38px;
+            color: white;
+            margin: 0;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .section-title {
+            text-align: center;
+            color: #800000;
+            font-size: 34px;
+            margin: 50px 0 25px;
+            border-bottom: 4px solid #FFD700;
+            display: inline-block;
+            padding-bottom: 6px;
+        }
+
+        /* ===== WARD GRID ===== */
+        .wards-section {
+            max-width: 1400px;
+            margin: 0 auto 70px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            padding: 0 30px;
+        }
+
+        .ward-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-align: center;
+            transition: all 0.3s ease;
+            padding: 20px;
+        }
+
+        .ward-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+        }
+
+        .ward-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .ward-card img {
+            width: 100%;
+            height: auto;
+            max-height: 550px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid #FFD700;
+            transition: transform 0.3s ease;
+        }
+
+        .ward-card img:hover {
+            transform: scale(1.05);
+        }
+
+        .ward-card h3 {
+            font-size: 22px;
+            color: #800000;
+            margin: 10px 0 8px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(90deg, #800000, #003366);
+            color: white;
+            text-align: center;
+            padding: 18px;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            margin-top: 50px;
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .wards-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .wards-section {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+            }
+
+            .ward-card img {
+                max-height: 400px;
+            }
+
+            header {
+                padding: 15px;
+            }
+
+            .header-top .logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .header-text h1 {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-top">
+            <img src="WhatsApp Image 2025-10-09 at.jpg" alt="Church Logo" class="logo" />
+            <div class="header-text">
+                <h1>St. Mary’s Church, Manalumkal – Ward List</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN SECTION -->
+    <div class="section">
+        <div style="text-align: center;">
+    <h2 class="section-title">Parish Units</h2>
+</div>
+
+
+        <div class="wards-section">
+            <!-- 18 Ward Cards -->
+            <div class="ward-card"><a href="Ward1.html"><img src="4358c2bcea9e3563e6674025938a80d4.jpg" alt="St Mary's Unit" /><h3>St Mary's Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward2.html"><img src="305d4cebdbc9581ca3a7f77d29aa7be7.jpg" alt="St Joseph Unit" /><h3>St Joseph Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward3.html"><img src="3b1ccf42ffd490d6373051c2fbeff430.jpg" alt="St Alphonsa Unit" /><h3>St Alphonsa Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward4.html"><img src="48e76032ae2b5fccea4b1399495fa06c.jpg" alt="Infant Jesus Unit" /><h3>Infant Jesus Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward5.html"><img src="348ee75ace35f7ee4f8213e3e5c761746.jpg" alt="St Chavra Unit" /><h3>St Chavra Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward6.html"><img src="2395b6491e5fec419a265e57be3c67f3.jpg" alt="St Donbosco Unit" /><h3>St Donbosco Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward7.html"><img src="2cdde471e446e5ab5db36147b49d5a2c.jpg" alt="St Geevarghese Unit" /><h3>St Geevarghese Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward8.html"><img src="cd5f1ed6ffb2413168dc98b087768063.jpg" alt="St James Unit" /><h3>St James Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward9.html"><img src="f03e77174bf805ed6998a4c488e2469e.jpg" alt="St Sebastian Unit" /><h3>St Sebastian Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward10.html"><img src="cff22e8546340d54d19d98f757282a2e.jpg" alt="St Assissi Unit" /><h3>St Assissi Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward11.html"><img src="50b23130484de9a87ae4e33cbbec8002.jpg" alt="St John Paul II Unit" /><h3>St John Paul II Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward12.html"><img src="efefd4a324a58c5ee84f7d6652b9d4ba.jpg" alt="St Antony Unit" /><h3>St Antony Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward13.html"><img src="d0f8a737ac67a5c4fa1fc556b795cbf5.jpg" alt="St Xavier Unit" /><h3>St Xavier Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward14.html"><img src="11d957c1f772777c7a9f74da49f6318c.jpg" alt="St Thomas Unit" /><h3>St Thomas Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward15.html"><img src="b4a0c0bd700187d5a60b527629696952.jpg" alt="St Mathews Unit" /><h3>St Mathews Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward16.html"><img src="45e6018bacbf65ae47f973156396557f.jpg" alt="ST Mother Theresa Unit" /><h3>ST Mother Theresa Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward17.html"><img src="BL_KUNJACHAN.jpg" alt="Bl. Kunjachan Unit" /><h3>Bl. Kunjachan Unit</h3></a></div>
+            <div class="ward-card"><a href="Ward18.html"><img src="1747969b91376a17025cc0d18e534627.jpg" alt="St Evuprasia Unit" /><h3>St Evuprasia Unit</h3></a></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2025 St. Mary’s Church, Manalumkal. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
