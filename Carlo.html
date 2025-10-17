@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>St. Carlo Acutis – Biography</title>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blessed Carlo Acutis – Biography</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        /* Base Styles (Desktop First) */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -20,14 +21,8 @@
             padding: 30px 20px;
             text-align: center;
         }
-        header h1 {
-            font-size: 48px;
-            margin: 0;
-        }
-        header p {
-            font-size: 20px;
-            margin-top: 8px;
-        }
+        header h1 { font-size: 48px; margin: 0; }
+        header p { font-size: 20px; margin-top: 8px; }
 
         nav {
             background-color: #003366;
@@ -42,6 +37,7 @@
             text-decoration: none;
             margin: 0 6px;
             border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
         }
         nav a:hover {
             background-color: #FFD700;
@@ -50,18 +46,8 @@
 
         .container {
             width: 95%;
-            max-width: 1400px;
+            max-width: 1000px; /* Adjusted max-width for content flow */
             margin: 40px auto;
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-            align-items: flex-start;
-        }
-
-        /* Left: Biography */
-        .left-side {
-            flex: 1 1 60%;
-            min-width: 320px;
         }
 
         .bio {
@@ -72,76 +58,97 @@
             font-size: 18px;
             line-height: 1.8;
         }
-        .bio h3 {
-            color: #003366;
-            margin-bottom: 12px;
-            font-size: 28px;
-            border-bottom: 2px solid #FFD700;
-            padding-bottom: 4px;
-        }
         .bio p { margin-bottom: 16px; }
         .bio ul { margin-bottom: 16px; padding-left: 20px; }
-        .bio ul li { list-style-type: disc; margin-bottom: 8px;}
 
-        .bio img.section-img {
-            width: 100%;
-            max-width: 500px;
-            display: block;
-            margin: 15px auto;
-            border-radius: 10px;
+        /* Section Heading */
+        .section-heading {
+            position: relative;
+            font-size: 28px;
+            color: #003366;
+            text-align: left;
+            margin: 30px 0 20px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #FFD700;
+        }
+        .section-heading::before {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #FFD700;
+        }
+
+        /* Simplified image display: images are now block elements after text */
+        .section-img {
+            text-align: center; /* Center images within their div */
+            margin: 20px 0; /* Spacing for images */
+        }
+        .section-img img {
+            max-width: 600px; /* Max width for images */
+            width: 100%; /* Make images responsive */
+            height: 350px; /* Consistent height for visual balance */
+            object-fit: cover; /* Crop images nicely */
+            border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: block; /* Ensures centering with margin: auto */
+            margin: 0 auto;
         }
-
-        /* Right: Main Image + Prayer */
-        .right-side {
-            flex: 1 1 35%;
-            min-width: 300px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .carlo-img {
+        
+        /* Info Box - Main Details for Carlo Acutis */
+        .info-box {
+            background-color: #e6f7ff; /* Light blue for Carlo */
+            border: 1px solid #99ccff;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px auto;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+            max-width: 700px;
             text-align: center;
         }
-        .carlo-img img {
-            width: 80%;
-            max-width: 300px;
+        .info-box h1 {
+            color: #003366; /* Deep blue */
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .info-box hr {
+            width: 60%;
+            margin: 10px auto;
+            border: 2px solid #003366;
+            border-radius: 5px;
+        }
+        .info-box .main-portrait-img { /* Specific class for the main portrait */
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        .info-box .main-portrait-img img {
+            max-width: 250px;
+            height: 300px;
+            object-fit: cover;
             border-radius: 12px;
             border: 5px solid #FFD700;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
         }
-
-        .carlo-name {
-            text-align: center;
+        .details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 15px;
+            text-align: left;
+        }
+        .detail {
+            display: flex;
+            align-items: flex-start;
+        }
+        .detail .label {
+            width: 150px; /* Increased width for longer labels */
+            font-weight: bold;
+            flex-shrink: 0;
             color: #800000;
-            font-size: 42px;
-            margin: 20px 0;
-        }
-
-        .prayer {
-            background-color: #fff8e1;
-            border-left: 6px solid #FFD700;
-            padding: 30px 35px;
-            border-radius: 12px;
-            font-style: italic;
-            line-height: 1.8;
-            font-size: 18px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-            width: 100%;
-        }
-        .prayer h3, 
-        .prayer h2 {
-            color: #800000;
-            margin-top: 0;
-            font-style: normal;
-        }
-        .prayer p {
-            font-style: normal; /* Override the italic style for body text */
-            margin-bottom: 15px;
-        }
-        .prayer .carlo-name {
-            font-style: normal;
         }
 
         .quote {
@@ -151,7 +158,9 @@
             color: #800000;
             margin: 25px 0;
             border-left: 4px solid #FFD700;
-            padding-left: 12px;
+            padding: 15px;
+            background-color: #fffbe6; /* Light yellow background for quote */
+            border-radius: 5px;
         }
 
         footer {
@@ -162,30 +171,60 @@
             font-size: 16px;
             margin-top: 40px;
         }
-
-        /* Responsive Media Query */
+        
+        /* ==================================== */
+        /* MOBILE RESPONSIVENESS */
+        /* ==================================== */
         @media(max-width: 900px) {
-            .container {
-                flex-direction: column-reverse;
-                align-items: center;
-            }
-            .left-side, .right-side {
-                flex: 1 1 100%;
-                width: 100%;
-            }
-        }
-        @media(max-width: 500px) {
-             header h1 {
-                font-size: 36px;
-            }
-            .bio {
-                padding: 20px;
-            }
-            .prayer {
-                padding: 20px;
-            }
-            .carlo-name {
-                font-size: 32px;
+            /* No flex-direction: column needed for .section as it's already block-based */
+            /* Removed flex-specific mobile overrides */
+
+            @media (max-width: 768px) {
+                header h1 {
+                    font-size: 36px;
+                }
+                nav a {
+                    display: block; 
+                    margin: 5px auto;
+                    width: 90%; 
+                }
+                .bio {
+                    padding: 15px;
+                    font-size: 16px;
+                }
+                .section-heading {
+                    font-size: 24px;
+                }
+                
+                /* Info Box Adjustments for Mobile */
+                .info-box {
+                    padding: 15px;
+                }
+                .info-box h1 {
+                    font-size: 28px;
+                }
+                .details {
+                    font-size: 16px;
+                }
+                /* Stack label and value in details for small screens */
+                .detail {
+                    flex-direction: column; 
+                    align-items: center;
+                    text-align: center;
+                }
+                .detail .label {
+                    width: 100%;
+                    text-align: center;
+                    margin-bottom: 4px;
+                }
+
+                .quote {
+                    font-size: 16px;
+                }
+                
+                .section-img img {
+                    height: 250px; /* Smaller image height on small devices */
+                }
             }
         }
     </style>
@@ -194,133 +233,73 @@
 <body>
     <header>
         <h1>The Eucharistic Way</h1>
-        <p>Official Biography of St. Carlo Acutis</p>
+        <p>Official Biography of Blessed Carlo Acutis, Patron of the Internet</p>
     </header>
-
+   
     
     <div class="container">
-        <div class="left-side">
-            <div class="bio">
-                <h3><center>St. Carlo Acutis </center></h3>
-                <img src="Carlo_Acutis.jpg" alt="St. Carlo Acutis" class="section-img"/>
-                <p>
-                    Carlo Acutis was born on May 3, 1991, in London, to Andrea Acutis and Antonia Salzano. 
-                    From a young age, Carlo displayed a profound love for God and the Church that inspired his parents. 
-                    His family later moved to Milan, Italy, where Carlo’s passion for computer programming blossomed 
-                    alongside his deepening faith. His feast day is celebrated on <b>October 12</b>.
-                </p>
-
-                <h3>Canonization</h3>
-                <img src="carlo_ Canonisation.jpg" alt="Canonisation of Carlo Acutis" class="section-img"/>
-                <p>
-                    St. Carlo Acutis was canonized on <b>September 7, 2025</b>, becoming the first millennial saint. 
-                    Known for his devotion to the Eucharist and skill with technology, Carlo created a website documenting 
-                    Eucharistic miracles worldwide. His beatification took place in 2020 after the recognition of his first miracle, 
-                    and a second miracle led to his canonization.
-                </p>
-
-                <h3>Devotion & Contributions</h3>
-                <img src="carlolo_with_pc.jpg" alt="Carlo with Computers" class="section-img"/>
-                <p>
-                    At the age of seven, Carlo began attending daily Mass and praying the Rosary. 
-                    He is remembered for his words: <i>“The Eucharist is my highway to Heaven”</i>. 
-                    Using his programming skills, he cataloged 187 Eucharistic miracles across the world, 
-                    making him known as the “Patron Saint of the Internet.” 
-                </p>
-
-                <h3>Miracles</h3>
-                <ul>
-                    <li>
-                        <b>The Healing of Matheus Vianna (Brazil):</b> A boy suffering from a rare pancreatic disorder 
-                        was inexplicably healed through Carlo’s intercession.
-                    </li>
-                    <li>
-                        <b>The Healing of Valeria Valverde (Costa Rica):</b> After severe head trauma in a bicycle accident, 
-                        Valeria miraculously recovered following her mother’s prayer at Carlo’s tomb in Assisi.
-                    </li>
-                </ul>
-
-                <h3>Legacy</h3>
-                <img src="carlo_ Canonisation1.jpg" alt="Shrines and Relics" class="section-img"/>
-                <p>
-                    Pope Francis praised Carlo for showing young people that “true happiness is found by putting God first 
-                    and serving him in our brothers.” His life is a witness that holiness is possible in the modern digital world, 
-                    inspiring countless young Catholics.
-                </p>
-
-                <blockquote class="quote">
-                    “I am happy to die because I lived my life without wasting even a minute on anything unpleasing to God.”
-                </blockquote>
-            </div>
-        </div>
-
-        <div class="right-side">
-
-            <div class="prayer">
-                <div class="carlo-name">Prayer to St. Carlo Acutis</div>
-                  <div class="carlo-img">
-                    <img src="Carlo2.jpg" alt="St. Carlo Acutis" />
+        <div class="bio">
+            <div class="info-box">
+                <h1>Blessed Carlo Acutis</h1>
+                <hr>
+                <div class="main-portrait-img"> <img src="Carlo_Acutis.jpg" alt="Blessed Carlo Acutis" />
                 </div>
-                <p>Dear Father,<br/>
-                Who has given us the ardent testimony of the young Servant of God, Carlo Acutis, who made the Eucharist the core of his life and the strength of his daily commitments so that everybody may love You above all else...</p>
 
-                <p>Confirm my Faith,<br/>
-                nurture my Hope,<br/>
-                strengthen my Charity,<br/>
-                in the image of young Carlo,<br/>
-                who, growing in these virtues,<br/>
-                now lives with You.</p>
-
-                <p>Grant me the grace I really need....</p>
-
-                <p>I trust in You, Father, and your Beloved Son Jesus, in the Virgin Mary, our Dearest Mother, and in the intervention of Your Servant, Carlo Acutis.</p>
-
-                <p><b>Our Father, Hail Mary, Glory Be</b></p>
+                <div class="details">
+                    <div class="detail"><span class="label">Born:</span> Carlo Acutis, 3 May 1991, London, United Kingdom</div>
+                    <div class="detail"><span class="label">Died:</span> 12 October 2006 (aged 15), Monza, Italy</div>
+                    <div class="detail"><span class="label">Venerated in:</span> Catholic Church</div>
+                    <div class="detail"><span class="label">Beatified:</span> 10 October 2020 by Pope Francis</div>
+                    <div class="detail"><span class="label">Canonization :</span> 7 September 2024-2025</div>
+                    <div class="detail"><span class="label">Feast Day:</span> 12 October</div>
+                </div>
             </div>
 
-            <div class="prayer">
-                <h2>Official Prayer & Novena to St. Carlo Acutis</h2>
-
-                <p><b>Opening Prayer:</b><br/>
-                Most Holy Trinity, Father, Son and Holy Spirit, I thank you for all the grace and favours with which you enriched the soul of the Servant of God Carlo Acutis during his 15 years on this earth. Through the merits of this Angel of Youth, grant me the grace which I earnestly seek... (ask the grace which you seek)</p>
-
-                <h3>First Day Meditation: <i>"Not me but God"</i></h3>
-                <p>St. Carlo, you who made your life a continual renunciation and setting aside of unimportant things, grant me the grace to overcome all things and desires that are transient. Amen.</p>
-
-                <h3>Second Day Meditation: <i>"Always to be united with Jesus, that is my life's programme."</i></h3>
-                <p>St. Carlo, you who lived in the heart of Jesus, give me the grace to apply God's plan of love to everything. Amen.</p>
-
-                <h3>Third Day Meditation: <i>"Continuously ask your Guardian Angel for help."</i></h3>
-                <p>St. Carlo, you who saw the certainty of your Angel's presence, give me the Grace to live righteously, as my Guardian Angel desires. Amen.</p>
-
-                <h3>Fourth Day Meditation: <i>"Confession is like the fire enabling the soul to rise again."</i></h3>
-                <p>St. Carlo, you who experienced God’s mercy, give me the grace to constantly seek confession and deep contrition. Amen.</p>
-
-                <h3>Fifth Day Meditation: <i>"Sadness is looking at ourselves, happiness is looking towards God."</i></h3>
-                <p>St. Carlo, you who always looked towards Jesus, give me the grace to live genuine joy. Amen.</p>
-
-                <h3>Sixth Day Meditation: <i>"The only thing we have to ask God for, is the desire to be holy."</i></h3>
-                <p>St. Carlo, give me the grace of a deep desire for Heaven. Amen.</p>
-
-                <h3>Seventh Day Meditation: <i>"The Virgin Mary is the only Woman in my life."</i></h3>
-                <p>St. Carlo, you who loved the Virgin Mary above all women, give me the grace to respond to her love and example. Amen.</p>
-
-                <h3>Eighth Day Meditation: <i>"The Eucharist is my highway to Heaven."</i></h3>
-                <p>St. Carlo, you who sought Jesus in the Tabernacle, give me the grace of great devotion to the Blessed Sacrament. Amen.</p>
-
-                <h3>Ninth Day Meditation: <i>"I am happy to die because I have lived my life without wasting a minute on things displeasing to God."</i></h3>
-                <p>St. Carlo, give me perseverance to the end and a holy death. Amen.</p>
-
-                <p><b>Final Prayer:</b><br/>
-                Almighty God, Father of Mercy, raise your Servant Carlo Acutis to the glory of the altars, so that through him you will be even more glorified. Give us the honour of calling him Blessed and Saint in your Church. And through his merit, give me the grace that I so ardently desire. Amen.</p>
-
-                <p class="note"><i>Each day, pray five "Our Fathers," five "Hail Marys," and five "Glory Be to the Father," in thanksgiving for the graces granted to Carlo.</i></p>
+            <h3 id="early-life" class="section-heading">Early Life & Faith</h3>
+            <p>Carlo Acutis was born in London to Italian parents, **Andrea Acutis and Antonia Salzano**, and later moved to Milan. Despite his parents not being particularly devout, Carlo showed a deep love for the Eucharist and the Virgin Mary from a young age, inspiring his own mother to renew her faith.</p>
+            <p>He received his **First Holy Communion at age seven**, a year earlier than the usual age, after obtaining special permission. From that moment, he attended **daily Mass and prayed the Rosary daily**.</p>
+            <p>Carlo viewed the Eucharist as his "highway to Heaven." He frequently told his parents that people "are born originals but many die as photocopies," urging them to seek holiness.</p>
+            <div class="section-img">
+                <img src="carlo_early_life.jpg" alt="Carlo's Family or childhood" />
             </div>
+
+            <h3 id="digital-apostle" class="section-heading">Digital Evangelization</h3>
+            <p>Carlo was a typical teenager, enjoying video games and computers, but he channeled his passions toward his faith. He possessed a remarkable talent for computer programming, often self-teaching using university textbooks. He decided to use the internet—which he referred to as a means of communication and evangelization—to share his faith.</p>
+            <p>He created a **website cataloging Eucharistic miracles** and apparitions across the world, which took him nearly four years of research and compilation. He saw this project as a way to defend the faith against doubt, believing that people would become more devout if they knew the proofs of Christ's real presence in the Eucharist.</p>
+            <p>This work earned him the moniker **"Patron of the Internet"** or "Cyber-Apostle of the Eucharist," showcasing how modern technology can be used as a tool for holiness.</p>
+            <div class="section-img">
+                            </div>
+
+            <h3 id="eucharist" class="section-heading">The Five Musts of Carlo's Life</h3>
+            <p>Carlo's spirituality revolved around five key points, which he called his "five musts":</p>
+            <ul>
+                <li>**Daily Mass:** The Eucharist as his "highway to Heaven."</li>
+                <li>**Daily Rosary:** Trusting in the Blessed Virgin Mary.</li>
+                <li>**Weekly Confession:** To keep his soul clean.</li>
+                <li>**Eucharistic Adoration:** Seeing it as a personal dialogue with Jesus.</li>
+                <li>**Service to Others:** He volunteered at soup kitchens and cared for the poor in his community.</li>
+            </ul>
+            <p>He often used a simple analogy for his soul: "The soul is like a hot-air balloon. If you put too much ballast in the form of even venial sins, the balloon cannot go up. We need to remove the ballast as soon as possible so that the soul can soar."</p>
+            <div class="section-img">
+                <img src="magis-4-contemporary-eucharist-cover-1700x850.jpg" alt="Eucharistic adoration" />
+            </div>
+
+            <h3 id="beatification-miracle" class="section-heading">Illness, Death, and Canonization</h3>
+            <p>In early October 2006, Carlo contracted **fulminant leukemia** (M3 subtype), a rapidly aggressive form of the disease. He offered his suffering to the Lord for the Pope and the Church, stating: **"I offer to the Lord the suffering that I will have to undergo for the Pope and for the Church, so as not to go to Purgatory, but to go straight to Heaven."**</p>
+            <p>He died just days later, on **October 12, 2006**, at the age of 15, and was buried in Assisi, a place he loved due to its association with St. Francis of Assisi.</p>
+            <p>Carlo was **beatified** on October 10, 2020, after Pope Francis recognized the first miracle attributed to him: the inexplicable healing of **Matheus Vianna**, a Brazilian boy suffering from a rare pancreatic disorder.</p>
+            <div class="section-img">
+                <img src="carlo_ Canonisation.jpg" alt="Carlo's tomb in Assisi or Beatification ceremony" />
+            </div>
+            
+            <blockquote class="quote">
+                “I am happy to die because I lived my life without wasting even a minute on anything unpleasing to God.”
+            </blockquote>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 The Eucharistic Way | Inspired by St. Carlo Acutis</p>
+        <p>&copy; 2025 The Eucharistic Way | Inspired by Blessed Carlo Acutis | All Rights Reserved</p>
     </footer>
 </body>
 </html>
