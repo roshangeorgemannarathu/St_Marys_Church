@@ -396,8 +396,7 @@
 
 <body>
 
-    <!-- HEADER -->
-    <header class="site-header">
+   <header class="site-header">
         <div class="header-top">
             <a href="index.html">
                 <img src="WhatsApp Image 2025-10-09 at.jpg" alt="St Marys Logo" class="logo" />
@@ -411,7 +410,7 @@
             <span class="mobile-menu-toggle" onclick="toggleMenu()">&#9776;</span>
 
             <nav class="nav">
-                <ul class="menu">
+                <ul class="menu" id="mobile-menu">
                     <li class="dropdown">
                         <a href="#"><i class="fa-solid fa-circle-info nav-icon"></i> About</a>
                         <ul class="dropdown-menu">
@@ -1392,6 +1391,15 @@
     <footer>
         &copy; 2025 St. Mary’s Church, Manalumkal | The Eucharistic Way
     </footer>
+
+<script>
+        function toggleMenu() {
+            var menu = document.getElementById('mobile-menu');
+            if (menu) {
+                menu.classList.toggle('show');
+            }
+        }
+    </script>
 </body>
 
 </html>
