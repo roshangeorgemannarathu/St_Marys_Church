@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMYM Manalumkal | Official</title>
+    <style>
+        /* 1. അടിസ്ഥാന സെറ്റിംഗ്സ് */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        :root {
+            --primary: #800000;
+            --accent: #FFD700;
+            --bg: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: var(--bg);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 2. ഹെഡർ */
+        header {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            padding: 15px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .header-top {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo-small {
+            width: clamp(50px, 10vw, 70px);
+            height: clamp(50px, 10vw, 70px);
+            border-radius: 50%;
+            border: 2px solid white;
+            background: white;
+            flex-shrink: 0;
+        }
+        .header-text h1 { font-size: clamp(1rem, 4vw, 1.8rem); color: white; text-transform: uppercase; }
+        .header-text p { font-size: clamp(0.7rem, 2vw, 0.9rem); color: #000 !important; font-weight: 800; }
+
+        /* 3. കവർ ഫോട്ടോ */
+        .cover-section {
+            width: 100%;
+            height: clamp(200px, 40vh, 500px);
+            overflow: hidden;
+        }
+        .cover-section img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* 4. സ്പേസിംഗ് & കണ്ടെയ്നർ */
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 40px auto; /* കവർ ഫോട്ടോയ്ക്കും താഴെയും ഇടയിലുള്ള അകലം */
+            padding: 0 4%;
+        }
+
+        .section-card {
+            background: white;
+            padding: clamp(20px, 5vw, 40px);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        /* 5. റിലീസ് സെക്ഷൻ */
+        .release-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            align-items: center;
+        }
+        .release-image { flex: 1 1 300px; }
+        .release-image img { width: 100%; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .release-content { flex: 1.5 1 300px; }
+        .release-content h2 { color: var(--primary); margin-bottom: 15px; font-size: 1.5rem; border-bottom: 3px solid var(--accent); padding-bottom: 5px; }
+        
+        .quote-box { 
+            text-align: center; background: #fff9e6; padding: 15px; border-radius: 8px; 
+            border-left: 5px solid var(--primary); font-weight: bold; margin-top: 15px;
+        }
+
+        /* 6. വിഷൻ സെക്ഷൻ */
+        .vision-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        .vision-logo-side { flex: 0 0 200px; text-align: center; margin: 0 auto; }
+        .vision-logo-side img { width: 250px; height: auto; }
+        .vision-text-side { flex: 1 1 300px; }
+        .vision-text-side h2 { font-size: 1.6rem; color: #003366; margin-bottom: 15px; }
+        .bullet-point { margin-bottom: 12px; font-size: 0.95rem; }
+        .bullet-point span { font-weight: bold; color: var(--primary); }
+
+        /* 7. എക്സിക്യൂട്ടീവ് മെമ്പേഴ്സ് */
+        .members-section h2 {
+            text-align: center; color: var(--primary); font-size: 1.8rem;
+            margin-bottom: 30px; text-transform: uppercase; font-weight: 900;
+        }
+        
+        .members-grid {
+            display: grid;
+            /* ലാപ്‌ടോപ്പിൽ 4, ടാബിൽ 3, മൊബൈലിൽ 2 */
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+        }
+
+        .member-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .member-card:hover { transform: translateY(-5px); }
+
+        .member-photo {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background-color: #eee;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .member-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .member-info h3 { font-size: 0.9rem; font-weight: 800; color: #333; margin-bottom: 3px; }
+        .member-info p { font-size: 0.8rem; color: #666; font-weight: 600; }
+
+        /* ഡയറക്ടർ കാർഡ് മാത്രം വലുതാക്കാൻ */
+        .director-card {
+            grid-column: 1 / -1; /* മൊബൈലിൽ ഫുൾ വിഡ്ത്ത് */
+            max-width: 350px;
+            margin: 0 auto 20px;
+            border: 2px solid var(--accent);
+            padding: 25px;
+        }
+        .director-card .member-info h3 { font-size: 1.2rem; color: var(--primary); }
+
+        /* വലിയ സ്ക്രീനുകളിൽ ഡയറക്ടർ കാർഡ് ഗ്രിഡിന്റെ ഭാഗമാക്കാൻ */
+        @media (min-width: 768px) {
+            .director-card { grid-column: span 1; max-width: none; }
+            .members-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .members-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+         /* Media Section Styling */
+.media-title {
+    text-align: center; 
+    color: var(--primary); 
+    font-size: 1.8rem;
+    margin-bottom: 25px; 
+    text-transform: uppercase; 
+    font-weight: 900;
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.media-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    height: 220px;
+    border: 1px solid #eee;
+}
+
+.media-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.media-card:hover img {
+    transform: scale(1.05);
+}
+/* Centering the button without a box */
+.media-btn-container {
+    text-align: center;
+    margin-top: 50px; /* Extra space from the images */
+    padding: 10px;
+    background: transparent; /* Removes the box */
+    border: none;
+}
+
+/* The Maroon & Gold Modern Button */
+.media-btn {
+    background: linear-gradient(135deg, #800000 0%, #a30000 100%);
+    color: white;
+    padding: 18px 50px;
+    border: 2px solid transparent;
+    border-radius: 12px; 
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 25px rgba(128, 0, 0, 0.25);
+}
+
+/* Hover Effect: Turns Gold with Maroon Text */
+.media-btn:hover {
+    transform: translateY(-8px) scale(1.05); /* Lifts higher for better impact */
+    background: #FFD700;
+    color: #800000;
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4);
+    border: 2px solid #800000;
+}
+
+/* Arrow Animation */
+.media-btn svg {
+    transition: transform 0.3s ease;
+    stroke: currentColor;
+}
+
+.media-btn:hover svg {
+    transform: translateX(8px);
+}
+
+.media-btn:hover {
+    background: #ffffff;
+    color: #dc0000;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(225, 232, 0, 0.4);
+}
+
+/* Legacy Section Wrapper */
+.legacy-container {
+    background-color: #ffffff;
+    padding: 60px 5% 150px 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Two-column Text Setup */
+.text-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #333;
+    text-align: justify;
+}
+
+/* Group Image Styling */
+.image-area {
+    width: 80%; /* Space for the coordinator card on the right */
+    position: relative;
+    z-index: 1;
+}
+
+.image-area img {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+}
+
+/* The Exact Coordinator Card Design */
+.coordinator-frame {
+    position: absolute;
+    right: 5%;
+    bottom: 180px;
+    background: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    width: 200px;
+    text-align: center;
+    z-index: 10;
+}
+
+.coordinator-frame img {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #f0f0f0;
+}
+
+.coordinator-frame h4 {
+    margin: 12px 0 2px 0;
+    font-size: 1.1rem;
+    color: #222;
+}
+
+.coordinator-frame p {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+}
+
+/* The Gradient Wave Footer */
+.wave-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+}
+
+/* Applying your requested gradient */
+.wave-path {
+    fill: url(#wave-gradient);
+}
+
+.wave-path-overlay {
+    fill: #003366;
+    opacity: 0.3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 850px) {
+    .text-columns { grid-template-columns: 1fr; }
+    .image-area { width: 100%; }
+    .coordinator-frame { 
+        position: relative; 
+        right: auto; 
+        bottom: auto; 
+        margin: 20px auto; 
+    }
+}
+        
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <img src="smym.jpg" alt="Logo" class="logo-small">
+            <div class="header-text">
+                <h1>SMYM MANALUMKAL</h1>
+                <p>യുവത്വം കുരിശിന്റെ വഴിയേ..!</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="cover-section">
+        <img src="Gemini_Generated_Image_7suj6k7suj6k7suj.png" alt="Cover Image">
+    </div>
+
+    <div class="main-wrapper">
+        
+        <section class="section-card release-flex">
+            <div class="release-image">
+                <img src="icon.jpeg" alt="Karmarekha Release">
+                <img src="smym2.jpg" alt="Karmarekha Release">
+            </div>
+            <div class="release-content">
+                <h2>കർമ്മരേഖയും ലോഗോയും പ്രകാശനം ചെയ്തു</h2>
+                <p>SMYM മണലുങ്കൽ യൂണിറ്റിൻ്റെ ഈ പ്രവർത്തന വർഷത്തെ കർമ്മരേഖയും ലോഗോയും പ്രകാശനം ചെയ്‌തു. വിശുദ്ധ കുർബാനയ്ക്ക് ശേഷം പള്ളിയിൽ വെച്ച് നടന്ന ചടങ്ങിൽ യൂണിറ്റ് ഡയറക്ടർ റെവ. ഫാ. തോമസ് ആയിലുക്കുന്നേൽ പ്രകാശനകർമ്മം നിർവഹിച്ചു.</p>
+                <p>പുതിയ കമ്മിറ്റി നിലവിൽ വന്ന ഈ ചുരുങ്ങിയ രണ്ടു മാസത്തിനുള്ളിൽ തന്നെ 28-ഓളം വ്യത്യസ്‌തമായ പ്രവർത്തനങ്ങൾ വിജയകരമായി പൂർത്തിയാക്കാൻ സാധിച്ചത് ഏറെ അഭിമാനകരമാണെന്ന് അദ്ദേഹം പറഞ്ഞു. വരും നാളുകളിൽ കൂടുതൽ ഊർജ്ജസ്വലമായ പ്രവർത്തനങ്ങളുമായി മുന്നോട്ട് പോകണമെന്നും, കർമ്മരേഖയിലെ പദ്ധതികൾ സമയബന്ധിതമായി പൂർത്തിയാക്കാൻ എല്ലാ യുവജനങ്ങളും ഒത്തൊരുമയോടെ പ്രവർത്തിക്കണമെന്നും അദ്ദേഹം ആശംസിച്ചു.
+                <p>യൂണിറ്റ് ഭാരവാഹികളും എക്സിക്യൂട്ടീവ് കമ്മിറ്റി അംഗങ്ങളും ചടങ്ങിൽ സന്നിഹിതരായിരുന്നു. വരും വർഷം വൈവിധ്യമാർന്ന ഒട്ടേറെ കർമ്മപദ്ധതികളാണ് മണലുങ്കൽ യൂണിറ്റ് വിഭാവനം ചെയ്തിരിക്കുന്നത്.</p>
+                </p>
+                <div class="quote-box">
+                    "അലൈമൂസാ ബുർഹാ ദസ്ലീവാ"<br>
+                    (കുരിശിന്റെ വഴിയിൽ യുവത്വം)<br>
+                    <small>Youth Rooted In Altar - SMYM MANALUMKAL UNIT</small>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card vision-grid">
+            <div class="vision-logo-side">
+                <img src="smym.jpg" alt="SMYM Logo">
+                <h2 style="color: #003366; font-size: 2.5rem;"></h2>
+            </div>
+            <div class="vision-text-side">
+                <h2>Empowering Young Voices</h2>
+                <p>The Syro-Malabar Youth Movement (SMYM) is a dynamic and vibrant organization that empowers young people to live their faith with passion and purpose. At SMYM Manalumkal, our unit connects with both the national and international SMYM network, offering a platform for young people to deepen their faith, develop their leadership skills, and engage in meaningful service..</p>
+                
+                <div style="margin-top: 20px;">
+                    <div class="bullet-point">− <span>Rooted in Faith:</span> We strive to create a space where young people can deepen their relationship with God and the Syro-Malabar Catholic tradition.</div>
+                    <div class="bullet-point">− <span>Empowered for Leadership:</span> We provide opportunities for young people to develop their leadership skills and become active participants in the life of the Church and society</div>
+                    <div class="bullet-point">− <span>We encourage young people to put their faith into action through service to others, both within the parish and the wider community</div>
+                </div>
+            </div>
+        </section>
+        <section class="section-card vision-grid">
+    
+    <!-- Text Side (Left) -->
+    <div class="vision-text-side">
+        <h2>Our Activities</h2>
+        <p>At SMYM Manalumkal, we organize various activities that nurture faith, leadership, fellowship, and service among young people.</p>
+        
+        <div style="margin-top: 20px;">
+            
+            <div class="bullet-point">
+                − <span>Spiritual Gatherings:</span> We organize retreats, prayer meetings, and faith-sharing sessions to nurture the spiritual growth of our members.
+            </div>
+
+            <div class="bullet-point">
+                − <span>Leadership Training:</span> We provide workshops and training programs to equip young people with the skills and knowledge they need to become effective leaders.
+            </div>
+
+            <div class="bullet-point">
+                − <span>Social Events:</span> We host social gatherings and outings to foster friendship and build community among our members.
+            </div>
+
+            <div class="bullet-point">
+                − <span>Service Projects:</span> We participate in various service projects, addressing social needs and making a positive impact on the lives of others.
+            </div>
+
+            <div class="bullet-point">
+                − <span>National and International Conferences:</span> We encourage our members to participate in SMYM conferences and events at the national and international levels, broadening their horizons and connecting with young people from diverse backgrounds.
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Image Side (Right) -->
+    <div class="vision-logo-side">
+        <img src="Crosstheway.jpg" alt="SMYM Activities">
+        <img src="smym3.jpg" alt="SMYM Activities">
+        <h2 style="color: #003366; font-size: 2.5rem;"></h2>
+    </div>
+
+</section>
+            <section class="section-card">
+    <h2 class="media-title">Media</h2>
+    
+    <div class="media-grid">
+        <div class="media-card">
+            <img src="smym4.jpg" alt="Media 1">
+        </div>
+        <div class="media-card">
+            <img src="Screenshot 2025-10-06 170533.jpg" alt="Media 2">
+        </div>
+        <div class="media-card">
+            <img src="Screenshot 2025-10-06 170713.jpg" alt="Media 3">
+        </div>
+    </div>
+
+    <div class="media-btn-container">
+    <button class="media-btn" onclick="location.href='#'">
+        Explore Media Gallery
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+    </button>
+</div>
+</section>
+        <section class="members-section">
+            <h2>Executive Members 2026-27</h2>
+            <div class="members-grid">
+                
+                <div class="member-card director-card">
+                    <div class="member-photo"><img src="Screenshot 2025-10-17 204839.png" alt="Fr. Thomas"></div>
+                    <div class="member-info">
+                        <h3>Fr. Thomas Ayallukunnel</h3>
+                        <p>Director</p>
+                    </div>
+                </div>
+
+                <div class="member-card">
+                    <div class="member-photo"><img src="Screenshot 2026-03-08 211526.jpg" alt="Sr.Jasmin FCC"></div>
+                    <div class="member-info"><h3>Sr.Jasmin FCC</h3><p>Joint Director</p></div>
+                </div>
+                <div class="member-card">
+                    <div class="member-photo"><img src="jestin.png" alt="Jestin Jose"></div>
+                    <div class="member-info"><h3>Jestin Jose</h3><p>Lay Animator</p></div>
+                </div>
+                <div class="member-card">
+                    <div class="member-photo"><img src="shibi.jpeg" alt="Shibi Saju"></div>
+                    <div class="member-info"><h3>Shibi Saju</h3><p>Lady Animator</p></div>
+                </div>
+                <div class="member-card">
+                    <div class="member-photo"><img src="nevin.jpg" alt="Nevin Varghese"></div>
+                    <div class="member-info"><h3>Nevin Varghese</h3><p>President</p></div>
+                </div>
+                <div class="member-card">
+                    <div class="member-photo"><img src="Roshan.jpeg" alt="Roshan Thomas"></div>
+                    <div class="member-info"><h3>Roshan Thomas</h3><p>General Secretary</p></div>
+                </div>
+                <div class="member-card">
+                    <div class="member-photo"><img src="GEO.jpeg" alt="Geo Siby"></div>
+                    <div class="member-info"><h3>Geo Siby</h3><p>Vice President</p></div>
+                </div>
+                <div class="member-card">
+                    <div class="member-photo"><img src="1000587259.jpg.jpeg" alt="Femy Antony"></div>
+                    <div class="member-info"><h3>Femy Antony</h3><p>Vice President</p></div>
+                </div>
+                <div class="member-card">
+                    <div class="member-photo"><img src="135A5477 - Copy.JPG.jpeg" alt="Treesa Maria Baby"></div>
+                    <div class="member-info"><h3>Treesa Maria Baby</h3><p>Secretary</p></div>
+                </div>
+                <div class="member-card">
+                    <div class="member-photo"><img src="1000639864.jpg.jpeg" alt="jerin Jose"></div>
+                    <div class="member-info"><h3>Jerin Jose</h3><p>Treasurer</p></div>
+                </div>
+                <div class="member-card">
+                    <div class="member-photo"><img src="1000587280.jpg.jpeg" alt="Adorn Benny"></div>
+                    <div class="member-info"><h3>Adorn Benny</h3><p>Forane Councillor</p></div>
+                </div>
+                <div class="member-card">
+                    <div class="member-photo"><img src="1000591299.jpg.jpeg" alt="Anju Joby"></div>
+                    <div class="member-info"><h3>Anju Joby</h3><p>Forane Councillor</p></div>
+                </div>
+                <div class="member-card">
+                    <div class="member-photo"><img src="kevin.jpeg" alt="Kevin Tom"></div>
+                    <div class="member-info"><h3>Kevin Tom</h3><p>Committee Member</p></div>
+                </div>
+                <div class="member-card">
+                    <div class="member-photo"><img src="jibin.jpeg" alt="Adv. Jibin Joji"></div>
+                    <div class="member-info"><h3>Adv. Jibin Joji</h3><p>Organizer</p></div>
+                </div>
+            </div>
+        </section>
+    </div>
+       <section class="legacy-container">
+    <div class="text-columns">
+        
+        <div>
+            <h2 style="color: #003366 !important; font-weight: bold; text-transform: uppercase;">
+    SMYM MANALUMKAL
+</h2>
+            The Syro Malabar Youth Movement (SMYM) is the official youth movement of the Syro Malabar Church. The movement encourages youth across the world, to lead a life as a witness to Jesus and develop spiritually in the context of Catholic teachings and beliefs. In our Church, SMYM Manalumkal was founded in 2011, under the guidance of Fr.James Kochayyankanal. We engage in weekly prayer 
+        </div>
+        <div>
+          monthly adoration (Awaken), and monthly youth gatherings (Atoma). Furthermore, we work very closely with our Parish Council Members, Catechism Department, Kaikkarans and Vicar to run parish activities. As the movement has grown, we are eagerly looking forward to continuing our mission work to spread the Word of Our Lord. As Pope Francis said, "Do not be afraid to share with others the hope and joy of the risen Christ".
+        </div>
+    </div>
+
+    <div class="image-area">
+        <img src="684b3377e5527bda288311cea50ccb8b.jpg" alt="SMYM Group">
+    </div>
+
+
+   <div class="wave-box">
+    <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#800000;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#003366;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <path class="wave-path-overlay" d="M0,224L120,202.7C240,181,480,139,720,138.7C960,139,1200,181,1320,202.7L1440,224L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+        <path class="wave-path" d="M0,288L120,266.7C240,245,480,203,720,202.7C960,203,1200,245,1320,266.7L1440,288L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+    </svg>
+    
+    <div class="footer-content">
+        <p>&copy; 2026 SMYM St. Mary’s Church, Manalumkal. All Rights Reserved.</p>
+    </div>
+</div>
+</section>
+    
+
+</body>
+</html>
