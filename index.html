@@ -14,364 +14,341 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    <style>
-        /* === GLOBAL === */
-        body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #222;
-        }
+  <style>
 
-        /* === HEADER === */
-        .site-header {
-            background: linear-gradient(90deg, #FFD700, #800000);
-            padding: 20px 30px;
-            font-family: 'Roboto', sans-serif;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
+/* ================= GLOBAL ================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        .header-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+    background: #f9f9f9;
+    color: #222;
+}
 
-        .header-top .logo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid white;
-            object-fit: cover;
-        }
+img {
+    max-width: 100%;
+    height: auto;
+}
 
-        .header-text {
-            text-align: center;
-            flex: 1;
-        }
+/* ================= HEADER ================= */
+.site-header {
+    background: linear-gradient(90deg, #FFD700, #800000);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
 
-        .header-text h1 {
-            font-family: 'Merriweather', serif;
-            font-size: 40px;
-            color: white;
-            margin: 0;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-        }
+/* HEADER FLEX */
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
 
-        .header-text .header-subtitle {
-            font-size: 18px;
-            color: moccasin;
-            margin-top: 5px;
-        }
+/* LOGO */
+.logo {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    object-fit: cover;
+}
 
-        .mobile-menu-toggle {
-            display: none;
-            font-size: 28px;
-            color: #FFD700;
-            cursor: pointer;
-        }
+/* TEXT */
+.header-text {
+    flex: 1;
+    text-align: center;
+}
 
-        /* === NAVIGATION === */
-        .nav ul.menu {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-            margin: 0;
-            padding: 0;
-        }
+.header-text h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 32px;
+    color: #fff;
+}
 
-        .nav a {
-            color: moccasin;
-            font-size: 18px;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 6px;
-            transition: 0.3s;
-        }
+.header-subtitle {
+    font-size: 16px;
+    color: moccasin;
+}
 
-        .nav a:hover {
-            background: #FFD700;
-            color: #003366;
-        }
+/* NAV */
+.nav ul.menu {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
 
-        .dropdown {
-            position: relative;
-        }
+.nav a {
+    color: moccasin;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 5px;
+}
 
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            border-radius: 6px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            list-style: none;
-            padding: 8px 0;
-            z-index: 1000;
-        }
+.nav a:hover {
+    background: #FFD700;
+    color: #003366;
+}
 
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
+/* MOBILE MENU */
+.mobile-menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: #FFD700;
+    cursor: pointer;
+}
 
-        .dropdown-menu li a {
-            color: #333;
-            font-size: 16px;
-            padding: 10px 16px;
-            display: block;
-        }
+/* DROPDOWN */
+.dropdown {
+    position: relative;
+}
 
-        .dropdown-menu li a:hover {
-            background: #FFD700;
-            color: #800000;
-        }
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: #fff;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    border-radius: 6px;
+    overflow: hidden;
+}
 
-        /* === SLIDER === */
-        .slider {
-            width: 100%;
-            height: 600px;
-            position: relative;
-            overflow: hidden;
-            margin: 0 auto;
-        }
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
 
-        .slider video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-        }
+/* ================= SLIDER ================= */
+.slider {
+    width: 100%;
+    height: 500px;
+}
 
-        /* === CARDS SECTION === */
-        .content {
-            padding: 40px 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
+.slider video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        .card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            text-align: center;
-            padding: 20px;
-            transition: transform 0.3s ease;
-        }
+/* ================= CARDS ================= */
+.content {
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
 
-        .card:hover {
-            transform: translateY(-8px);
-        }
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
 
-        .card img {
-            width: 100%;
-            height: 270px;
-            border-radius: 10px;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
+.card:hover {
+    transform: translateY(-6px);
+}
 
-        .card h1 {
-            font-size: 22px;
-            color: #800000;
-        }
+.card img {
+    height: 220px;
+    object-fit: cover;
+}
 
-        .card p {
-            font-size: 16px;
-        }
+.card h1 {
+    font-size: 20px;
+    color: #800000;
+}
 
-        /* === FOOTER === */
-        footer {
-            background: linear-gradient(90deg, #800000, #003366);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 14px;
-            margin-top: 40px;
-        }
+/* ================= SACRED SECTION ================= */
+.sacred-journey-section {
+    padding: 50px 20px;
+}
 
-        /* === RESPONSIVE === */
-        @media (max-width: 992px) {
-            .nav ul.menu {
-                display: none;
-                flex-direction: column;
-                background: #8b0000;
-                width: 100%;
-            }
+.sacred-journey-section .container {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
 
-            .nav ul.menu.show {
-                display: flex;
-            }
+.image-wrapper, .text-content {
+    flex: 1;
+}
 
-            .mobile-menu-toggle {
-                display: block;
-            }
+/* ================= ABOUT ================= */
+.about-section-wrapper {
+    padding: 50px 20px;
+}
 
-            .header-text h1 {
-                font-size: 28px;
-            }
+.about-content-container {
+    display: flex;
+    gap: 30px;
+}
 
-            .header-top {
-                justify-content: center;
-            }
+.about-image-wrapper,
+.about-text-wrapper {
+    flex: 1;
+}
 
-            .slider {
-                height: 400px;
-            }
+/* ================= SAINTS ================= */
+.saints-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
 
-            body {
-                font-family: 'Roboto', sans-serif;
-                margin: 0;
-                background: #f9f9f9;
-                color: #222;
-            }
+.saint-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
 
-            h1,
-            h2 {
-                font-family: 'Georgia', serif;
-            }
+/* ================= CHAPELS ================= */
+.chapels-grid {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
 
-            .media-cell-container {
-                width: 95%;
-                max-width: 1400px;
-                margin: 50px auto;
-                background: #fff;
-                border-radius: 16px;
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-                padding: 30px;
-            }
+.chapel-card {
+    flex: 0 0 45%;
+}
 
-            
+/* ================= HOUSES ================= */
+.houses-grid {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
 
-            .media-video {
-                flex: 0 0 60%;
-                min-width: 320px;
-            }
+.house-card {
+    flex: 0 0 45%;
+}
 
-            .media-video img {
-                width: 100%;
-                max-height: 900px;
-                object-fit: cover;
-                border-radius: 12px;
-                cursor: pointer;
-            }
+/* ================= FORANE ================= */
+.forane-content-container {
+    display: flex;
+    gap: 30px;
+}
 
-            .media-details {
-                flex: 0 0 35%;
-                min-width: 280px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                gap: 15px;
-            }
+.forane-details,
+.forane-image-wrapper {
+    flex: 1;
+}
 
-            .more-btn {
-                background: linear-gradient(90deg, #FFD700, #FFA500);
-                color: #003366;
-                border: none;
-                padding: 14px 20px;
-                font-size: 18px;
-                font-weight: bold;
-                border-radius: 10px;
-                cursor: pointer;
-                transition: 0.3s;
-            }
+/* ================= VIDEO ================= */
+.gallery-grid {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-            .more-btn:hover {
-                transform: scale(1.05);
-                background: linear-gradient(90deg, #FFC107, #FF9800);
-            }
+.card-small {
+    width: 300px;
+}
 
-            .content-section {
-                width: 90%;
-                margin: 60px auto;
-                background: #fff;
-                padding: 30px;
-                border-radius: 12px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            }
+/* ================= FOOTER ================= */
+footer {
+    background: linear-gradient(90deg, #800000, #003366);
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+}
 
-            .content-section img {
-                width: 100%;
-                border-radius: 12px;
-            }
+/* ================= TABLET ================= */
+@media (max-width: 992px) {
 
-            .chapels-section {
-                width: 90%;
-                margin: 60px auto;
-                text-align: center;
-            }
+    .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-            .chapels-grid {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
-            }
+    .saints-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-            .chapel-card {
-                background: #fff;
-                border-radius: 12px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                padding: 20px;
-                width: 320px;
-                text-align: center;
-            }
+    .header-text h1 {
+        font-size: 26px;
+    }
 
-            .chapel-card img {
-                width: 100%;
-                border-radius: 10px;
-                margin-bottom: 10px;
-            }
+    .slider {
+        height: 350px;
+    }
 
-            #video-gallery {
-                width: 90%;
-                margin: 60px auto;
-                text-align: center;
-            }
+    .nav ul.menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #8b0000;
+    }
 
-            #video-gallery .grid {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 25px;
-            }
+    .nav ul.menu.show {
+        display: flex;
+    }
 
-            .card-small {
-                background: #fff;
-                border-radius: 12px;
-                padding: 15px;
-                width: 300px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            }
+    .mobile-menu-toggle {
+        display: block;
+    }
+}
 
-            .card-small img {
-                width: 100%;
-                border-radius: 10px;
-            }
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
 
-            footer {
-                background: linear-gradient(90deg, #800000, #003366);
-                color: #fff;
-                text-align: center;
-                padding: 15px;
-                margin-top: 50px;
-            }
+    .header-top {
+        flex-direction: column;
+    }
 
-            iframe {
-                border-radius: 12px;
-            }
+    .logo {
+        width: 90px;
+        height: 90px;
+    }
 
-           
-    </style>
+    .content {
+        grid-template-columns: 1fr;
+    }
+
+    .saints-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sacred-journey-section .container,
+    .about-content-container,
+    .forane-content-container {
+        flex-direction: column;
+    }
+
+    .chapels-grid,
+    .houses-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chapel-card,
+    .house-card {
+        width: 100%;
+    }
+
+    .slider {
+        height: 250px;
+    }
+
+    .header-text h1 {
+        font-size: 22px;
+    }
+}
+
+</style>
 </head>
 
 <body>
@@ -445,7 +422,7 @@
         </div>
         <div class="card">
             <a href="Smym.html">
-                <img src="smym.jpg"Eucharistic Miracles" />
+                <img src="smym.jpg" alt="SMYM Manalumkal" />
             </a>
             <h1>SMYM Manalumkal</h1>
             <p>Guided by the Light, nourished by the Word. SMYM Manalumkal: One heart, one soul, one mission</p>
@@ -478,360 +455,465 @@
     <div class="media-cell-container"
         style="width:95%; max-width:1400px; margin:50px auto; background:#fff; border-radius:16px; box-shadow:0 6px 20px rgba(0,0,0,0.2); padding:30px;">
 
-        <!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-    /* Container Styling */
-    .sacred-journey-section {
-        padding: 40px 20px;
-        background-color: #fdfbf7;
-        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+        <style>
+            /* ===== SACRED JOURNEY SECTION ===== */
+.sacred-journey-section {
+    width: 95%;
+    max-width: 1400px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* TITLE */
+.sacred-journey-section .main-title {
+    font-size: 28px;
+    color: #800000;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #FFD700;
+    display: inline-block;
+    padding-bottom: 6px;
+}
+
+/* FLEX LAYOUT */
+.sacred-journey-section .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* IMAGE */
+.image-wrapper {
+    flex: 1 1 45%;
+    max-width: 520px;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* TEXT CARD */
+.text-content {
+    flex: 1 1 45%;
+    max-width: 520px;
+    background: #fff;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* SUBTITLE */
+.text-content h3 {
+    font-size: 20px;
+    color: #800000;
+    margin-bottom: 15px;
+}
+
+/* TEXT */
+.intro-text {
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* QUOTE STYLE */
+.closing-blessing {
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 16px;
+    color: #666;
+    border-left: 4px solid #FFD700;
+    padding-left: 12px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+    .sacred-journey-section .container {
+        flex-direction: column;
     }
 
-    .container {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center; /* Changed to center to handle different heights */
-        background: #ffffff;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-
-    /* Left Side: Image - Forced to show 100% width */
-    .image-wrapper {
-        flex: 1 1 450px;
-        width: 100%; /* Ensures wrapper takes full available width */
-        line-height: 0; /* Removes tiny gaps at the bottom of images */
+    .image-wrapper,
+    .text-content {
+        flex: 1 1 100%;
+        max-width: 100%;
     }
 
     .image-wrapper img {
-        width: 100%;    /* Forces image to span full width of container */
-        height: auto;   /* Scales height automatically to show FULL image */
-        display: block;
-        object-fit: contain; /* Ensures the whole image is visible */
+        height: 250px;
     }
 
-    /* Right Side: Text */
-    .text-content {
-        flex: 1 1 450px;
-        padding: 40px;
-    }
-
-    .main-title {
-        font-size: 32px;
-        color: #800000;
-        font-family: 'Georgia', serif;
-        margin-bottom: 15px;
-        border-bottom: 3px solid #FFD700;
-        display: inline-block;
-        padding-bottom: 5px;
-    }
-
-    .intro-text {
-        font-style: italic;
-        color: #555;
-        line-height: 1.6;
-        margin-bottom: 25px;
-        font-size: 17px;
-    }
-
-    .closing-blessing {
-        background: #fff8e1;
-        padding: 15px;
-        border-radius: 8px;
-        font-weight: 500;
-        color: #6d4c41;
+    .sacred-journey-section .main-title {
+        font-size: 22px;
         text-align: center;
-        font-size: 15px;
+        display: block;
     }
 
-    /* MOBILE RESPONSIVENESS */
-    @media (max-width: 768px) {
-        .container {
-            flex-direction: column;
-        }
-
-        .image-wrapper {
-            flex: none;
-            width: 100%;
-        }
-
-        /* On mobile, we ensure the image is 100% width of the screen */
-        .image-wrapper img {
-            width: 100%;
-            height: auto; 
-        }
-
-        .text-content {
-            padding: 25px;
-        }
+    .text-content {
+        text-align: justify;
     }
-</style>
-
+}
+        </style>
 <section class="sacred-journey-section">
-    <h2 class="main-title">The Gospel of the Hands: Transcribing the New Testament</h2>
+
+    <h2 class="main-title">
+        The Gospel of the Hands: Transcribing the New Testament
+    </h2>
+
     <div class="container">
+
+        <!-- IMAGE -->
         <div class="image-wrapper">
             <img src="Bible_Writing.jpeg" alt="Holy Bible and Pen">
         </div>
 
+        <!-- TEXT -->
         <div class="text-content">
-            <h2 class="main-title"> A Journey of Pen and Prayer</h2>
-            
+
+            <h3>A Journey of Pen and Prayer</h3>
+
             <p class="intro-text">
-                Today, the silence of the page meets the depth of the soul as Manalunkal Parish begins a historic spiritual mission. One hundred and forty hearts have answered the call to transcribe the New Testament, turning ink into incense and effort into adoration.
-                <br><br>
-                As you write, may the Word move from the parchment to the heart, becoming a living flame that guides your path.
+                Today, the silence of the page meets the depth of the soul as Manalunkal Parish begins a historic spiritual mission. 
+                One hundred and forty hearts have answered the call to transcribe the New Testament, turning ink into incense 
+                and effort into adoration.
             </p>
 
             <div class="closing-blessing">
-                "May this 'Gospel of the Hands' illuminate your lives and leave a legacy of faith for generations to come."
+                “May this Gospel of the Hands illuminate your lives and leave a legacy of faith for generations to come.”
             </div>
+
         </div>
+
     </div>
+
 </section>
+   
+
+    <style>
+        /* ===== SAINTS SECTION ===== */
+.saints-section-container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== GRID ===== */
+.saints-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* ===== CARD ===== */
+.saint-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.saint-card:hover {
+    transform: translateY(-8px);
+}
+
+/* ===== TITLE ===== */
+.saint-card h1 {
+    font-size: 20px;
+    color: #800000;
+    font-family: 'Georgia', serif;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #FFD700;
+    padding-bottom: 6px;
+}
+
+/* ===== IMAGE ===== */
+.saint-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* ===== TEXT ===== */
+.saint-card p {
+    font-size: 14.8px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+/* ===== BUTTON ===== */
+.more-btn {
+    background: linear-gradient(90deg, #8b0000, #b22222);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.more-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 992px) {
+    .saints-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 576px) {
+    .saints-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .saint-card {
+        padding: 18px;
+    }
+
+    .saint-card h1 {
+        font-size: 18px;
+    }
+
+    .saint-card img {
+        height: 200px;
+    }
+
+    .saint-card p {
+        font-size: 14px;
+    }
+}
+    </style>
+
+<div class="saints-section-container">
 
     
 
-
-    <style>
-    /* Base Styles for the entire section container */
-    .saints-section-container {
-        width: 95%;
-        max-width: 1200px;
-        margin: 50px auto;
-        padding: 20px;
-        background: #f8f8f8; /* Light gray background for contrast */
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Styles for each individual saint/topic card */
-    .saint-card {
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Center content horizontally */
-        text-align: center;
-        height: 100%; /* Important for equal height in the grid */
-    }
-
-    /* Image styling */
-    .saint-card img {
-        width: 100%;
-        max-width: 200px; /* Constrain image size */
-        height: auto;
-        border-radius: 8px;
-        margin: 15px 0;
-        object-fit: cover;
-    }
-
-    /* Heading styling */
-    .saint-card h1 {
-        font-size: 24px;
-        color: #800000;
-        font-family: 'Georgia', serif;
-        margin-top: 0;
-        border-bottom: 2px solid #FFD700;
-        padding-bottom: 5px;
-    }
-
-    /* Paragraph styling */
-    .saint-card p {
-        font-size: 16px;
-        line-height: 1.5;
-        color: #333;
-        flex-grow: 1; /* Allows text to push button to the bottom */
-        margin-bottom: 20px;
-    }
-
-    /* Button styling (matches your previous design) */
-    .more-btn {
-        background: linear-gradient(90deg, #FFD700, #FFA500);
-        color: #003366;
-        border: none;
-        padding: 12px 25px;
-        font-size: 16px;
-        font-weight: bold;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: 0.3s;
-        text-transform: uppercase;
-        display: block; /* Make button take full card width on mobile */
-        width: 100%;
-        max-width: 200px; /* Constrain button width on desktop/tablet */
-    }
-
-    .more-btn:hover {
-        opacity: 0.9;
-    }
-
-    /* --- RESPONSIVE GRID STYLES --- */
-
-    /* Default Grid (Desktop & Large Tablet) - 3 columns */
-    .saints-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-        padding: 10px;
-    }
-
-    /* Tablet/Medium Screen Adjustments - 2 columns */
-    @media (max-width: 992px) {
-        .saints-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-    }
-
-    /* Mobile Screen Adjustments - 1 column */
-    @media (max-width: 576px) {
-        .saints-grid {
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-        .saint-card h1 {
-            font-size: 22px;
-        }
-    }
-</style>
-<div class="saints-section-container">
     <div class="saints-grid">
 
+        <!-- CARD 1 -->
         <div class="saint-card">
             <h1>Our Lady of the Immaculate Conception</h1>
+
             <img src="IMG_9929.JPG" alt="Our Lady of the Immaculate Conception">
-            <p>Our Lady of the Immaculate Conception is the patroness of purity and grace. The title refers to **Mary being conceived without original sin**, chosen by God to be the mother of Jesus Christ.<br>
-            Her devotion inspires faithful around the world to live a life of holiness. Her immaculate heart shines as a symbol of unconditional love and divine intercession.</p>
+
+            <p>
+                Our Lady of the Immaculate Conception is the patroness of purity and grace. 
+                The title refers to <b>Mary being conceived without original sin</b>, chosen by God 
+                to be the mother of Jesus Christ.
+            </p>
+
+            <p>
+                Her devotion inspires the faithful to live a life of holiness. Her immaculate heart 
+                shines as a symbol of unconditional love and divine intercession.
+            </p>
         </div>
 
+        <!-- CARD 2 -->
         <div class="saint-card">
             <h1>St. Thomas Cross</h1>
+
             <img src="960px-Nasrani_cross.jpg" alt="St Thomas Cross">
-            <p>The St Thomas Cross is the symbol used by the **St. Thomas Christian community in India**, often attributed to the Apostle Thomas.<br>
-            The empty cross symbolizes the resurrected Son of God. The **descending dove** (Holy Spirit) and the **lotus flower** (God the Father) form a beautiful depiction of the Holy Trinity.</p>
-            <button class="more-btn" onclick="window.location.href='St_Thomas_Cross.html'">Read More</button>
+
+            <p>
+                The St Thomas Cross is the symbol used by the <b>St. Thomas Christian community in India</b>, 
+                traditionally linked to the Apostle Thomas.
+            </p>
+
+            <p>
+                The empty cross represents the resurrected Christ, while the <b>descending dove</b> and 
+                <b>lotus flower</b> beautifully symbolize the Holy Trinity.
+            </p>
+
+            <button class="more-btn" onclick="window.location.href='St_Thomas_Cross.html'">
+                Read More
+            </button>
         </div>
 
+        <!-- CARD 3 -->
         <div class="saint-card">
             <h1>St Carlo Acutis – Cyber Apostle</h1>
+
             <img src="Carlo_Acutis.jpg" alt="Carlo Acutis">
+
             <p>
                 <b>Born:</b> May 3, 1991 – London, UK<br>
                 <b>Died:</b> October 12, 2006 – Monza, Italy<br>
                 <b>Feast Day:</b> October 12
             </p>
-            <p>St Carlo Acutis was an ordinary boy with an extraordinary love for the **Eucharist**. He used his prodigious computer skills to evangelize online and share his faith with the world.</p>
-            <button class="more-btn" onclick="window.location.href='Carlo.html'">Read More</button>
+
+            <p>
+                St Carlo Acutis was a young boy with a deep love for the <b>Eucharist</b>. 
+                He used his computer skills to spread faith online and inspire youth worldwide.
+            </p>
+
+            <button class="more-btn" onclick="window.location.href='Carlo.html'">
+                Read More
+            </button>
         </div>
 
     </div>
 </div>
+
+
 <style>
-    /* 1. Base Styles for the section */
-    .about-section-wrapper {
-        padding: 60px 20px;
-        background: #faf8f3;
-        /* Matches the light background in the image */
-    }
 
-    /* 2. Heading Style */
-    .about-section-wrapper h2 {
-        color: #800000;
-        /* Maroon color for the title */
-        text-align: center;
-        font-family: 'Georgia', serif;
-        font-weight: bold;
-        font-size: 28px;
-        margin-bottom: 30px;
-    }
+/* ===== ABOUT SECTION (MATCHING CARD STYLE) ===== */
+.about-section-wrapper {
+    width: 95%;
+    max-width: 1400px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
 
-    /* 3. Container for Image and Text (Flexbox) */
+/* TITLE */
+.about-section-wrapper h2 {
+    font-size: 28px;
+    color: #800000;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    margin-bottom: 30px;
+    display: inline-block;
+    border-bottom: 3px solid #FFD700;
+    padding-bottom: 6px;
+}
+
+/* FLEX LAYOUT */
+.about-content-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* IMAGE */
+.about-image-wrapper {
+    flex: 1 1 45%;
+    max-width: 500px;
+}
+
+.about-image-wrapper img {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* TEXT CARD STYLE */
+.about-text-wrapper {
+    flex: 1 1 45%;
+    max-width: 500px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* TEXT */
+.about-text-wrapper p {
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+/* LINK */
+.about-text-wrapper a {
+    color: #800000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.about-text-wrapper a:hover {
+    text-decoration: underline;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
     .about-content-container {
-        max-width: 1000px;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
-        align-items: center;
-        /* Vertically align image and text */
-        justify-content: center;
+        flex-direction: column;
     }
 
-    /* 4. Image Container Styling */
-    .about-image-wrapper {
-        flex: 1 1 450px;
-        /* Allows image to take up space, minimum base of 450px */
-        min-width: 300px;
-        /* Ensure it's not too squished on a small tablet */
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    .about-image-wrapper,
+    .about-text-wrapper {
+        flex: 1 1 100%;
+        max-width: 100%;
     }
 
-    .about-image-wrapper img {
-        width: 100%;
-        height: auto;
+    .about-section-wrapper h2 {
+        font-size: 22px;
+        text-align: center;
         display: block;
     }
 
-    /* 5. Text Container Styling */
     .about-text-wrapper {
-        flex: 1 1 450px;
-        /* Allows text block to take up space, minimum base of 450px */
-        min-width: 300px;
-        font-size: 16px;
-        line-height: 1.8;
-        color: #333;
+        text-align: justify;
     }
-
-    .about-text-wrapper p {
-        margin-bottom: 15px;
-    }
-
-    /* 6. Mobile/Tablet Responsiveness (Stacks content vertically) */
-    @media (max-width: 800px) {
-        .about-content-container {
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .about-image-wrapper,
-        .about-text-wrapper {
-            flex: 1 1 100%;
-            max-width: 100%;
-        }
-    }
+}
 </style>
-
 <div class="about-section-wrapper">
     <h2>About St. Mary’s Church, Manalumkal</h2>
+
     <div class="about-content-container">
 
         <div class="about-image-wrapper">
-            <img src="IMG_20250806_114606.jpg" alt="St Marys Church" />
+            <img src="IMG_20250806_114606.jpg" alt="St Marys Church">
         </div>
 
         <div class="about-text-wrapper">
-            <p>St. Mary’s Church, Manalumkal, is a Syro-Malabar Catholic parish in Akalakunnam, Kottayam, Kerala.
-                Established on <b>February 15, 1987</b>, under the <b>Eparchy of Palai</b>, it was rebuilt and blessed on
-                <b>December 26, 2010</b> by His Excellency Mar Joseph Kallarangattu.
+            <p>
+                St. Mary’s Church, Manalumkal, is a Syro-Malabar Catholic parish in Akalakunnam, Kottayam, Kerala.
+                Established on <b>February 15, 1987</b> under the <b>Eparchy of Palai</b>.
             </p>
-            <p>Regular prayers start at <b>6:00 AM</b>, and Holy Qurbana is celebrated on Sundays at 6:00 AM, 9:00 AM, and 10:00 AM.
-                Contact: <a href="mailto:stmaryschurchmkl@gmail.com"
-                    style="color:#800000; text-decoration: none; font-weight: bold;">stmaryschurchmkl@gmail.com</a> or <b>+91 62382 52284</b>.
+
+            <p>
+                Holy Qurbana: <b>6:00 AM, 9:00 AM, 10:00 AM</b><br>
+                Contact:
+                <a href="mailto:stmaryschurchmkl@gmail.com">
+                    stmaryschurchmkl@gmail.com
+                </a>
+                | <b>+91 62382 52284</b>
             </p>
-            <p>The parish has <b>300+ families</b> under the care of <b>Fr. Thomas Ayallukunnel</b> and belongs to
-                <b>St. John Nepumcian’s Forane Church, Kozhuvanal</b>.
+
+            <p>
+                The parish has <b>300+ families</b> under <b>Fr. Thomas Ayallukunnel</b>.
             </p>
         </div>
 
@@ -840,117 +922,114 @@
 
 
 
- <style>
-    /* 1. Global Box-Sizing for consistency */
-    .chapels-section * {
-        box-sizing: border-box;
-    }
+<style>
 
-    /* 2. Main Section Container Styling */
-    .chapels-section {
-        width: 95%;
-        max-width: 1400px;
-        margin: 50px auto;
-        padding: 30px 20px;
-        background: #fff; /* White background to frame the content */
-        border-radius: 16px;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-        text-align: center;
-    }
+/* ===== CHAPELS SECTION (MATCHES HOUSES STYLE) ===== */
 
-    /* 3. Section Title Styling (Matches Image Style) */
-    .chapels-section h2 {
-        font-size: 28px;
-        color: #800000; /* Maroon color */
-        margin-bottom: 25px;
-        font-family: 'Georgia', serif;
-        font-weight: bold;
-        display: inline-block;
-        border-bottom: 3px solid #FFD700; /* Yellow border/underline */
-        padding-bottom: 5px;
-    }
+.chapels-section {
+    width: 95%;
+    max-width: 1400px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 
-    /* 4. Grid/Flex Container for Chapel Cards */
-    .chapels-grid {
-        display: flex;
-        flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
-        justify-content: center;
-        gap: 30px;
-        padding: 15px 0;
-    }
+/* TITLE */
+.chapels-section h2 {
+    font-size: 28px;
+    color: #800000;
+    margin-bottom: 25px;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    display: inline-block;
+    border-bottom: 3px solid #FFD700;
+    padding-bottom: 5px;
+}
 
-    /* 5. Individual Chapel Card Styling */
+/* GRID */
+.chapels-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* CARD */
+.chapel-card {
+    flex: 0 0 45%;
+    max-width: 450px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.chapel-card:hover {
+    transform: translateY(-5px);
+}
+
+/* IMAGE */
+.chapel-card img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* TITLE */
+.chapel-card h3 {
+    font-size: 18px;
+    color: #800000;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* TEXT */
+.chapel-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
     .chapel-card {
-        flex: 0 0 45%; /* Default: 2 cards per row on large screen */
-        max-width: 400px; /* Maximum size for a single card */
-        background: #fff;
-        border: 1px solid #eee;
-        border-radius: 10px;
-        padding: 15px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        text-align: center;
-        transition: transform 0.2s;
+        flex: 0 0 100%;
+        max-width: 90%;
+        margin: 0 auto;
     }
+}
 
-    .chapel-card:hover {
-        transform: translateY(-5px);
-    }
-
-    /* 6. Image Styling */
-    .chapel-card img {
-        width: 100%;
-        height: auto;
-        max-height: 250px; /* Constrain height */
-        object-fit: cover;
-        border-radius: 8px;
-        margin-bottom: 15px;
-    }
-
-    /* 7. Card Title Styling */
-    .chapel-card h3 {
-        font-size: 18px;
-        color: #800000;
-        margin: 10px 0 5px 0;
-        font-weight: bold;
-    }
-
-    /* 8. Card Subtext Styling */
-    .chapel-card p {
-        font-size: 14px;
-        color: #666;
-        margin: 0;
-    }
-
-    /* 9. Mobile Responsiveness: Stack cards vertically */
-    @media (max-width: 768px) {
-        .chapels-grid {
-            gap: 20px;
-        }
-
-        .chapel-card {
-            flex: 0 0 100%; /* Take full width on smaller screens */
-            max-width: 90%; /* Slight padding/margin on very small screens */
-        }
-    }
 </style>
+
+ 
 
 <div class="chapels-section">
     <h2>Holy Qurbana Station / Wayside Chapels</h2>
+
     <div class="chapels-grid">
 
+        <!-- CARD 1 -->
         <div class="chapel-card">
             <img src="GzzuKPUwDdUlmK9EgpKz2QZOkfcI1EfTcp5J5Ark.jpg" alt="St Marys Chapel">
             <h3>ST. MARY'S CHAPEL</h3>
             <p>MUNDANKUNNU – Wayside Chapel</p>
         </div>
 
+        <!-- CARD 2 -->
         <div class="chapel-card">
             <img src="zyLcSjXd0JG3nF4iBwdoOcjfKRIfW3yhyUsjxT2G.jpg" alt="St Joseph Chapel">
             <h3>ST. JOSEPH'S CHAPEL</h3>
             <p>MANALUMKAL-MOOZHOOR ROAD – Wayside Chapel</p>
         </div>
-        
-        </div>
+
+    </div>
 </div>
 
 <style>
@@ -1066,137 +1145,97 @@
         
         </div>
 </div>
+
 <style>
-    /* 1. Base Styles for the section wrapper */
-    .forane-section-wrapper {
-        width: 90%;
-        max-width: 1200px;
-        margin: 40px auto;
-        background: #fff;
-        padding: 30px; /* Increased padding for better internal spacing */
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+/* ===== FORANE SECTION (MATCHES HOUSES STYLE) ===== */
+
+.forane-section-wrapper {
+    width: 95%;
+    max-width: 1400px;
+    margin: 50px auto;
+    padding: 30px 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* TITLE */
+.forane-section-wrapper h2 {
+    font-size: 28px;
+    color: #800000;
+    margin-bottom: 25px;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    display: inline-block;
+    border-bottom: 3px solid #FFD700;
+    padding-bottom: 5px;
+}
+
+/* GRID */
+.forane-content-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* CARD STYLE */
+.forane-card {
+    flex: 0 0 45%;
+    max-width: 450px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.forane-card:hover {
+    transform: translateY(-5px);
+}
+
+/* IMAGE */
+.forane-card img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* TEXT */
+.forane-card h3 {
+    font-size: 18px;
+    color: #800000;
+    margin-bottom: 10px;
+}
+
+.forane-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* BUTTON */
+.forane-card .more-btn {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+    .forane-card {
+        flex: 0 0 100%;
+        max-width: 90%;
+        margin: 0 auto;
     }
+}
 
-    /* 2. Section Title Styling */
-    .forane-section-wrapper h2 {
-        color: #8b0000;
-        /* Dark red/Maroon color */
-        text-align: center;
-        font-family: 'Georgia', serif;
-        font-weight: bold;
-        font-size: 28px;
-        margin-bottom: 25px;
-        display: inline-block;
-        /* Centers the underline with the text */
-        border-bottom: 3px solid #FFD700;
-        padding-bottom: 5px;
-        width: 100%;
-    }
-
-    /* 3. Container for Text and Image (Flexbox) */
-    .forane-content-container {
-        display: flex;
-        flex-wrap: wrap;
-        /* Allows stacking on small screens */
-        gap: 20px;
-        align-items: center;
-        /* Vertically align content */
-        margin-top: 20px;
-        justify-content: space-between;
-    }
-
-    /* 4. Text Content Area */
-    .forane-details {
-        flex: 1 1 350px;
-        /* Base size for text block */
-        min-width: 300px;
-        padding-right: 20px;
-        /* Space before the image */
-        font-family: Arial, sans-serif;
-        color: #333;
-    }
-
-    .forane-details h3 {
-        font-size: 20px;
-        color: #000;
-        margin-bottom: 15px;
-        font-weight: bold;
-    }
-
-    .forane-details p {
-        font-size: 16px;
-        line-height: 1.6;
-        margin-bottom: 20px;
-    }
-
-    /* 5. Image Area */
-    .forane-image-wrapper {
-        flex: 1 1 450px;
-        /* Base size for image block */
-        min-width: 300px;
-        text-align: right;
-        /* Align image to the right */
-        border-radius: 10px;
-        overflow: hidden;
-    }
-
-    .forane-image-wrapper img {
-        width: 100%;
-        max-width: 600px;
-        height: auto;
-        display: block;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    /* 6. Button Style (Matching previous 'Read More' style) */
-    .more-btn {
-        background: linear-gradient(90deg, #8b0000, #b22222);
-        /* Darker red/maroon gradient */
-        color: #FFFFFF;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: bold;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s;
-        text-decoration: none;
-        display: inline-block;
-        margin-top: 10px;
-    }
-
-    .more-btn:hover {
-        opacity: 0.9;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    /* 7. Mobile/Tablet Responsiveness: Stack columns vertically */
-    @media (max-width: 800px) {
-        .forane-content-container {
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .forane-details {
-            padding-right: 0;
-            text-align: center;
-        }
-        
-        /* Center the image on mobile */
-        .forane-image-wrapper {
-            text-align: center;
-            order: -1;
-            /* Places the image above the text on mobile */
-        }
-
-        .forane-image-wrapper img {
-            max-width: 100%;
-        }
-    }
 </style>
-
 <div class="forane-section-wrapper">
     <h2>Forane of this Parish</h2>
     <div class="forane-content-container">
@@ -1209,6 +1248,7 @@
                 <b>Email:</b> <a href="mailto:nepumcianschurch@gmail.com"
                     style="color:#8b0000; text-decoration: none;">nepumcianschurch@gmail.com</a><br />
                 <b>Phone:</b> +91 85470 97036</p>
+                <br>
             <a href="https://www.palaidiocese.com/church-profile/162" target="_blank" class="more-btn">Read More</a>
         </div>
 
